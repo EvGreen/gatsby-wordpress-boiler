@@ -1,7 +1,7 @@
 const animationData = {
     pageAnimation: {
         initial: {
-            x: 200,
+            x: 100,
             opacity: 0,
             transition: {
             delay: 0,
@@ -22,7 +22,7 @@ const animationData = {
         },
         exit: {
             opacity: 0,
-            x: -100,
+            x: -50,
             transition: {
             delay: 0,
             duration: 0.4,

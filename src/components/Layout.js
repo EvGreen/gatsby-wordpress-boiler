@@ -1,11 +1,10 @@
 import React from "react"
-//import "../index.css"
+import "./Layout.scss"
 
-import animationData from "../DATA/animationData"
 import { motion, AnimatePresence } from "framer-motion"
-
 import { ParallaxProvider } from "react-scroll-parallax"
 
+import animationData from "../DATA/animationData"
 import Header from "../components/Header/Header"
 import Footer from "../components/Footer/Footer"
 

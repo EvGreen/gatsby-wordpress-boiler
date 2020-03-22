@@ -26,7 +26,6 @@
 		"react-intersection-observer": "^8.26.1",
 		"react-scroll-parallax": "^2.3.1",
 		"video.js": "^7.6.6",
-		// "gsap": "file:gsap-bonus.tgz"
 	},
 	"devDependencies": {
 		"prettier": "^1.19.1"

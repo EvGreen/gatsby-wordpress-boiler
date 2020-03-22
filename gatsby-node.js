@@ -1,23 +1,24 @@
 exports.createPages = async function({ actions, graphql }) {
   const { data } = await graphql(`
     query {
-      allSitePage {
+      allWordpressPage {
         edges {
           node {
             id
             slug
+            title
           }
         }
       }
     }
   `)
-  
+
   if (data) {
-    data.allSitePage.edges.forEach(edge => {
+    data.allWordpressPage.edges.forEach(edge => {
       const slug = edge.node.slug
       if ( slug ) {
         actions.createPage({
-          slug: slug,
+          path: slug,
           component: require.resolve(`./src/templates/page.js`),
           context: { slug: slug },
         })

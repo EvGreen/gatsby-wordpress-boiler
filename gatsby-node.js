@@ -13,16 +13,12 @@ exports.createPages = async function({ actions, graphql }) {
     }
   `)
 
-  if (data) {
-    data.allWordpressPage.edges.forEach(edge => {
-      const slug = edge.node.slug
-      if ( slug ) {
-        actions.createPage({
-          path: slug,
-          component: require.resolve(`./src/templates/page.js`),
-          context: { slug: slug },
-        })
-      }
+  data.allWordpressPage.edges.forEach(edge => {
+    const slug = edge.node.slug
+    actions.createPage({
+      path: slug,
+      component: require.resolve(`./src/templates/page.js`),
+      context: { slug: slug },
     })
-  }
+  })
 }

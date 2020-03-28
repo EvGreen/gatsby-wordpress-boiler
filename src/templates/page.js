@@ -10,6 +10,17 @@ export default ({ data }) => {
 	  <h2>{page.id}</h2>
 	  <h2>{page.slug}</h2>
       <p>Hello World!</p>
+	  <div className="glitchframe">
+		  <div className="glitch cmyk-c">
+			<h1>|</h1>
+		  </div>
+		  <div className="glitch cmyk-m">
+			<h1>|</h1>
+		  </div>
+		  <div className="glitch cmyk-y">
+			<h1>|</h1>
+		  </div>
+	  </div>
     </div>
   )
 }

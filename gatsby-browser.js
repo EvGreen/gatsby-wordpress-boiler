@@ -1,4 +1,5 @@
 import React from "react"
+import "./src/html.scss"
 import Layout from "./src/components/Layout"
 
 const transitionDelay = 500;

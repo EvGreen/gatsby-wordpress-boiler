@@ -16,20 +16,20 @@ export default function HTML(props) {
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
         <noscript key="noscript" id="gatsby-noscript">
-          This app works best with JavaScript enabled.
+          This app requires JavaScript to be enabled.
         </noscript>
-        <div className="loader">
-        <div className="glitchframe">
-          <div className="glitch cmyk-c">
-            <div className="circle"></div>
+        <div id="page-loader" className="loader">
+          <div className="glitchframe">
+            <div className="glitch cmyk-c">
+              <div className="circle"></div>
+            </div>
+            <div className="glitch cmyk-m">
+              <div className="circle"></div>
+            </div>
+            <div className="glitch cmyk-y">
+              <div className="circle"></div>
+            </div>
           </div>
-          <div className="glitch cmyk-m">
-            <div className="circle"></div>
-          </div>
-          <div className="glitch cmyk-y">
-            <div className="circle"></div>
-          </div>
-        </div>
         </div>
         <div
           key={`body`}

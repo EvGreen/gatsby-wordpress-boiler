@@ -20,9 +20,9 @@ $speed: 1800;
 .glitchframe {
 	position: relative;
 	display: block;
-	width: 100%;
+	width: 3%;
 	height: 0;
-	padding-bottom: 100%;
+	padding-bottom: 3%;
 	overflow: visible;
 	//filter: blur(0.25px);
 	// animation-duration: .52s;
@@ -47,10 +47,10 @@ $speed: 1800;
 }
 
 .circle {
-	width: 100vw;
-	height: 100vw;
-	border-radius: 50%;
-	clip-path: circle(1%);
+	width: 100%;
+	height: 100%;
+	//clip-path: circle(50%);
+	clip-path: polygon(50% 50%, 90% 50%, 50% 100%, 10% 50%);
 }
 
 .cmyk-c {

@@ -24,6 +24,7 @@ exports.createPages = async function({ actions, graphql }) {
       path: slug,
       component: require.resolve(`./src/templates/page.js`),
       context: {
+        slug: slug,
         id: edge.node.id,
         wordpress_id: edge.node.wordpress_id
       },

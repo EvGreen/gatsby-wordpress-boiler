@@ -3,11 +3,11 @@ import { graphql } from "gatsby"
 
 import SEO from "../components/seo"
 
-export default ({ data }) => {
+export default ({ data, pageContext }) => {
   const page = data.wordpressPage
 
   return (
-    <>
+    <main className={"main-" + pageContext.slug}>
 			<SEO title="Home" description="Description" />
 			
 			<h2>{page.title}</h2>
@@ -17,7 +17,7 @@ export default ({ data }) => {
 			<h2>{page.author.name}</h2>
       <p>Hello World!</p>
 	  
-    </>
+    </main>
   )
 }
 
@@ -25,7 +25,7 @@ export const query = graphql`
   query($id: String!) {
     wordpressPage( id: { eq: $id } ) {
 	  id
-      title
+    title
 	  slug
 	  date(formatString: "MM-DD-YYYY")
 	  author {

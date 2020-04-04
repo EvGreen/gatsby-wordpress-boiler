@@ -237,8 +237,8 @@
 	opacity: 1;
 	-webkit-filter: blur(5px);
 	filter: blur(5px);
-	-webkit-backface-visibility: hidden;
-	  -webkit-transform: translateZ(0) scale(1.0, 1.0);
+	backface-visibility: hidden;
+	transform: translateZ(0) scale(1.0, 1.0);
 	transition: filter 300ms, -webkit-filter 300ms;
   }
   

@@ -2,7 +2,8 @@ import React from "react"
 import "./Header.scss"
 
 import { Link } from "gatsby"
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFacebookSquare, faTwitter, faYoutube, faInstagram } from '@fortawesome/free-brands-svg-icons'
 
 function Header(props) {
 
@@ -19,6 +20,10 @@ function Header(props) {
 		<Link to="/test">
 			test
 		</Link>
+		<FontAwesomeIcon icon={faFacebookSquare} />
+		<FontAwesomeIcon icon={faTwitter} />
+		<FontAwesomeIcon icon={faYoutube} />
+		<FontAwesomeIcon icon={faInstagram} />
 
 	</header>
   )

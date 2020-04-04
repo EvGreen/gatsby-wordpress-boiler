@@ -1,0 +1,359 @@
+/* ==========================================================================
+   Helpers
+   ========================================================================== */
+
+   .hide, .hidden {
+	display: none !important;
+  }
+  
+  html {
+	overflow-x: hidden;
+  }
+  
+  br {
+	//display: none;
+	margin: 0 !important;
+  }
+  
+  /* ==========================================================================
+	 Aspect Ratios
+	 ========================================================================== */
+  
+  .aspect-ratio-full { // works in conjunction with js
+	  position: relative;
+	  top: 0;
+	  display: block;
+	  width: 100%;
+	  padding-bottom: 62.5%;
+  }
+  
+  .aspect-ratio,
+  .aspect-ratio-full,
+  .aspect-ratio-10-12,
+  .aspect-ratio-16-16,
+  .aspect-ratio-16-15,
+  .aspect-ratio-16-14,
+  .aspect-ratio-16-13,
+  .aspect-ratio-16-12,
+  .aspect-ratio-16-11,
+  .aspect-ratio-16-10,
+  .aspect-ratio-16-9,
+  .aspect-ratio-16-8,
+  .aspect-ratio-16-7,
+  .aspect-ratio-16-6,
+  .aspect-ratio-16-5,
+  .aspect-ratio-16-4,
+  .aspect-ratio-16-3,
+  .aspect-ratio-16-2,
+  .aspect-ratio-16-1 {
+	position: relative;
+	top: 0;
+	display: block;
+	width: 100%;
+	height: 0;
+  }
+  
+  .aspect-ratio-16-full, .aspect-ratio-16-16, .aspect-ratio-16-15, .aspect-ratio-16-14, .aspect-ratio-16-13, .aspect-ratio-16-12, .aspect-ratio-16-11, .aspect-ratio-16-10, .aspect-ratio-16-9 {
+	  padding-bottom: 70%;
+  }
+  
+  .aspect-ratio-16-8, .aspect-ratio-16-7, .aspect-ratio-16-6 {
+	  padding-bottom: 60%;
+  }
+  
+  .aspect-ratio-16-5, .aspect-ratio-16-4 {
+	  padding-bottom: 50%;
+  }
+  
+  .aspect-ratio-16-3, .aspect-ratio-16-2, .aspect-ratio-16-1 {
+	  padding-bottom: 40%;
+  }
+  
+  .collage-items .aspect-ratio-16-14 { padding-bottom: 87.5%; }
+  
+  .aspect-ratio-innards {
+	  position: absolute;
+	  top: 0;
+	  right: 0;
+	  bottom: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+  }
+  
+  @media screen and (min-width: 1025px) {
+  
+	.aspect-ratio-full { padding-bottom: 62.5%; }
+	.aspect-ratio-10-12 { padding-bottom: 120%; }
+	.aspect-ratio-16-16 { padding-bottom: 100%; }
+	.aspect-ratio-16-15 { padding-bottom: 93.75%; }
+	.aspect-ratio-16-14 { padding-bottom: 87.5%; }
+	.aspect-ratio-16-13 { padding-bottom: 81.25%; }
+	.aspect-ratio-16-12 { padding-bottom: 75%; }
+	.aspect-ratio-16-11 { padding-bottom: 68.75%; }
+	.aspect-ratio-16-10 { padding-bottom: 62.5%; }
+	.aspect-ratio-16-9 { padding-bottom: 56.25%; }
+	.aspect-ratio-16-8 { padding-bottom: 50%; }
+	.aspect-ratio-16-7 { padding-bottom: 43.75%; }
+	.aspect-ratio-16-6 { padding-bottom: 37.5%; }
+	.aspect-ratio-16-5 { padding-bottom: 31.25%; }
+	.aspect-ratio-16-4 { padding-bottom: 25%; }
+	.aspect-ratio-16-3 { padding-bottom: 18.75%; }
+	.aspect-ratio-16-2 { padding-bottom: 12.5%; }
+	.aspect-ratio-16-1 { padding-bottom: 6.25%; }
+  
+  }
+  
+  .parallax-aspect {
+	top: 50%;
+	transform: translate3d(0, -50%, 0);
+  }
+  
+  .position-fixed {
+	position: fixed !important;
+  }
+  
+  .parallax .parallaxie {
+	height: 135% !important;
+	top: -12.5%;
+  }
+  
+  .parallax.reverse .parallaxie {
+	top: -20%;
+  }
+  
+  /* ==========================================================================
+	 BGS
+	 ========================================================================== */
+  
+  .bg-cover {
+	  background-size: cover;
+	  background-position: center;
+  }
+  
+  .bg-contain {
+	  background-size: contain;
+	  background-position: center;
+	  background-repeat: no-repeat;
+  }
+  
+  .bg-fixed {
+	background-attachment: fixed;
+  }
+  
+  /* ==========================================================================
+	 Vid
+	 ========================================================================== */
+  
+  .vid-cover {
+	height: 100%;
+  
+	.bgvideo-center {
+	  height: 100%;
+  
+	  .video-container {
+		height: 100%;
+  
+		.plyr--video {
+		  height: 100%;
+  
+		  .plyr__video-wrapper {
+			height: 100%;
+  
+			video {
+			  object-fit: cover;
+			  font-family: 'object-fit: cover;';
+			  height: 100%;
+			}
+		  }
+		}
+	  }
+	}
+  }
+  
+  /* ==========================================================================
+	 Shadows
+	 ========================================================================== */
+  
+  .shadow-bottom {
+	box-shadow: 0 0.5em 1em 0.35em rgba(0, 0, 0, 0.15);
+  }
+  
+  /* ==========================================================================
+	 Lazysizes
+	 ========================================================================== */
+  
+  img.fade {
+	opacity: 0;
+	transition: opacity 1500ms;
+  }
+  img.lazyload.hide {
+	visibility: hidden;
+  }
+  img.lazyload.img-cover, img.lazyload.img-contain {
+	opacity: 0;
+	//transition: opacity 400ms;
+  }
+  img.img-cover.lazyloaded, img.img-contain.lazyloaded {
+	opacity: 1;
+	visibility: visible;
+  }
+  
+  .blur-wrap {
+	overflow: hidden;
+	background-color: $c2;
+  }
+  img.img-cover.blur, img.img-contain.blur {
+	-webkit-filter: blur(5px);
+	filter: blur(5px);
+	opacity: .1;
+	transition: opacity 800ms;
+  }
+  img.img-cover.blur.lazyloaded, img.img-contain.blur.lazyloaded {
+	-webkit-filter: blur(0);
+	filter: blur(0);
+	opacity: 1;
+	visibility: visible;
+  }
+  
+  img.img-cover.flip, img.img-contain.flip {
+	opacity: 0;
+	transform: rotateY(-180deg);
+	transform-style: preserve-3d;
+	transition: all 0s;
+	background: #2c2c2c;
+  }
+  .inview {
+	img.img-cover.flip, img.img-contain.flip {
+	  opacity: 1;
+	  visibility: visible;
+	  transform: rotateY(0deg);
+	  transition: opacity 800ms cubic-bezier(0.17, 0.04, 0.03, 0.94) 500ms, transform 1200ms cubic-bezier(0.17, 0.04, 0.03, 0.94) 300ms;
+	  background: #333;
+	}
+  }
+  
+  img.blur-up {
+	opacity: 1;
+	-webkit-filter: blur(5px);
+	filter: blur(5px);
+	-webkit-backface-visibility: hidden;
+	  -webkit-transform: translateZ(0) scale(1.0, 1.0);
+	transition: filter 300ms, -webkit-filter 300ms;
+  }
+  
+  img.blur-up.lazyloaded {
+	  -webkit-filter: blur(0);
+	  filter: blur(0);
+  }
+  
+  /* ==========================================================================
+	 Image Container Object Fit Cover
+	 ========================================================================== */
+  
+  .img-cover {
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+  
+	object-fit: cover;
+	font-family: 'object-fit: cover;';
+  }
+  
+  .img-contain {
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transform: translate3d(0,0,0);
+  
+	object-fit: contain;
+	font-family: 'object-fit: contain;';
+  }
+  
+  
+  
+  
+  .skip-link {
+	display: none;
+  }
+  
+  .bg-video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	z-index: 0;
+  
+	video {
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  -webkit-transform: translateX(-50%) translateY(-50%);
+	  transform: translateX(-50%) translateY(-50%);
+	  min-width: 100%;
+	  min-height: 100%;
+	  width: auto;
+	  height: auto;
+	  z-index: 0;
+	  overflow: hidden;
+	}
+  }
+  
+  .video-wrap iframe, .video-wrap object {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+  }
+  
+  .a-hover-underline {
+  
+	a {
+	  text-decoration: none;
+	  position: relative;
+	}
+  
+	a:after {
+	  content: '';
+	  position: absolute;
+	  left: 0;
+	  bottom: -1px;
+	  width: 100%;
+	  border-bottom: 2px solid transparent;
+	  transition: all 0.3s ease-in-out;
+	}
+  
+	a:hover:after {
+	  border-color: $clead;
+	}
+  }
+  
+  .separator {
+	padding-right: .75em;
+	margin-left: .75em;
+	border-left: 1px solid;
+  
+	@media screen and (max-width: 1024px) {
+	  display: block;
+	  width: 100%;
+	  border: none;
+	}
+  }
+  
+  .fa-heart {
+	color: #ff4f22;
+	margin: 0 0.1em;
+	&:before {
+	  font-size: 90%;
+	}
+  }
+  

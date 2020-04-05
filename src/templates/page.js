@@ -49,6 +49,7 @@ export const query = graphql`
                 fluid (
                   maxWidth: 3840,
                   quality: 70,
+                  srcSetBreakpoints: [1600,1920,2560,3840]
                 ) {
                   ...GatsbyImageSharpFluid_tracedSVG
                 }

@@ -28,7 +28,8 @@ function Hero(props) {
 				<Img fluid={props.wordpressPage.acf.hero_page[0].img.localFile.childImageSharp.fluid}
 					objectFit="cover"
 					objectPosition="50% 50%"
-					fadeIn={false}
+					fadeIn={true}
+					durationFadeIn={2000}
 				/>
 			: null }
 

@@ -18,19 +18,6 @@ export default function HTML(props) {
         <noscript key="noscript" id="gatsby-noscript">
           This app requires JavaScript to be enabled.
         </noscript>
-        <div id="page-loader" className="loader">
-          <div className="glitchframe">
-            <div className="glitch cmyk-c">
-              <div className="circle"></div>
-            </div>
-            <div className="glitch cmyk-m">
-              <div className="circle"></div>
-            </div>
-            <div className="glitch cmyk-y">
-              <div className="circle"></div>
-            </div>
-          </div>
-        </div>
         <div
           key={`body`}
           id="___gatsby"

@@ -4,7 +4,6 @@ import { graphql } from "gatsby"
 import SEO from "../components/seo"
 
 export default ({ data, pageContext }) => {
-  console.log(data)
   const page = data.wordpressPage
 
   return (

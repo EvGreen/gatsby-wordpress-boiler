@@ -1,32 +1,51 @@
 const animationData = {
     pageAnimation: {
         initial: {
-            x: 100,
+            y: 100,
             opacity: 0,
-            transition: {
-            delay: 0,
-            duration: 0.25,
-            ease: [0.6, -0.05, 0.01, 0.99],
-            },
+            //scale: 0.87,
         },
         active: {
-            x: 0,
+            y: 0,
             opacity: 1,
+            //scale: 1,
             transition: {
-            delay: 0,
-            duration: 0.4,
-            when: "beforeChildren",
-            staggerChildren: 0.1,
-            ease: [0.6, -0.05, 0.01, 0.99],
+                delay: 0,
+                duration: 0.6,
+                ease: [0.6, 0, 0.01, 0.99],
             },
         },
-        exit: {
+    },
+    fader: {
+        initial: {
+            display: "none",
             opacity: 0,
-            x: -50,
+        },
+        exit: {
+            display: "block",
+            opacity: 1,
             transition: {
-            delay: 0,
-            duration: 0.4,
-            ease: [0.6, -0.05, 0.01, 0.99],
+                delay: 0,
+                duration: 0.2,
+                ease: [0.6, 0, 0.01, 0.99],
+            },
+        },
+    },
+    swiper: {
+        initial: {
+            y: 0,
+            opacity: 1,
+        },
+        active: {
+            y: "-100%",
+            opacity: 1,
+            transition: {
+                delay: 0,
+                duration: 0.4,
+                ease: [0.6, 0, 0.01, 0.99],
+            },
+            transitionEnd: {
+                display: "none",
             },
         },
     },

@@ -27,164 +27,6 @@ body {
 	color: $c0p;
 }
 
-::selection {
-	background: $clead; /* WebKit/Blink Browsers */
-	color: $c0;
-}
-
-::-moz-selection {
-	background: $clead; /* Gecko Browsers */
-	color: $c0;
-}
-
-.uppercase {
-	text-transform: uppercase;
-}
-
-.justified {
-	text-align: justify;
-}
-
-.nowrap {
-	white-space: nowrap;
-}
-
-.colored {
-	color: $clead;
-}
-
-hr {
-	position: relative;
-	display: block;
-	width: 100%;
-	height: 1px;
-	border: none;
-	overflow: visible;
-
-	&:after {
-	  content: '';
-	  position: absolute;
-	  border: 0;
-	  border-top: 2px solid $c1;
-	  width: 10rem;
-	  left: 50%;
-	  transform: translate3d(-50%,0,0);
-	}
-}
-
-br {
-	line-height: 100%;
-}
-
-a {
-	text-decoration: none;
-  color: $clead;
-  
-  &:hover {
-    color: $clead2;
-  }
-}
-
-.fs-120, .big {
-	font-size: 1.2em;
-}
-
-.fs-100 {
-	font-size: 1em;
-}
-
-.fs-80, .small {
-	font-size: .8em;
-}
-
-.fw-100, .thin {
-	font-weight: 100;
-}
-
-.fw-200 {
-	font-weight: 200;
-}
-
-.fw-300, .slim, .light {
-	font-weight: 300;
-}
-
-.fw-400 {
-	font-weight: 400;
-}
-
-.fw-500 {
-	font-weight: 500;
-}
-
-.fw-600 {
-	font-weight: 600;
-}
-
-.fw-700, .fat {
-	font-weight: 700;
-}
-
-.fw-800 {
-	font-weight: 800;
-}
-
-.fw-900, .bold {
-	font-weight: 900;
-}
-
-/* ==========================================================================
-	Tables
-========================================================================== */
-
-table {
-	width: 100%;
-	margin: 2em 0;
-	text-align: left;
-	text-transform: uppercase;
-	font-size: 0.85em;
-	border-spacing: 0px;
-	border-collapse: separate;
-	background: darken($c0,7%);
-  
-	thead {
-	  font-weight: 800;
-	}
-  
-	th, thead, thead td {
-	  background: $clead;
-	  color: $c0;
-	}
-  
-	th, td, thead td {
-	  padding: 1em;
-	}
-  
-	td {
-	  background: darken($c0,7%);
-	  border-left: 1px solid $c0;
-	  border-right: 1px solid $c0;
-	  border-bottom: 2px solid $c0;
-	}
-  
-	tr:first-child td {
-	  padding-top: 2rem;
-	}
-  
-	tr:last-child td {
-	  padding-bottom: 2rem;
-	  border-bottom: none;
-	}
-  
-	thead td {
-	  padding: 1rem !important;
-	}
-	tfoot td {
-	  background: $c2;
-	  color: $c0;
-	}
-}
-
 /* ==========================================================================
 	Font Sizes
 ========================================================================== */
@@ -307,4 +149,166 @@ h1,h2,h3,h4,h5,h6,p,address, hr, br {
 	&:last-child {
 	  margin-bottom: 0;
 	}
+}
+
+/* ==========================================================================
+	Tables
+========================================================================== */
+
+table {
+	width: 100%;
+	margin: 2em 0;
+	text-align: left;
+	text-transform: uppercase;
+	font-size: 0.85em;
+	border-spacing: 0px;
+	border-collapse: separate;
+	background: darken($c0,7%);
+  
+	thead {
+	  font-weight: 800;
+	}
+  
+	th, thead, thead td {
+	  background: $clead;
+	  color: $c0;
+	}
+  
+	th, td, thead td {
+	  padding: 1em;
+	}
+  
+	td {
+	  background: darken($c0,7%);
+	  border-left: 1px solid $c0;
+	  border-right: 1px solid $c0;
+	  border-bottom: 2px solid $c0;
+	}
+  
+	tr:first-child td {
+	  padding-top: 2rem;
+	}
+  
+	tr:last-child td {
+	  padding-bottom: 2rem;
+	  border-bottom: none;
+	}
+  
+	thead td {
+	  padding: 1rem !important;
+	}
+	tfoot td {
+	  background: $c2;
+	  color: $c0;
+	}
+}
+
+/* ==========================================================================
+	Helpers
+========================================================================== */
+
+::selection {
+	background: $clead; /* WebKit/Blink Browsers */
+	color: $c0;
+}
+
+::-moz-selection {
+	background: $clead; /* Gecko Browsers */
+	color: $c0;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.justified {
+	text-align: justify;
+}
+
+.nowrap {
+	white-space: nowrap;
+}
+
+.colored {
+	color: $clead;
+}
+
+hr {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 1px;
+	border: none;
+	overflow: visible;
+
+	&:after {
+	  content: '';
+	  position: absolute;
+	  border: 0;
+	  border-top: 2px solid $c1;
+	  width: 10rem;
+	  left: 50%;
+	  transform: translate3d(-50%,0,0);
+	}
+}
+
+br {
+	line-height: 100%;
+}
+
+a {
+	text-decoration: none;
+  color: $clead;
+  
+  &:hover {
+    color: $clead2;
+  }
+}
+
+.fs-120, .big {
+	font-size: 1.2em;
+}
+
+.fs-100 {
+	font-size: 1em;
+}
+
+.fs-80, .small {
+	font-size: .8em;
+}
+
+.fw-100, .thin {
+	font-weight: 100;
+}
+
+.fw-200 {
+	font-weight: 200;
+}
+
+.fw-300, .slim, .light {
+	font-weight: 300;
+}
+
+.fw-400 {
+	font-weight: 400;
+}
+
+.fw-500 {
+	font-weight: 500;
+}
+
+.fw-600 {
+	font-weight: 600;
+}
+
+.fw-700, .fat {
+	font-weight: 700;
+}
+
+.fw-800 {
+	font-weight: 800;
+}
+
+.fw-900, .bold {
+	font-weight: 900;
 }

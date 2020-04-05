@@ -24,19 +24,19 @@ function Hero(props) {
 	return (
 		<section className="hero">
 
-			<Img fluid={data.file.childImageSharp.fluid}
-				objectFit="cover"
-				objectPosition="50% 50%"
-				fadeIn={false}
-			/>
+			{ props.wordpressPage.acf.hero_page ?
+				<Img fluid={props.wordpressPage.acf.hero_page[0].img.localFile.childImageSharp.fluid}
+					objectFit="cover"
+					objectPosition="50% 50%"
+					fadeIn={false}
+				/>
+			: null }
 
 			<div className="bg-overlay">
 				<div className="bg-overlay-gradient"></div>
 			</div>
 
-			<div className="hero-content">
-				<h1>Hero</h1>
-			</div>
+			<div className="hero-content" dangerouslySetInnerHTML={{__html: props.wordpressPage.acf.hero_page ? props.wordpressPage.acf.hero_page[0].content : null}} />
 
 		</section>
   )

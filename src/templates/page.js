@@ -12,8 +12,8 @@ export default ({ data, pageContext }) => {
     <main className={"main-" + pageContext.slug}>
 			<SEO title="Home" description="Description" />
 			
-      <Hero />
-      
+      <Hero { ...data } />
+
 			<h3>
         Title: {page.title}<br/>
         ID: {page.id}<br/>
@@ -21,7 +21,7 @@ export default ({ data, pageContext }) => {
         Date: {page.date}<br/>
         Author: {page.author.name}
       </h3>
-      <div  dangerouslySetInnerHTML={{__html: page.content}}></div>
+      <div dangerouslySetInnerHTML={{__html: page.content}} />
  
     </main>
   )
@@ -38,6 +38,26 @@ export const query = graphql`
         name
       }
       content
+      featured_media {
+        source_url
+      }
+      acf {
+        hero_page {
+          img {
+            localFile {
+              childImageSharp {
+                fluid (
+                  maxWidth: 2560,
+                  quality: 70,
+                ) {
+                  ...GatsbyImageSharpFluid_tracedSVG
+                }
+              }
+            }
+          }
+          content
+        }
+      }
     }
   }
 `

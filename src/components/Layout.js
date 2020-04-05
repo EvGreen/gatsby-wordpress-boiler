@@ -10,10 +10,6 @@ import Footer from "../components/Footer/Footer"
 
 function Layout({ children, location }) {
 
-	function exitComplete(){
-		console.log('exit complete')
-	}
-
   return (
   	<>
 			<Header />

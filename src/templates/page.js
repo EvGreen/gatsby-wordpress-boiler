@@ -3,6 +3,8 @@ import { graphql } from "gatsby"
 
 import SEO from "../components/seo"
 
+import Hero from "../components/Hero/Hero"
+
 export default ({ data, pageContext }) => {
   const page = data.wordpressPage
 
@@ -10,6 +12,8 @@ export default ({ data, pageContext }) => {
     <main className={"main-" + pageContext.slug}>
 			<SEO title="Home" description="Description" />
 			
+      <Hero />
+      
 			<h3>
         Title: {page.title}<br/>
         ID: {page.id}<br/>

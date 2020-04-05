@@ -35,6 +35,8 @@ module.exports = {
         verboseOutput: false,
       },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -42,8 +44,6 @@ module.exports = {
         path: path.join(__dirname, `src`, `images`),
       },
     },
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-htaccess`,
     {
       resolve: `gatsby-plugin-manifest`,

@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import SEO from "../components/seo"
 
 import Hero from "../components/Hero/Hero"
+import Content from "../components/Content/Content"
 
 export default ({ data, pageContext }) => {
   const page = data.wordpressPage
@@ -13,7 +14,7 @@ export default ({ data, pageContext }) => {
 			<SEO title="Home" description="Description" />
 			
       <Hero { ...data } />
-
+      
 			<h3>
         Title: {page.title}<br/>
         ID: {page.id}<br/>
@@ -21,7 +22,8 @@ export default ({ data, pageContext }) => {
         Date: {page.date}<br/>
         Author: {page.author.name}
       </h3>
-      <div dangerouslySetInnerHTML={{__html: page.content}} />
+
+      <Content { ...data } />
  
     </main>
   )

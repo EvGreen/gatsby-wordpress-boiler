@@ -1,10 +1,9 @@
 import React from "react"
 import "./Layout.scss"
 
-import { motion, AnimatePresence } from "framer-motion"
 import { ParallaxProvider } from "react-scroll-parallax"
 
-import animationData from "../DATA/animationData"
+//import animationData from "../DATA/animationData"
 import Header from "../components/Header/Header"
 import Footer from "../components/Footer/Footer"
 
@@ -14,14 +13,14 @@ function Layout({ children, location }) {
   	<>
 			<Header />
 			
-			<AnimatePresence exitBeforeEnter>
+			{/* <AnimatePresence exitBeforeEnter> */}
 				<div key={location.pathname} className="main-wrapper">
 
-					<motion.div
-							initial={animationData.pageAnimation.initial}
-							animate={animationData.pageAnimation.active}
-							className="page-animator"
-						>
+					{/* <motion.div
+						initial={animationData.pageAnimation.initial}
+						animate={animationData.pageAnimation.active}
+						className="page-animator"
+					> */}
 							
 						<ParallaxProvider>
 							{children}
@@ -29,9 +28,9 @@ function Layout({ children, location }) {
 
 						<Footer />
 
-					</motion.div>
+					{/* </motion.div> */}
 
-					<motion.div
+					{/* <motion.div
 						initial={animationData.fader.initial}
 						exit={animationData.fader.exit}
 						className="fader"
@@ -49,9 +48,9 @@ function Layout({ children, location }) {
 								</div>
 							</div>
 						</div>
-					</motion.div>
+					</motion.div> */}
 
-					<motion.div
+					{/* <motion.div
 						initial={animationData.swiper.initial}
 						animate={animationData.swiper.active}
 						className="swiper"
@@ -69,10 +68,10 @@ function Layout({ children, location }) {
 								</div>
 							</div>
 						</div>
-					</motion.div>
+					</motion.div> */}
 
 				</div>
-			</AnimatePresence>
+			{/* </AnimatePresence> */}
   	</>
   )
 }

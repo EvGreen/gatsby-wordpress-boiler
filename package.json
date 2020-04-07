@@ -10,7 +10,7 @@
 		"@fortawesome/free-regular-svg-icons": "^5.13.0",
 		"@fortawesome/free-solid-svg-icons": "^5.13.0",
 		"@fortawesome/react-fontawesome": "^0.1.9",
-		"framer-motion": "^1.9.0",
+		"animejs": "^3.1.0",
 		"fslightbox-react": "^1.4.9",
 		"gatsby": "^2.19.45",
 		"gatsby-image": "^2.2.44",

@@ -18,9 +18,15 @@ function Hero(props) {
     anime({
 			targets: '.gatsby-image-wrapper',
 			opacity: [0,1],
-			duration: 1000,
 			translateY: [20,0],
+			duration: 1000,
 			easing: 'easeInOutSine'
+		})
+    anime({
+			targets: '.fatbar',
+			opacity: [1,0],
+			duration: 1800,
+			easing: 'easeInSine'
 		})
     anime({
 			targets: '.hero-content',
@@ -60,6 +66,7 @@ function Hero(props) {
 			: null }
 
 			<div className="bg-overlay">
+				<div className="fatbar"></div>
 				<div className="bg-overlay-gradient"></div>
 			</div>
 

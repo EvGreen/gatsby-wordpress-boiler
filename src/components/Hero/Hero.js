@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useRef } from "react"
 //import { useStaticQuery, graphql } from "gatsby"
 import anime from "animejs"
 
@@ -6,35 +6,46 @@ import anime from "animejs"
 import "./Hero.scss"
 import Img from "gatsby-image"
 
-//import animationData from "../../DATA/animationData"
+const fadeInCreepDown = item =>
+	anime({
+		targets: item,
+		opacity: [0,1],
+		translateY: [-10,0],
+		duration: 1500,
+		easing: 'easeInOutSine'
+	})
 
-	
+const fadeInCreepUp = item =>
+	anime({
+		targets: item,
+		opacity: [0,1],
+		translateY: [20,0],
+		duration: 1000,
+		easing: 'easeInOutSine'
+	})
 
+const fadeOut = item =>
+	anime({
+		targets: item,
+		opacity: [1,0],
+		duration: 1000,
+		delay: 400,
+		easing: 'easeInSine'
+	})
 
 
 function Hero(props) {
-	 
+	const heroContent = useRef(false)
+	
+
 	useEffect(() => {
-    anime({
-			targets: '.gatsby-image-wrapper',
-			opacity: [0,1],
-			translateY: [20,0],
-			duration: 1000,
-			easing: 'easeInOutSine'
-		})
-    anime({
-			targets: '.fatbar',
-			opacity: [1,0],
-			duration: 1800,
-			easing: 'easeInSine'
-		})
-    anime({
-			targets: '.hero-content',
-			opacity: [0,1],
-			duration: 500,
-			easing: 'easeInOutSine'
-		})
+		fadeInCreepDown('.hero-content')
 	},[])
+
+	function fireOnLoad() {
+		fadeInCreepUp('.gatsby-image-wrapper')
+		fadeOut('.fatbar')
+	}
 
 	// const data = useStaticQuery(graphql`
   //   query {
@@ -62,15 +73,18 @@ function Hero(props) {
 					fadeIn={false}
 					backgroundColor="#000000"
 					style={{opacity: 0, backgroundColor: "#000"}}
+					onLoad={fireOnLoad}
 				/>
 			: null }
 
 			<div className="bg-overlay">
 				<div className="fatbar"></div>
-				<div className="bg-overlay-gradient"></div>
+				<div className="bg-overlay-x"></div>
 			</div>
 
-			<div className="hero-content" style={{opacity: 0}} dangerouslySetInnerHTML={{__html: props.wordpressPage.acf.hero_page ? props.wordpressPage.acf.hero_page[0].content : null}} />
+			<div ref={heroContent} className="hero-content cc5" style={{opacity: 0}}>
+				<div className="hero-content-box" dangerouslySetInnerHTML={{__html: props.wordpressPage.acf.hero_page ? props.wordpressPage.acf.hero_page[0].content : null}} />
+			</div>
 
 		</section>
   )

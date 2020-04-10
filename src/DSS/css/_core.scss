@@ -2,30 +2,41 @@
 	Core
 ========================================================================== */
 
-$clead: #fac400;
-$clead2: #EE3C96;
+$clead: #ff6b53;
+$clead2: #fac400;
 
-$c0: #fff;
-$c0h: #131313;
-$c0p: #131313;
+$c0: #f8f8f8;
+$c0h: #585860;
+$c0p: #585860;
 
-$c1: #B1B1B1;
-$c2: #EE3C96;
+$c1: #f0efee;
+$c1h: #3c3c3c;
+$c1p: #3c3c3c;
+
+$c2: #f5f5f5;
+$c2h: #3c3c3c;
+$c2p: #3c3c3c;
+
 $c3: #B1B1B1;
-$c4: #131313;
-$c5: #131313;
-
-$c1p: #131313;
-
 $c3h: #131313;
 $c3p: #131313;
 
-$c4p: #fff;
+$c4: #3c3c3c;
+$c4h: #ffffff;
+$c4p: #ffffff;
+
+$c5: #272a2b;
+$c5h: #ffffff;
+$c5p: #ffffff;
+
+
 
 // Don't forget to delete unused styles!
-$font1: 'Open Sans', sans-serif;
-$font2: 'Quicksand', sans-serif;
-$font3: 'Montserrat', sans-serif;
+$font1: 'Montserrat', Helvetica, Arial, sans-serif; // Headers
+$font2: 'Quicksand', sans-serif; // SubHeaders
+$font3: 'Open Sans', sans-serif; // Body
+
+$frame: 1em;
 
 //@import '../fonts/brownstd/stylesheet';
 //@import '../fonts/suisse/stylesheet';
@@ -34,6 +45,7 @@ $font3: 'Montserrat', sans-serif;
 @import 'core/_normalize.scss';
 @import 'core/_typo.scss';
 @import 'core/_helpers.scss';
+@import 'core/_rainbow.scss';
 
 // @import 'core/forms/_form.scss';
 // @import 'core/forms/_input.scss';

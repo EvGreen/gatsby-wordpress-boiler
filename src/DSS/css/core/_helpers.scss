@@ -14,6 +14,17 @@ br {
 	margin: 0 !important;
 }
 
+.aligncenter {
+	text-align: center;
+}
+
+.layout-framed {
+	border: $frame solid #fff;
+	.hero {
+		padding-bottom: calc(100vh - #{$frame * 2});
+	}
+}
+
 /* ==========================================================================
 	Aspect Ratios
 ========================================================================== */

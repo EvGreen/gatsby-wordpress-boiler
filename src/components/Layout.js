@@ -10,18 +10,18 @@ import Footer from "../components/Footer/Footer"
 function Layout({ children, location }) {
 
   return (
-  	<>
+  	<div className="layout-framed">
 			<Helmet>
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
         />
+				<link rel="stylesheet"
+							href="https://fonts.googleapis.com/css?family=Montserrat:wght@400;700;900;&display=swap" />
+				<link rel="stylesheet"
+							href="https://fonts.googleapis.com/css?family=Quicksand:wght@400;700&display=swap" />
         <link rel="stylesheet"
-              href="https://fonts.googleapis.com/css?family=Open+Sans:wght@400;700;0,800;&display=swap" />
-				{/* <link rel="stylesheet"
-							href="https://fonts.googleapis.com/css?family=Quicksand:wght@400;500;600;700&display=swap" /> */}
-				{/* <link rel="stylesheet"
-							href="https://fonts.googleapis.com/css?family=Montserrat:wght@400;700;900;&display=swap" /> */}
+              href="https://fonts.googleapis.com/css?family=Open+Sans:wght@400;700;&display=swap" />
       </Helmet>
 
 			<Header />
@@ -35,7 +35,7 @@ function Layout({ children, location }) {
 						<Footer />
 
 				</div>
-  	</>
+  	</div>
   )
 }
 

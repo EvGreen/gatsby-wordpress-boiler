@@ -54,7 +54,7 @@ h5,h6 {
 
 h1, .h1 {
 	font-size: 3.625em;
-	line-height: 1.62;
+	line-height: 1.2;
 	margin: 1em 0;
 
 	+ h2, + .h2,
@@ -68,7 +68,8 @@ h1, .h1 {
 	span.subheading {
 		display: block;
 		font-size: .36em;
-		line-height: 1.36;
+		line-height: 1.2;
+		margin-top: .5em;
 	}
 }
 

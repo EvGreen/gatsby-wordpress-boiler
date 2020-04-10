@@ -20,3 +20,13 @@
 .cc5 {
 	color: $c5p;
 }
+
+#master-header {
+	a {
+		color: $c0;
+
+		&:hover {
+			color: $clead;
+		}
+	}
+}

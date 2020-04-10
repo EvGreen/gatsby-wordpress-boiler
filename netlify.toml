@@ -1,0 +1,48 @@
+# A redirect rule which routes Wordpress admin attempts to an offensive external URL.
+[[redirects]]
+    from = "/wp-login.php"
+    to = "https://www.youtube.com/watch?v=KGAAhzreGWw"
+    status = 301
+
+# A simple redirect rule to accomodate for a page name which has changed
+[[redirects]]
+#    from = "/oldpath/"
+#    to = "/newpath/"
+#    status = 301
+
+# Role-based redirects does not have a 'to' property.
+[[redirects]]
+#  from = "/secret_admin"
+#  status = 200
+#  conditions = {Role = ["admin"]}
+#  force = true
+
+# Headers to return with requests for the specified paths
+[[headers]]
+  # Define which paths this specific [[headers]] block will cover.
+  for = "/*"
+
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+
+    # Multi-key header rules are expressed with multi-line strings.
+    cache-control = '''
+      max-age=31557600,
+      no-cache,
+      no-store,
+      must-revalidate'''
+
+# Asset optimization
+[build.processing]
+  skip_processing = false
+[build.processing.css]
+  bundle = true
+  minify = true
+[build.processing.js]
+  bundle = true
+  minify = true
+[build.processing.html]
+  pretty_urls = true
+[build.processing.images]
+  compress = true

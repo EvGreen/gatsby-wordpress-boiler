@@ -3,14 +3,16 @@ import "./Header.scss"
 
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebookSquare, faTwitter, faYoutube, faInstagram } from '@fortawesome/free-brands-svg-icons'
+import { faFacebookSquare, faTwitter, faYoutube, faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons'
 
 function Header(props) {
 
   return (
 	<header id="master-header">
 		<div className="logo">
-			.logo
+			<Link to="/">
+				.logo
+			</Link>
 		</div>
 		<nav className="navi">
 			<div className="navi-items">
@@ -25,24 +27,29 @@ function Header(props) {
 				</Link>
 			</div>
 			<div className="social-icons">
-				<div className="social-icon hint--rounded hint--bottom" data-hint="FaceBook">
+				{/* <div className="social-icon hint--rounded hint--bottom" data-hint="FaceBook">
 					<a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
 						<FontAwesomeIcon icon={faFacebookSquare} />
 					</a>
-				</div>
-				<div className="social-icon hint--rounded hint--bottom" data-hint="Twitter">
-					<a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+				</div> */}
+				<div className="social-icon hint--rounded hint--bottom" data-hint="@designsentry">
+					<a href="https://twitter.com/designsentry" target="_blank" rel="noopener noreferrer">
 						<FontAwesomeIcon icon={faTwitter} />
 					</a>
 				</div>
-				<div className="social-icon hint--rounded hint--bottom" data-hint="YouTube">
+				{/* <div className="social-icon hint--rounded hint--bottom" data-hint="YouTube">
 					<a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
 						<FontAwesomeIcon icon={faYoutube} />
 					</a>
-				</div>
-				<div className="social-icon hint--rounded hint--bottom" data-hint="Instagram">
-					<a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+				</div> */}
+				<div className="social-icon hint--rounded hint--bottom" data-hint="@the242">
+					<a href="https://instagram.com/the242" target="_blank" rel="noopener noreferrer">
 						<FontAwesomeIcon icon={faInstagram} />
+					</a>
+				</div>
+				<div className="social-icon hint--rounded hint--bottom" data-hint="@EvGreen">
+					<a href="https://github.com/EvGreen?tab=repositories" target="_blank" rel="noopener noreferrer">
+						<FontAwesomeIcon icon={faGithub} />
 					</a>
 				</div>
 			</div>

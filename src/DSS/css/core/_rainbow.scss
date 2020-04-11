@@ -25,6 +25,18 @@
 .c5 {
 	background: $c5;
 	color: $c5p;
+
+	.border {
+		border-color: lighten($c5, 4%);
+	}
+
+	a {
+		color: $c5p;
+		
+		&:hover {
+			color: $clead;
+		}
+	}
 }
 
 .cc0 {

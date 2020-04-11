@@ -1,6 +1,24 @@
 footer#master-footer {
 	text-align: center;
 
+	.footer-body {
+		padding: 2em;
+		font-size: .9em;
+
+		.footer-icons {
+			font-size: 1.5em;
+
+			a {
+				padding: .125em .5em;
+			}
+		}
+
+		&.border {
+			border-width: 0 0 1px 0;
+			border-style: solid;
+		}
+	}
+
 	.copy {
 		padding: 2em;
 		font-size: 0.66em;

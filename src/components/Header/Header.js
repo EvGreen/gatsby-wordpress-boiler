@@ -3,7 +3,7 @@ import "./Header.scss"
 
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebookSquare, faTwitter, faYoutube, faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faTwitter, faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons'
 
 function Header(props) {
 

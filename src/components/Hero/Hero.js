@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from "react"
 //import { useStaticQuery, graphql } from "gatsby"
 import anime from "animejs"
 
+import Starfall from "../Starfall/Starfall"
+
 //import PropTypes from "prop-types"
 import "./Hero.scss"
 import Img from "gatsby-image"
@@ -94,6 +96,9 @@ function Hero(props) {
 
 			<div ref={heroContent} className="hero-content cc5" style={{opacity: 0}}>
 				<div className="hero-content-box" dangerouslySetInnerHTML={{__html: props.wordpressPage.acf.hero_page ? props.wordpressPage.acf.hero_page[0].content : null}} />
+				<div className="starfall-space">
+					<Starfall />
+				</div>
 			</div>
 
 		</section>

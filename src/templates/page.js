@@ -7,7 +7,6 @@ import Hero from "../components/Hero/Hero"
 import Content from "../components/Content/Content"
 
 export default ({ data, pageContext }) => {
-  const page = data.wordpressPage
 
   return (
     <main className={"c0 main-" + pageContext.slug}>

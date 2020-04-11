@@ -10,8 +10,8 @@ const fadeInCreepDown = item =>
 	anime({
 		targets: item,
 		opacity: [0,1],
-		translateY: [-10,0],
-		duration: 1500,
+		translateY: [30,0],
+		duration: 1000,
 		easing: 'easeInOutSine'
 	})
 
@@ -24,14 +24,22 @@ const fadeInCreepUp = item =>
 		easing: 'easeInOutSine'
 	})
 
-const fadeOut = item =>
-	anime({
-		targets: item,
-		opacity: [1,0],
-		duration: 1000,
-		delay: 400,
-		easing: 'easeInSine'
+	const fadeIn = item =>
+		anime({
+			targets: item,
+			opacity: [0,1],
+			duration: 800,
+			easing: 'easeInOutSine'
 	})
+
+	const fadeOut = item =>
+		anime({
+			targets: item,
+			opacity: [1,0],
+			duration: 1000,
+			delay: 400,
+			easing: 'easeInSine'
+		})
 
 
 function Hero(props) {
@@ -44,6 +52,7 @@ function Hero(props) {
 
 	function fireOnLoad() {
 		fadeInCreepUp('.gatsby-image-wrapper')
+		fadeIn('.glare')
 		fadeOut('.fatbar')
 	}
 
@@ -80,6 +89,7 @@ function Hero(props) {
 			<div className="bg-overlay">
 				<div className="fatbar"></div>
 				<div className="bg-overlay-x"></div>
+				<div className="glare" style={{opacity: 0}}></div>
 			</div>
 
 			<div ref={heroContent} className="hero-content cc5" style={{opacity: 0}}>

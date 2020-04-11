@@ -10,8 +10,8 @@ export default ({ data, pageContext }) => {
   const page = data.wordpressPage
 
   return (
-    <main className={"main-" + pageContext.slug}>
-      
+    <main className={"c0 main-" + pageContext.slug}>
+
 			<SEO title="Home" description="Description" />
 			
       <Hero { ...data } />

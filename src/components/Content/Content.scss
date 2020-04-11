@@ -1,6 +1,13 @@
 section.content {
 	display: block;
-	width: 90vw;
-	max-width: 50em;
-	margin: calc(2em + 2vw) auto;
+	width: 94vw;
+	margin: 0 auto;
+	padding: calc(4em + 3vw) calc(2em + 2vw);
+
+	.content-box {
+		display: block;
+		width: 100%;
+		max-width: 56em;
+		margin: 0 auto;
+	}
 }

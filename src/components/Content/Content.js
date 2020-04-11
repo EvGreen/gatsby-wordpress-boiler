@@ -8,7 +8,7 @@ function Content(props) {
   return (
 		<section className="content">
 
-			<div dangerouslySetInnerHTML={{__html: page.content}} />
+			<div className="content-box" dangerouslySetInnerHTML={{__html: page.content}} />
 
 		</section>
   )

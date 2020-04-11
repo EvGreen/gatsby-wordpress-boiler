@@ -11,17 +11,10 @@ export default ({ data, pageContext }) => {
 
   return (
     <main className={"main-" + pageContext.slug}>
+      
 			<SEO title="Home" description="Description" />
 			
       <Hero { ...data } />
-      
-			<h3>
-        Title: {page.title}<br/>
-        ID: {page.id}<br/>
-        Slug: {page.slug}<br/>
-        Date: {page.date}<br/>
-        Author: {page.author.name}
-      </h3>
 
       <Content { ...data } />
  

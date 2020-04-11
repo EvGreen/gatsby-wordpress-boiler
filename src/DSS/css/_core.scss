@@ -42,6 +42,7 @@ $frame: 1em;
 //@import '../fonts/suisse/stylesheet';
 
 @import 'mixins/_mixins.scss';
+@import 'plugins/_hint.scss';
 @import 'core/_normalize.scss';
 @import 'core/_typo.scss';
 @import 'core/_helpers.scss';

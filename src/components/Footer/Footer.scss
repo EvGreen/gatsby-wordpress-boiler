@@ -1,3 +1,14 @@
 footer#master-footer {
+	text-align: center;
+
+	.copy {
+		padding: 2em;
+		font-size: 0.7em;
+	}
 	
+	.fa-heart {
+		color: #ff4f22;
+		margin: 0 .1em .05em;
+		font-size: 85%;
+	}
 }

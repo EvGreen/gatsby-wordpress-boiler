@@ -25,22 +25,22 @@ function Header(props) {
 				</Link>
 			</div>
 			<div className="social-icons">
-				<div className="social-icon">
+				<div className="social-icon hint--rounded hint--bottom" data-hint="FaceBook">
 					<a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
 						<FontAwesomeIcon icon={faFacebookSquare} />
 					</a>
 				</div>
-				<div className="social-icon">
+				<div className="social-icon hint--rounded hint--bottom" data-hint="Twitter">
 					<a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
 						<FontAwesomeIcon icon={faTwitter} />
 					</a>
 				</div>
-				<div className="social-icon">
+				<div className="social-icon hint--rounded hint--bottom" data-hint="YouTube">
 					<a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
 						<FontAwesomeIcon icon={faYoutube} />
 					</a>
 				</div>
-				<div className="social-icon">
+				<div className="social-icon hint--rounded hint--bottom" data-hint="Instagram">
 					<a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
 						<FontAwesomeIcon icon={faInstagram} />
 					</a>

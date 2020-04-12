@@ -28,14 +28,22 @@ function Header(props) {
 		(item, i) => {
 			if ( item.target === "_blank" && item.object === "custom" ) {
 				return (
-					<div key={item.wordpress_id} className="nav-item">
-						<a href={item.url} target="_blank" rel="noopener noreferrer">{item.title}</a>
+					<div key={item.wordpress_id} className={["nav-item", item.classes === "coming" ? "hint--rounded hint--bottom" : item.classes ? item.classes : null ].join(" ")} data-hint={ item.classes === "coming" ? "Coming soon!" : null }>
+						{ item.classes === "coming" ? 
+							<div className="coming">{item.title}</div>
+							:
+							<a href={item.url} target="_blank" rel="noopener noreferrer">{item.title}</a>
+						}
 					</div>
 				)
 			}
 			return (
-				<div key={item.wordpress_id} className="nav-item">
-					<Link to={item.url}>{item.title}</Link>
+				<div key={item.wordpress_id} className={["nav-item", item.classes === "coming" ? "hint--rounded hint--bottom" : item.classes ? item.classes : null ].join(" ")} data-hint={ item.classes === "coming" ? "Coming soon!" : null }>
+					{ item.classes === "coming" ? 
+						<div className="coming">{item.title}</div>
+							:
+						<Link to={item.url}>{item.title}</Link>
+					}
 				</div>
 			)
 		}

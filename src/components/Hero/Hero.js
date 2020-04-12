@@ -46,7 +46,7 @@ const fadeInCreepUp = item =>
 
 function Hero(props) {
 	const heroContent = useRef(false)
-	
+	console.log(props.wordpressPage)
 
 	useEffect(() => {
 		fadeInCreepDown('.hero-content')
@@ -76,7 +76,7 @@ function Hero(props) {
 	return (
 		<section className="hero" style={{backgroundColor: "#000"}}>
 			
-			{ props.wordpressPage.acf.hero_page ?
+			{ props.wordpressPage.acf.hero_page[0].img ?
 				<Img fluid={props.wordpressPage.acf.hero_page[0].img.localFile.childImageSharp.fluid}
 					objectFit="cover"
 					objectPosition="50% 50%"

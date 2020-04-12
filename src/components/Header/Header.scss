@@ -26,10 +26,29 @@ header#master-header {
 
 			.nav-item {
 				display: flex;
+
+				&.hint--bottom::after, &.hint--bottom::before {
+					top: 70%;
+				}
 			}
 
-			a {
+			a, .coming {
 				padding: 1em .5em;
+			}
+
+			.coming {
+				position: relative;
+
+				&:before {
+					content: '';
+					position: absolute;
+					top: 54%;
+					left: 50%;
+					width: 80%;
+					height: 2px;
+					background: #f5f5f5;
+					transform: translate3d(-50%,-50%,0);
+				}
 			}
 		}
 

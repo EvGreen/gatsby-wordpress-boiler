@@ -33,6 +33,11 @@ module.exports = {
         auth: {},
         // Set to true to debug endpoints on 'gatsby build'
         verboseOutput: false,
+        // Swap for navi
+        searchAndReplaceContentUrls: {
+          sourceUrl: "https://design-sentry.com/",
+          replacementUrl: "/",
+        }
       },
     },
     `gatsby-transformer-sharp`,

@@ -24,6 +24,10 @@ header#master-header {
 			display: flex;
 			padding: 0 .5em;
 
+			.nav-item {
+				display: flex;
+			}
+
 			a {
 				padding: 1em .5em;
 			}
@@ -33,7 +37,9 @@ header#master-header {
 			display: flex;
 
 			.social-icon {
-				padding: .1em .25em;
+				a {
+					padding: .1em .25em;
+				}
 			}
 		}
 	}

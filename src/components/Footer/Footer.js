@@ -19,10 +19,10 @@ function Footer(props) {
 			</div>
 
 			<div className="copy">
-				<p>Copyright &copy; 2020. Made with <FontAwesomeIcon icon={faHeart} /> by <span className="hint--rounded hint--top" data-hint="Much love!">EvG.</span></p>
+				<p>Copyright &copy; 2020. Made with <FontAwesomeIcon icon={faHeart} /> by <span className="hint--rounded hint--top" data-hint="Much love!">EvG</span>.</p>
 			</div>
 
-	</footer>
+		</footer>
   )
 }
 

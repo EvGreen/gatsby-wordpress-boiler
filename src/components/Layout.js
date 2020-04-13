@@ -11,6 +11,7 @@ function Layout({ children, location }) {
 
   return (
   	<div className="layout-framed">
+
 			<Helmet>
         <meta
           name="viewport"
@@ -26,15 +27,14 @@ function Layout({ children, location }) {
 
 			<Header />
 			
-				<div key={location.pathname} className="main-wrapper">
-							
-						<ParallaxProvider>
-							{children}
-						</ParallaxProvider>
+			<div key={location.pathname} className="main-wrapper">	
+				<ParallaxProvider>
+					{children}
+				</ParallaxProvider>
 
-						<Footer />
+				<Footer />
+			</div>
 
-				</div>
   	</div>
   )
 }

@@ -3,27 +3,87 @@
 ========================================================================== */
 
 .c0 {
-	background: $c0;
+	background-color: $c0;
 	color: $c0p;
+
+	.border {
+		border-color: darken($c0, 4%);
+	}
+
+	a {
+		color: $c0a;
+		
+		&:hover {
+			color: $c0h;
+		}
+	}
 }
 .c1 {
-	background: $c1;
+	background-color: $c1;
 	color: $c1p;
+
+	.border {
+		border-color: darken($c1, 4%);
+	}
+
+	a {
+		color: $c1a;
+		
+		&:hover {
+			color: $c1h;
+		}
+	}
 }
 .c2 {
-	background: $c2;
+	background-color: $c2;
 	color: $c2p;
+
+	.border {
+		border-color: darken($c2, 4%);
+	}
+
+	a {
+		color: $c2a;
+		
+		&:hover {
+			color: $c2h;
+		}
+	}
 }
 .c3 {
-	background: $c3;
+	background-color: $c3;
 	color: $c3p;
+
+	.border {
+		border-color: darken($c3, 4%);
+	}
+
+	a {
+		color: $c3a;
+		
+		&:hover {
+			color: $c3h;
+		}
+	}
 }
 .c4 {
-	background: $c4;
+	background-color: $c4;
 	color: $c4p;
+
+	.border {
+		border-color: darken($c4, 4%);
+	}
+
+	a {
+		color: $c4a;
+		
+		&:hover {
+			color: $c4h;
+		}
+	}
 }
 .c5 {
-	background: $c5;
+	background-color: $c5;
 	color: $c5p;
 
 	.border {
@@ -31,10 +91,10 @@
 	}
 
 	a {
-		color: $c5p;
+		color: $c5a;
 		
 		&:hover {
-			color: $clead;
+			color: $c5h;
 		}
 	}
 }
@@ -56,14 +116,4 @@
 }
 .cc5 {
 	color: $c5p;
-}
-
-#master-header {
-	a {
-		color: $c0;
-
-		&:hover {
-			color: $clead;
-		}
-	}
 }

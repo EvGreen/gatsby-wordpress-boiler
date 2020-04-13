@@ -50,7 +50,7 @@ function Header(props) {
 	)
 	
   return (
-		<header id="master-header">
+		<header id="master-header" className="c5">
 			<div className="logo">
 				<Link to="/">
 					.logo

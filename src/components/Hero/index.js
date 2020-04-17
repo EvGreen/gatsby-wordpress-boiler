@@ -1,12 +1,12 @@
-import React, { useEffect, useRef } from "react"
-//import { useStaticQuery, graphql } from "gatsby"
-import anime from "animejs"
+import React, { useEffect, useRef } from 'react'
+//import { useStaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
+import anime from 'animejs'
 
-import Starfall from "../Starfall/Starfall"
+import Starfall from '../Starfall'
 
-//import PropTypes from "prop-types"
-import "./Hero.scss"
-import Img from "gatsby-image"
+//import PropTypes from 'prop-types'
+import './style.scss'
 
 const fadeInCreepDown = item =>
 	anime({
@@ -60,7 +60,7 @@ function Hero(props) {
 
 	// const data = useStaticQuery(graphql`
   //   query {
-  //     file(relativePath: { eq: "placeholders/storm.jpg" }) {
+  //     file(relativePath: { eq: 'placeholders/storm.jpg' }) {
   //       childImageSharp {
 	// 				fluid (
 	// 					maxWidth: 2560,
@@ -74,29 +74,29 @@ function Hero(props) {
 	// `)
 
 	return (
-		<section className="hero" style={{backgroundColor: "#000"}}>
+		<section className='hero' style={{backgroundColor: '#000'}}>
 			
 			{ props.wordpressPage.acf.hero_page[0].img ?
 				<Img fluid={props.wordpressPage.acf.hero_page[0].img.localFile.childImageSharp.fluid}
-					objectFit="cover"
-					objectPosition="50% 50%"
-					loading="eager"
+					imgStyle={{objectFit: 'cover'}}
+					objectPosition='50% 50%'
+					loading='eager'
 					fadeIn={false}
-					backgroundColor="#000000"
-					style={{opacity: 0, backgroundColor: "#000"}}
+					backgroundColor='#000000'
+					style={{opacity: 0, backgroundColor: '#000'}}
 					onLoad={fireOnLoad}
 				/>
 			: null }
 
-			<div className="bg-overlay">
-				<div className="fatbar"></div>
-				<div className="bg-overlay-x"></div>
-				<div className="glare" style={{opacity: 0}}></div>
+			<div className='bg-overlay'>
+				<div className='fatbar'></div>
+				<div className='bg-overlay-x'></div>
+				<div className='glare' style={{opacity: 0}}></div>
 			</div>
 
-			<div ref={heroContent} className="hero-content cc5" style={{opacity: 0}}>
-				<div className="hero-content-box" dangerouslySetInnerHTML={{__html: props.wordpressPage.acf.hero_page ? props.wordpressPage.acf.hero_page[0].content : null}} />
-				<div className="starfall-space">
+			<div ref={heroContent} className='hero-content cc5' style={{opacity: 0}}>
+				<div className='hero-content-box' dangerouslySetInnerHTML={{__html: props.wordpressPage.acf.hero_page ? props.wordpressPage.acf.hero_page[0].content : null}} />
+				<div className='starfall-space'>
 					<Starfall />
 				</div>
 			</div>

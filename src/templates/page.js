@@ -3,8 +3,8 @@ import { graphql } from "gatsby"
 
 import SEO from "../components/seo"
 
-import Hero from "../components/Hero/Hero"
-import Content from "../components/Content/Content"
+import Hero from "../components/Hero"
+import Content from "../components/Content"
 
 export default ({ data, pageContext }) => {
 

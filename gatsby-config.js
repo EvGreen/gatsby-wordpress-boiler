@@ -8,13 +8,13 @@ const path = require(`path`)
 
 module.exports = {
   siteMetadata: {
-    title: "CHANGEME",
-    titleTemplate: "CHANGEME · %s",
-    description: "CHANGEME",
-    url: "CHANGEME", // No trailing slash allowed!
-    //image: "/images/snape.jpg", // Path to your image you placed in the 'static' folder
-    twitterUsername: "@designsentry",
-    author: "Daniel Łęczycki, DeepSleep Studio Miami",
+    title: 'CHANGEME',
+    titleTemplate: 'CHANGEME · %s',
+    description: 'CHANGEME',
+    url: 'CHANGEME', // No trailing slash allowed!
+    //image: '/images/snape.jpg', // Path to your image you placed in the 'static' folder
+    twitterUsername: '@designsentry',
+    author: 'Daniel Łęczycki, DeepSleep Studio Miami',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -35,8 +35,8 @@ module.exports = {
         verboseOutput: false,
         // Swap for navi
         searchAndReplaceContentUrls: {
-          sourceUrl: "https://design-sentry.com/",
-          replacementUrl: "/",
+          sourceUrl: 'https://design-sentry.com/',
+          replacementUrl: '/',
         }
       },
     },
@@ -58,7 +58,7 @@ module.exports = {
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#2b2e34`,
-        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
+        // Enables 'Add to Homescreen' prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
         display: `standalone`,
         icon: `src/images/icon.png`, // This path is relative to the root of the site.

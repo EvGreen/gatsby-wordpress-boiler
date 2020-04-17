@@ -1,15 +1,15 @@
-import qs from "query-string"
+import qs from 'query-string'
 
-const url = typeof window !== 'undefined' ? window.location : '';
+const url = typeof window !== 'undefined' ? window.location : ''
 
 const setQueryStringWithoutPageReload = qsValue => {
   const newurl =
     url.protocol +
-    "//" +
+    '//' +
     url.host +
     url.pathname +
     qsValue
-  window.history.pushState({ path: newurl }, "", newurl)
+  window.history.pushState({ path: newurl }, '', newurl)
 }
 
 export const getQueryStringValue = (
@@ -31,4 +31,4 @@ export const setQueryStringValue = (
     [key]: value
   })
   setQueryStringWithoutPageReload(`?${newQsValue}`)
-};
+}

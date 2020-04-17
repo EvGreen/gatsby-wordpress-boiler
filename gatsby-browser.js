@@ -1,6 +1,6 @@
 import React from "react"
 import "./src/html.scss"
-import Layout from "./src/components/Layout"
+import Layout from "./src/components/layout"
 
 //const transitionDelay = 200;
 

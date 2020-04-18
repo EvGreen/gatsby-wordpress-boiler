@@ -46,7 +46,6 @@ const fadeInCreepUp = item =>
 
 function Hero(props) {
 	const heroContent = useRef(false)
-	console.log(props.wordpressPage)
 
 	useEffect(() => {
 		fadeInCreepDown('.hero-content')

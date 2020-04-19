@@ -7,6 +7,10 @@
 	padding-bottom: 100vh;
 	margin-bottom: 1.125em;
 
+	h1 + h6 {
+		margin-top: -1rem;
+	}
+
 	.gatsby-image-wrapper {
 		position: absolute !important;
 		top: 0;

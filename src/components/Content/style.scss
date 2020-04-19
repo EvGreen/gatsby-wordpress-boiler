@@ -2,7 +2,7 @@ section.content {
 	display: block;
 	width: 94vw;
 	margin: 0 auto;
-	padding: calc(4em + 3vw) calc(2em + 2vw);
+	padding: calc(3em + 3vw) calc(2em + 2vw);
 
 	@media screen and (max-width: 1024px) {
 		padding: calc(2em + 2vw) calc(1em + 1vw);
@@ -11,7 +11,7 @@ section.content {
 	.content-box {
 		display: block;
 		width: 100%;
-		max-width: 56em;
+		max-width: 42em;
 		margin: 0 auto;
 	}
 }

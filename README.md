@@ -2,7 +2,7 @@
 <h4>What is it for?</h4>
 <ul><li>For starting <strong>new projects</strong> with a bunch of reusable components and styling. </li><li>For <strong>quickly mocking up websites</strong> for people on too tight of a budget for custom solutions.</li></ul>
 <h4>What do I need?</h4>
-<ul><li><strong>WordPress</strong> install on some server with https + <strong>ACF Pro</strong> and couple other plugins + preferably <strong>Netlify</strong> account for convenience.</li></ul>
+<ul><li><strong>WordPress</strong> install on some server + <strong>ACF Pro</strong> and couple other plugins + preferably <strong>Netlify</strong> account for convenience.</li></ul>
 <h4>How to?</h4>
 <p>1. Prepare WordPress install for the backend, then add these plugins:</p>
 <ul><li>For<strong> backend management:</strong> <a rel="noreferrer noopener" href="https://www.advancedcustomfields.com/" target="_blank">ACF Pro</a>,</li><li>To be able to use those extra <strong>ACF fields:</strong> <a rel="noreferrer noopener" href="https://wordpress.org/plugins/acf-to-rest-api/" target="_blank">ACF to REST API</a>,</li><li>To be able to use <strong>WP native menus:</strong> <a rel="noreferrer noopener" href="https://wordpress.org/plugins/wp-api-menus/" target="_blank">WP REST API Menus</a>,</li></ul>

@@ -27,7 +27,11 @@ function Header(props) {
 		(item, i) => {
 			if ( item.target === '_blank' && item.object === 'custom' ) {
 				return (
-					<div key={item.wordpress_id} className={`nav-item${item.classes === 'coming' ? ' hint--rounded hint--bottom' : item.classes ? item.classes : ''}`} data-hint={ item.classes === 'coming' ? 'Coming soon!' : null }>
+					<div
+						key={item.wordpress_id}
+						className={`nav-item ${item.classes ? item.classes.replace('coming', 'hint--rounded hint--bottom') : ''}`}
+						data-hint={item.classes === 'coming' ? 'Coming soon!' : null}
+					>
 						{ item.classes === 'coming' ? 
 							<div className='coming'>{item.title}</div>
 							:
@@ -37,7 +41,11 @@ function Header(props) {
 				)
 			}
 			return (
-				<div key={item.wordpress_id} className={`nav-item${item.classes === 'coming' ? ' hint--rounded hint--bottom' : item.classes ? item.classes : '' }`} data-hint={ item.classes === 'coming' ? 'Coming soon!' : null }>
+				<div
+					key={item.wordpress_id}
+					className={`nav-item ${item.classes ? item.classes.replace('coming', 'hint--rounded hint--bottom') : ''}`}
+					data-hint={item.classes === 'coming' ? 'Coming soon!' : null}
+				>
 					{ item.classes === 'coming' ? 
 						<div className='coming'>{item.title}</div>
 							:
@@ -49,7 +57,7 @@ function Header(props) {
 	)
 	
   return (
-		<header id='master-header' className={`c5${props.mutate ? ' mutate' : '' }`}>
+		<header id='master-header' className={`c5 ${props.mutate ? 'mutate' : '' }`}>
 			<div className='logo'>
 				<Link to='/'>
 					.logo

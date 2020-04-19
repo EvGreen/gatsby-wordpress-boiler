@@ -12,11 +12,11 @@ import Hero from "../components/Hero"
 import Content from "../components/Content"
 
 export default ({ data, pageContext }) => {
-	const [headerBreakpointRef, headerBreakpointInView] = useInView({ triggerOnce: false })
+  const [headerBreakpointRef, headerBreakpointInView, headerBreakpointEntry] = useInView({ triggerOnce: false })
 
   return (
     <>
-      <Header mutate={!headerBreakpointInView} />
+      <Header mutate={headerBreakpointEntry ? !headerBreakpointInView : null} />
 
       <main className={`c0 main-${pageContext.slug === "/" ? "frontpage" : pageContext.slug}`}>
 

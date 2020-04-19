@@ -12,6 +12,7 @@ header#master-header {
 	color: #fff;
 	background: transparent;
 
+	transform: translate3d(0,0,0);
 	transition: transform .3s ease-in-out;
 
 	&:before {
@@ -81,8 +82,10 @@ header#master-header {
 	}
 
 	&.mutate {
-		transform: translate3d(0,-1em,0);
 		color: #444;
+
+		transform: translate3d(0,-1em,0);
+		transition: transform .3s ease-in-out;
 
 		a {
 			color: #444;

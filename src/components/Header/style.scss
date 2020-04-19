@@ -12,6 +12,22 @@ header#master-header {
 	color: #fff;
 	background: transparent;
 
+	transition: transform .3s ease-in-out;
+
+	&:before {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 1rem;
+		width: calc(100% - 2rem - 2px);
+		height: 100%;
+		background: hsla(0,0,0,0.05);
+		opacity: 0;
+
+		transition: opacity .3s ease-in-out .1s;
+	}
+
 	.logo {
 		padding: 0 1.5em;
 	}
@@ -61,6 +77,25 @@ header#master-header {
 					padding: .1em .25em;
 				}
 			}
+		}
+	}
+
+	&.mutate {
+		transform: translate3d(0,-1em,0);
+		color: #444;
+
+		a {
+			color: #444;
+		}
+
+		.coming {
+			&:before {
+				background: #444 !important;
+			}
+		}
+
+		&:before {
+			opacity: 1;
 		}
 	}
 }

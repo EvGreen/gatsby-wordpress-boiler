@@ -1,23 +1,35 @@
 import React from "react"
 import { graphql } from "gatsby"
 
+import { useInView } from 'react-intersection-observer'
+
 import SEO from "../components/seo"
+
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 import Hero from "../components/Hero"
 import Content from "../components/Content"
 
 export default ({ data, pageContext }) => {
+	const [headerBreakpointRef, headerBreakpointInView] = useInView({ triggerOnce: false })
 
   return (
-    <main className={"c0 main-" + pageContext.slug}>
+    <>
+      <Header mutate={!headerBreakpointInView} />
 
-			<SEO title="Home" description="Description" />
-			
-      <Hero { ...data } />
+      <main className={`c0 main-${pageContext.slug === "/" ? "frontpage" : pageContext.slug}`}>
 
-      <Content { ...data } />
- 
-    </main>
+        <SEO title="Home" description="Description" />
+        
+        <Hero heroRef={headerBreakpointRef} { ...data } />
+
+        <Content { ...data } />
+  
+      </main>
+
+      <Footer />
+    </>
   )
 }
 

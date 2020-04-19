@@ -8,7 +8,6 @@ import { faTwitter, faInstagram, faGithub } from '@fortawesome/free-brands-svg-i
 import { useStaticQuery, graphql } from 'gatsby'
 
 function Header(props) {
-
 	const data = useStaticQuery(graphql`
 	{
 		wordpressWpApiMenusMenusItems {
@@ -28,7 +27,7 @@ function Header(props) {
 		(item, i) => {
 			if ( item.target === '_blank' && item.object === 'custom' ) {
 				return (
-					<div key={item.wordpress_id} className={['nav-item', item.classes === 'coming' ? 'hint--rounded hint--bottom' : item.classes ? item.classes : null ].join(' ')} data-hint={ item.classes === 'coming' ? 'Coming soon!' : null }>
+					<div key={item.wordpress_id} className={`nav-item${item.classes === 'coming' ? ' hint--rounded hint--bottom' : item.classes ? item.classes : ''}`} data-hint={ item.classes === 'coming' ? 'Coming soon!' : null }>
 						{ item.classes === 'coming' ? 
 							<div className='coming'>{item.title}</div>
 							:
@@ -38,7 +37,7 @@ function Header(props) {
 				)
 			}
 			return (
-				<div key={item.wordpress_id} className={['nav-item', item.classes === 'coming' ? 'hint--rounded hint--bottom' : item.classes ? item.classes : null ].join(' ')} data-hint={ item.classes === 'coming' ? 'Coming soon!' : null }>
+				<div key={item.wordpress_id} className={`nav-item${item.classes === 'coming' ? ' hint--rounded hint--bottom' : item.classes ? item.classes : '' }`} data-hint={ item.classes === 'coming' ? 'Coming soon!' : null }>
 					{ item.classes === 'coming' ? 
 						<div className='coming'>{item.title}</div>
 							:
@@ -50,7 +49,7 @@ function Header(props) {
 	)
 	
   return (
-		<header id='master-header' className='c5'>
+		<header id='master-header' className={`c5${props.mutate ? ' mutate' : '' }`}>
 			<div className='logo'>
 				<Link to='/'>
 					.logo

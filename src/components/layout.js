@@ -4,11 +4,7 @@ import '../EVG/css/_core.scss';
 import { Helmet } from 'react-helmet'
 import { ParallaxProvider } from 'react-scroll-parallax'
 
-import Header from './Header'
-import Footer from './Footer'
-
 function Layout({ children, location }) {
-
   return (
   	<div className='layout-framed'>
 
@@ -20,16 +16,10 @@ function Layout({ children, location }) {
 				<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 				<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" /> 
       </Helmet>
-
-			<Header />
 			
-			<div key={location.pathname} className='main-wrapper'>	
-				<ParallaxProvider>
-					{children}
-				</ParallaxProvider>
-
-				<Footer />
-			</div>
+			<ParallaxProvider>
+				{children}
+			</ParallaxProvider>
 
   	</div>
   )

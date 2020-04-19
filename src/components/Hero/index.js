@@ -73,7 +73,7 @@ function Hero(props) {
 	// `)
 
 	return (
-		<section className='hero' style={{backgroundColor: '#000'}}>
+		<section ref={props.heroRef} className='hero' style={{backgroundColor: '#000'}}>
 			
 			{ props.wordpressPage.acf.hero_page[0].img ?
 				<Img fluid={props.wordpressPage.acf.hero_page[0].img.localFile.childImageSharp.fluid}

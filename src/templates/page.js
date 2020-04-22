@@ -13,6 +13,8 @@ import Content from "../components/Content"
 
 export default ({ data, pageContext }) => {
   const [headerBreakpointRef, headerBreakpointInView, headerBreakpointEntry] = useInView({ triggerOnce: false })
+  const heroImage = data.wordpressPage.acf.hero_page[0].img.localFile.childImageSharp.fluid
+  const heroContent = data.wordpressPage.acf.hero_page[0].content
 
   return (
     <>
@@ -22,7 +24,7 @@ export default ({ data, pageContext }) => {
 
         <SEO title="Home" description="Description" />
         
-        <Hero heroRef={headerBreakpointRef} { ...data } />
+        <Hero heroRef={headerBreakpointRef} image={heroImage} content={heroContent} />
 
         <Content { ...data } />
   

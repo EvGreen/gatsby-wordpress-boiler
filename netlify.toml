@@ -1,3 +1,6 @@
+[Settings]
+  ID = "98cc2068-c352-4739-98e4-af78eba1eb00"
+
 # A redirect rule which routes Wordpress admin attempts to an offensive external URL.
 [[redirects]]
     from = "/wp-login.php"

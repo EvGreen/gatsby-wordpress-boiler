@@ -1,8 +1,8 @@
 section.content {
 	display: block;
-	width: 94vw;
-	margin: 0 auto;
-	padding: calc(3em + 3vw) calc(2em + 2vw);
+	width: 100%;
+	margin: 0;
+	padding: calc(3em + 3vw) calc(2em + 5vw);
 
 	@media screen and (max-width: 1024px) {
 		padding: calc(2em + 2vw) calc(1em + 1vw);

@@ -7,7 +7,7 @@ import { faHeart, faInfoCircle, faEnvelope, faPhoneAlt } from '@fortawesome/free
 function Footer(props) {
 
   return (
-		<footer id='master-footer' className='c5'>
+		<footer id='master-footer' className='x1'>
 
 			<div className='footer-body border'>
 				<div className='footer-icons'>

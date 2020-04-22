@@ -15,6 +15,7 @@ export default function Touch() {
   }
 
   const handleSubmit = (e) => {
+    console.log(state)
     e.preventDefault()
     const form = e.target
     fetch('/', {

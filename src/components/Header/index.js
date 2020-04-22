@@ -57,7 +57,7 @@ function Header(props) {
 	)
 	
   return (
-		<header id='master-header' className={`c5 ${props.mutate ? 'mutate' : '' }`}>
+		<header id='master-header' className={`x0 t ${props.mutate ? 'mutate' : '' }`}>
 			<div className='logo'>
 				<Link to='/'>
 					.logo

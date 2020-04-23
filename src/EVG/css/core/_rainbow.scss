@@ -170,25 +170,6 @@
 	}
 }
 
-.cc0 {
-	color: $c0p;
-}
-.cc1 {
-	color: $c1p;
-}
-.cc2 {
-	color: $c2p;
-}
-.cc3 {
-	color: $c3p;
-}
-.cc4 {
-	color: $c4p;
-}
-.cc5 {
-	color: $c5p;
-}
-
 
 .x0 {
 	background-color: $x0;
@@ -245,6 +226,52 @@
 	.content-box {
 		a {
 			text-shadow: .03em 0 $x1,-.03em 0 $x1,0 .03em $x1,0 -.03em $x1,.06em 0 $x1,-.06em 0 $x1,.09em 0 $x1,-.09em 0 $x1,.12em 0 $x1,-.12em 0 $x1,.15em 0 $x1,-.15em 0 $x1;
+			background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, $x1a 1px, $x1a 2px, rgba(0, 0, 0, 0) 2px);
+
+			&:hover {
+				background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, $x1h 1px, $x1h 2px, rgba(0, 0, 0, 0) 2px);
+			}
+		}
+	}
+}
+
+.clead.x0 {
+	background-color: $clead;
+	
+	a:hover {
+		color: $x0a;
+	}
+
+	.border {
+		border-color: lighten($clead, 4%);
+	}
+
+	.content-box {
+		a {
+			text-shadow: .03em 0 $clead,-.03em 0 $clead,0 .03em $clead,0 -.03em $clead,.06em 0 $clead,-.06em 0 $clead,.09em 0 $clead,-.09em 0 $clead,.12em 0 $clead,-.12em 0 $clead,.15em 0 $clead,-.15em 0 $clead;
+			background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, $x0a 1px, $x0a 2px, rgba(0, 0, 0, 0) 2px);
+
+			&:hover {
+				background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, $x0h 1px, $x0h 2px, rgba(0, 0, 0, 0) 2px);
+			}
+		}
+	}
+}
+
+.clead.x1 {
+	background-color: $clead;
+
+	a:hover {
+		color: $x1a;
+	}
+
+	.border {
+		border-color: lighten($clead, 4%);
+	}
+
+	.content-box {
+		a {
+			text-shadow: .03em 0 $clead,-.03em 0 $clead,0 .03em $clead,0 -.03em $clead,.06em 0 $clead,-.06em 0 $clead,.09em 0 $clead,-.09em 0 $clead,.12em 0 $clead,-.12em 0 $clead,.15em 0 $clead,-.15em 0 $clead;
 			background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, $x1a 1px, $x1a 2px, rgba(0, 0, 0, 0) 2px);
 
 			&:hover {

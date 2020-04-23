@@ -63,6 +63,22 @@ br {
 	opacity: 0;
 }
 
+.coming {
+	position: relative;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 53%;
+		left: 50%;
+		width: 80%;
+		height: 0px;
+		border-top: 2px solid;
+		transform: translate3d(-50%,-50%,0);
+		opacity: .85;
+	}
+}
+
 /* ==========================================================================
 	Aspect Ratios
 ========================================================================== */

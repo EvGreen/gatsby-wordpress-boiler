@@ -58,12 +58,12 @@ function Header(props) {
 	
   return (
 		<header id='master-header' className={`x0 t ${props.mutate ? 'mutate' : '' }`}>
-			<div className='logo'>
+			<div className='logo x1 c5'>
 				<Link to='/'>
 					.logo
 				</Link>
 			</div>
-			<nav className='navi'>
+			<nav className='navi c0'>
 				<div className='navi-items'>
 					{menuItems}
 				</div>

@@ -9,9 +9,10 @@ html {
 		height: auto;
 		display: table;
 
-		p {
-			display: table;
-			width: 100%;
+		label {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: .5em;
 		}
 	}
 }

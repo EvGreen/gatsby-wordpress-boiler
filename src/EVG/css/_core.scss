@@ -24,17 +24,17 @@ $c2p: #0a0a0c; // Body Text
 $c2a: $clead; // Links
 $c2h: #0a0a0c; // Links Hover
 
-$c3: #B1B1B1; // Background
+$c3: #e1e1e1; // Background
 $c3h: #0a0a0c; // Headers Text
 $c3p: #0a0a0c; // Body Text
 $c3a: $clead; // Links
 $c3h: #0a0a0c; // Links Hover
 
-$c4: #3c3c3c; // Background
+$c4: #242728; // Background
 $c4h: #ffffff; // Headers Text
 $c4p: #ffffff; // Body Text
-$c4a: $clead; // Links
-$c4h: #ffffff; // Links Hover
+$c4a: #ffffff; // Links
+$c4h: $clead; // Links Hover
 
 $c5: #1d1f20; // Background
 $c5h: #fbfdff; // Headers Text
@@ -73,8 +73,9 @@ $fwbs: 600; // Font Weight (Strong Body)
 @import 'core/_typo.scss'; // Typography
 @import 'core/_helpers.scss'; // Helpful classes
 @import 'core/_rainbow.scss'; // Color themes
+@import 'core/_grid.scss'; // Color themes
 
-// @import 'core/forms/_form.scss';
+@import 'core/forms/_form.scss';
 @import 'core/forms/_input.scss';
 // @import 'core/forms/_textarea.scss';
 // @import 'core/forms/_checkbox.scss';

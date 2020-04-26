@@ -28,6 +28,10 @@
 			}
 		}
 	}
+
+	&.x0 {
+		background-color: $c0;
+	}
 }
 
 .c1 {
@@ -118,6 +122,16 @@
 	background-color: $c4;
 	color: $c4p;
 
+	input,
+	textarea {
+		background-color: lighten($c4,3%);
+		border-color: $c4;
+
+		&[type="submit"] {
+			background-color: $clead;
+		}
+	}
+
 	.border {
 		border-color: darken($c4, 4%);
 	}
@@ -145,6 +159,16 @@
 .c5 {
 	background-color: $c5;
 	color: $c5p;
+
+	input,
+	textarea {
+		background-color: lighten($c5,3%);
+		border-color: $c5;
+
+		&[type="submit"] {
+			background-color: $clead;
+		}
+	}
 
 	.border {
 		border-color: lighten($c5, 4%);

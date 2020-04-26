@@ -25,7 +25,7 @@ function Header(props) {
 
 	const menuItems = data.wordpressWpApiMenusMenusItems.items.map(
 		(item, i) => {
-			if ( item.target === '_blank' && item.object === 'custom' ) {
+			if ( item.object === 'custom' ) {
 				return (
 					<div
 						key={item.wordpress_id}
@@ -35,7 +35,7 @@ function Header(props) {
 						{ item.classes === 'coming' ? 
 							<div className='coming'>{item.title}</div>
 							:
-							<a href={item.url} target='_blank' rel='noopener noreferrer'>{item.title}</a>
+							<a href={item.url} target={item.target === '_blank' ? '_blank' : null} rel={item.target === '_blank' ? 'noopener noreferrer' : null}>{item.title}</a>
 						}
 					</div>
 				)

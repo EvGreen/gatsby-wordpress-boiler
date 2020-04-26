@@ -15,6 +15,8 @@ export default ({ data, pageContext }) => {
   const [headerBreakpointRef, headerBreakpointInView, headerBreakpointEntry] = useInView({ triggerOnce: false })
   const heroImage = data.wordpressPage.acf.hero_page[0].img.localFile.childImageSharp.fluid
   const heroContent = data.wordpressPage.acf.hero_page[0].content
+  
+  const footerImage = data.wordpressAcfOptions.options.footer_image.localFile.childImageSharp.fluid
 
   return (
     <>
@@ -30,7 +32,7 @@ export default ({ data, pageContext }) => {
   
       </main>
 
-      <Footer />
+      <Footer image={footerImage} />
     </>
   )
 }
@@ -65,6 +67,22 @@ export const query = graphql`
             }
           }
           content
+        }
+      }
+    }
+    wordpressAcfOptions {
+      options {
+        footer_image {
+          localFile {
+            childImageSharp {
+              fluid (
+                maxWidth: 2048,
+                quality: 95,
+              ) {
+                ...GatsbyImageSharpFluid_withWebp_noBase64
+              }
+            }
+          }
         }
       }
     }

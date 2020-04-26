@@ -10,6 +10,10 @@ html {
 	overflow-x: hidden;
 }
 
+img {
+	max-width: 100%;
+}
+
 br {
 	margin: 0 !important;
 }
@@ -27,7 +31,7 @@ br {
 }
 
 .margin-off {
-	margin: 0;
+	margin: 0 !important;
 }
 
 .glare {

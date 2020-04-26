@@ -256,6 +256,18 @@ ul {
 	color: $clead;
 }
 
+.text-left {
+	text-align: left;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
 hr {
 	position: relative;
 	display: block;
@@ -288,16 +300,45 @@ a {
   }
 }
 
-.fs-120, .big {
-	font-size: 1.2em;
+.fs-125, .big {
+	font-size: 1.25em;
 }
 
-.fs-100 {
+.fs-100, .normal {
 	font-size: 1em;
 }
 
-.fs-80, .small {
-	font-size: .8em;
+.fs-85, .small {
+	font-size: .85em;
+
+	h1, .h1,
+	h2, .h2,
+	h3, .h3,
+	h4, .h4,
+	h5, .h5,
+	h6, .h6  {
+		margin: 2.55rem 0 1.275rem;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	p {
+		margin: 1.275rem 0;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
 }
 
 .fw-100, .thin {

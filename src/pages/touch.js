@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { navigate } from 'gatsby-link'
+import Select from 'react-select'
 
 function encode(data) {
   return Object.keys(data)
@@ -7,11 +8,21 @@ function encode(data) {
     .join('&')
 }
 
+const options = [
+  { value: 'chocolate', label: 'Chocolate' },
+  { value: 'strawberry', label: 'Strawberry' },
+  { value: 'vanilla', label: 'Vanilla' },
+];
+
 export default function Touch() {
   const [state, setState] = React.useState({})
 
   const handleChange = (e) => {
     setState({ ...state, [e.target.name]: e.target.value })
+  }
+
+  const handleChangeSelect = (e) => {
+    setState({ ...state, ['select']: e.value })
   }
 
   const handleSubmit = (e) => {
@@ -41,6 +52,11 @@ export default function Touch() {
         data-netlify-honeypot="bot-field"
         onSubmit={handleSubmit}
       >
+        <Select
+          name="select"
+          onChange={handleChangeSelect}
+          options={options}
+        />
         {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
         <input type="hidden" name="form-name" value="contact" />
         <p hidden>

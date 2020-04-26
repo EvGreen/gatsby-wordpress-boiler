@@ -8,15 +8,15 @@ import './style.scss'
 function Details(props) {
 	return (
 		<Div100vh as="section" className="hero-details c5" style={{minHeight: '10.1rvh'}}>
-			<div className="news">
+			<div className="news fs-85">
 				<div className="aside">
 					<h6><b>news:</b></h6>
 				</div>
 				<div className="content">
-					<p>v0.2.8 of gatsby-wordpress-boiler released on github (not rdy for primetime).</p>
+					<p>v0.3.1 of gatsby-wordpress-boiler released on github (not rdy for primetime).</p>
 				</div>
 			</div>
-			<div className="info x1 clead">
+			<div className="info fs-85 x1 clead">
 				<div className="content">
 					<h4 className="coming" style={{textAlign: 'center'}}><a href="#" className="hint--rounded hint--top" data-hint="Coming soon!">case studies</a></h4>
 				</div>

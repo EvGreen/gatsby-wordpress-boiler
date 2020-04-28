@@ -37,6 +37,10 @@ textarea {
 		margin-top: .75em;
 		cursor: pointer;
 	}
+
+	@media screen and (max-width: 1024px) {
+		font-size: 16px;
+	}
 }
 
 input:active, input:focus {

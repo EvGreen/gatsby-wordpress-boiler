@@ -68,6 +68,7 @@ $fwb: 400; // Font Weight (Body)
 $fwbs: 600; // Font Weight (Strong Body)
 
 @import 'mixins/_mixins.scss'; // Frequently used mixins
+@import 'animations/_animations.scss';
 @import 'plugins/_hint.scss'; // Hint bubble
 @import 'core/_normalize.scss'; // Normalize browsers
 @import 'core/_typo.scss'; // Typography

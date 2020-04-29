@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './style.scss'
 
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBaby } from '@fortawesome/free-solid-svg-icons'
+
 function CF7Basic(props) {
 	
-	const { register, handleSubmit, errors } = useForm()
+	const { register, handleSubmit, errors, reset } = useForm()
 	const [message, setMessage] = useState(false)
 	const [isLoading, setLoading] = useState(false)
 
@@ -32,6 +35,9 @@ function CF7Basic(props) {
 					 setMessage(response.data.message)
 					}
 					setLoading(false)
+					if(response.data.status === 'mail_sent') {
+						reset()
+					}
 				}
 			)
 			.catch(errors => {
@@ -47,6 +53,7 @@ function CF7Basic(props) {
 			action="/thanks/"
 			onSubmit={handleSubmit(onSubmit)}
 		>
+
 			<h4>tell me you love me:</h4>
 			<p style={{marginTop: '-1rem'}}>but please, be gentle</p>
 
@@ -62,8 +69,8 @@ function CF7Basic(props) {
 				<textarea placeholder="message" name="message" ref={register} />
 			</label>
 
-			<input type="submit" value="send away!" />
-			{isLoading ? "Loading.." : null}
+			<button type="submit">send away! {isLoading ? <div className="loader-spinner"><FontAwesomeIcon icon={faBaby} /></div> : null}</button>
+			
 			<p className="message small">{message}</p>
 
 		</form>

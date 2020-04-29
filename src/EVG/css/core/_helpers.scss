@@ -83,6 +83,23 @@ br {
 	}
 }
 
+
+/* ==========================================================================
+	Loaders
+========================================================================== */
+
+.loader-spinner {
+	display: inline-block;
+	margin: 0 .25em;
+	font-size: .8em;
+	animation-name: spinner;
+  animation-duration: .35s;
+	animation-iteration-count: infinite;
+	animation-direction: normal;
+	animation-timing-function: linear;
+	transform-origin: 50% 49%;
+}
+
 /* ==========================================================================
 	Aspect Ratios
 ========================================================================== */

@@ -1,11 +1,13 @@
 footer#master-footer {
 	position: relative;
 	bottom: 0;
-	text-align: center;
-
+	
 	display: flex;
 	flex-wrap: wrap;
-
+	margin-top: -1px;
+	
+	text-align: center;
+	
 	.to-top {
 		position: absolute;
 		z-index: 350;

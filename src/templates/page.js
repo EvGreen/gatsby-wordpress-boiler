@@ -10,7 +10,7 @@ import Footer from '../components/Footer'
 
 import Hero from "../components/Hero"
 import Content from "../components/Content"
-import Vimeo from "../components/Video/Vimeo"
+import Vimeo from "../components/Video/HTML"
 
 export default ({ data, pageContext }) => {
   const [headerBreakpointRef, headerBreakpointInView, headerBreakpointEntry] = useInView({ triggerOnce: false })
@@ -31,8 +31,7 @@ export default ({ data, pageContext }) => {
 
         <Content { ...data } />
 
-        <Vimeo file="countdown.mp4" />
-        <Vimeo file="rain.mp4" />
+        {/* <Vimeo file="/rain.mp4" /> */}
   
       </main>
 

@@ -9,7 +9,7 @@ html {
 	line-height: $flh;
 	font-style: normal;
 	color: $c0p;
-	word-wrap: break-word;
+	//word-wrap: break-word;
   
 	@media screen and (min-width: 1024px) {
 	  font-size: ($fs * 1.125px)
@@ -34,6 +34,8 @@ h3, .h3,
 h4, .h4,
 h5, .h5,
 h6, .h6  {
+	overflow: hidden;
+	text-overflow: ellipsis;
 	strong {
 		font-weight: $fwhs;
 	}
@@ -106,6 +108,10 @@ h6, .h6 {
 h1, .h1 {
 	font-size: 3em;
 	line-height: 1.2;
+
+	@media screen and (max-width: 767px) {
+		font-size: 2.5em;
+	}
 }
 
 h2, .h2 {

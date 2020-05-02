@@ -57,11 +57,20 @@ module.exports = {
         short_name: `CHANGEME`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#2b2e34`,
+        theme_color: `#ff1233`,
         // Enables 'Add to Homescreen' prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
         display: `standalone`,
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        // Setting a color is optional.
+        color: `#ff1233`,
+        // Disable the loading spinner.
+        showSpinner: false,
       },
     },
     `gatsby-plugin-offline`,

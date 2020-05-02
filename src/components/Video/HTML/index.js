@@ -47,20 +47,26 @@ function Vimeo(props) {
 
 	const [currentTime, setCurrentTime] = useState('00:00')
 	const [isPlaying, setIsPlaying] = useState(false)
+	const [isMuted, setIsMuted] = useState(true)
 
 	// Play when in view
 	useEffect(() => {
-		ioInView ? vplay() : vpause()
+		ioInView ? vPlay() : vPause()
 	},[ioInView])
 
 	// Play
-	function vplay() {
+	function vPlay() {
 		player.current.play()
 		setIsPlaying(true)
 	}
+	
+	// Mute / Unmute
+	function vMute() {
+		setIsMuted(!isMuted)
+	}
 
 	// Pause
-	function vpause() {
+	function vPause() {
 		player.current.pause()
 		setIsPlaying(false)
 	}
@@ -73,9 +79,9 @@ function Vimeo(props) {
 
 	return (
 		<div ref={io} className='video-vimeo-wrap'>
-			<button onClick={vplay}>play</button><button onClick={vpause}>pause</button>{currentTime} | {isPlaying ? 'playing' : 'not playing'}
-			<video ref={player} muted loop playsInline disablePictureInPicture>
-				<source src={`/${props.file}`} type="video/mp4" />
+			<button onClick={vPlay}>play</button><button onClick={vPause}>pause</button><button onClick={vMute}>sound is {isMuted ? 'off' : 'on'}</button>{currentTime} | {isPlaying ? 'playing' : 'not playing'}
+			<video ref={player} muted={isMuted ? 'true' : null} loop playsInline disablePictureInPicture allow="autoplay">
+				<source src={props.file} type="video/mp4" />
 			</video>
 		</div>
 	)

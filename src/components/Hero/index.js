@@ -2,8 +2,6 @@ import React, { useEffect } from 'react'
 import Img from 'gatsby-image'
 import anime from 'animejs'
 
-import Div100vh from 'react-div-100vh'
-
 //import PropTypes from 'prop-types'
 import './style.scss'
 
@@ -47,11 +45,11 @@ function Hero(props) {
 						<div className='bg-overlay-x'></div>
 					</div>
 					
-					<Div100vh style={{minHeight: '90rvh'}} className='hero-content'>
+					<div style={{minHeight: '90vh'}} className='hero-content'>
 						<div className="hero-content-animator" style={{opacity: 0}}>
 							<div className='hero-content-box' dangerouslySetInnerHTML={{__html: content}} />
 						</div>
-					</Div100vh>
+					</div>
 
 					<div className="element"></div>
 

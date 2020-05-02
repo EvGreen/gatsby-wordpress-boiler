@@ -19,6 +19,22 @@ export default function HTML(props) {
           This app requires JavaScript to be enabled.
         </noscript>
         <div
+          key={`loader`}
+          id="___loader"
+          style={{
+            alignItems: "center",
+            backgroundColor: "#F2F2F2",
+            display: "flex",
+            justifyContent: "center",
+            position: "absolute",
+            left: 0,
+            top: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 1,
+          }}
+        >.hello</div>
+        <div
           key={`body`}
           id='___gatsby'
           dangerouslySetInnerHTML={{ __html: props.body }}

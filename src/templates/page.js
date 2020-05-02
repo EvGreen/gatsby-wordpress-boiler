@@ -60,9 +60,9 @@ export const query = graphql`
             localFile {
               childImageSharp {
                 fluid (
-                  maxWidth: 3840,
-                  quality: 95,
-                  srcSetBreakpoints: [1600,1920,2560,3840]
+                  maxWidth: 1920,
+                  quality: 85,
+                  srcSetBreakpoints: [1656,1920,2560,3840]
                 ) {
                   ...GatsbyImageSharpFluid_withWebp_noBase64
                 }
@@ -79,8 +79,9 @@ export const query = graphql`
           localFile {
             childImageSharp {
               fluid (
-                maxWidth: 2048,
-                quality: 95,
+                maxWidth: 1280,
+                quality: 60,
+                srcSetBreakpoints: [720,1280,1920,2560]
               ) {
                 ...GatsbyImageSharpFluid_withWebp_noBase64
               }

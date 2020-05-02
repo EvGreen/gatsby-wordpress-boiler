@@ -18,6 +18,8 @@ function Footer(props) {
 				<Img fluid={image}
 					imgStyle={{objectFit: 'cover'}}
 					objectPosition='50% 50%'
+					loading='eager'
+					backgroundColor="#ccc"
 					fadeIn={true}
 				/>
 			: null }

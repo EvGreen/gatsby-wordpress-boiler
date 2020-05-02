@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Img from 'gatsby-image'
 import anime from 'animejs'
 
@@ -7,18 +7,12 @@ import './style.scss'
 
 import Details from './Details'
 
+
 function Hero(props) {
 	const image = props.image
 	const content = props.content
 
 	useEffect(() => {
-		anime({
-			targets: '.hero-content-animator',
-			opacity: [0,1],
-			translateY: [20,0],
-			duration: 1000,
-			easing: 'easeInOutSine'
-		})
 		anime({
 			targets: '.element',
 			translateX: ['-100%',0],
@@ -27,9 +21,10 @@ function Hero(props) {
 		})
 	},[])
 
+
+
 	return (
 		<>
-			
 				<section ref={props.heroRef} className='hero x0 t'>
 					
 					{ image ?
@@ -46,7 +41,7 @@ function Hero(props) {
 					</div>
 					
 					<div style={{minHeight: '90vh'}} className='hero-content'>
-						<div className="hero-content-animator" style={{opacity: 0}}>
+						<div data-splitting="lines" className="hero-content-animator">
 							<div className='hero-content-box' dangerouslySetInnerHTML={{__html: content}} />
 						</div>
 					</div>

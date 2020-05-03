@@ -69,6 +69,7 @@ br {
 
 .coming {
 	position: relative;
+	overflow: visible;
 
 	&:before {
 		content: '';
@@ -80,6 +81,23 @@ br {
 		border-top: 2px solid;
 		transform: translate3d(-50%,-50%,0);
 		opacity: .85;
+	}
+}
+
+.line {
+	display: block;
+	overflow: hidden;
+
+	.word {
+		display: inline-block;
+		animation: slide-up 1.25s cubic-bezier(.5,.2,0,1);
+		animation-fill-mode: both;
+		animation-delay: calc( .05s + (.3s * var(--line-index)) );
+		opacity: 1;
+		
+		@keyframes slide-up {
+			from { transform: translateY(125%); opacity: 0; }
+		}
 	}
 }
 

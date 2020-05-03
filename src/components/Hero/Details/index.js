@@ -7,12 +7,12 @@ import './style.scss'
 function Details(props) {
 	return (
 		<div as="section" className="hero-details c5" style={{minHeight: '10.1vh'}}>
-			<div className="news fs-85">
+			<div className="news fs-85" data-splitting="lines">
 				<div className="aside">
 					<h6><b>news:</b></h6>
 				</div>
 				<div className="content">
-					<p>v0.3.8 of gatsby-wordpress-boiler released on github (not rdy for primetime).</p>
+					<p>v0.3.10 of gatsby-wordpress-boiler released on github (not rdy for primetime).</p>
 				</div>
 			</div>
 			<div className="info fs-85 x1 clead">

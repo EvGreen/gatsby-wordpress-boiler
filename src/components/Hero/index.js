@@ -41,8 +41,8 @@ function Hero(props) {
 					</div>
 					
 					<div style={{minHeight: '90vh'}} className='hero-content'>
-						<div data-splitting="lines" className="hero-content-animator">
-							<div className='hero-content-box' dangerouslySetInnerHTML={{__html: content}} />
+						<div className="hero-content-animator">
+							<div data-splitting="lines" className='hero-content-box' dangerouslySetInnerHTML={{__html: content}} />
 						</div>
 					</div>
 

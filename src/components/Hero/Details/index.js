@@ -12,7 +12,7 @@ function Details(props) {
 					<h6><b>news:</b></h6>
 				</div>
 				<div className="content">
-					<p>v0.3.10 of gatsby-wordpress-boiler released on github (not rdy for primetime).</p>
+					<p>v0.3.13 of gatsby-wordpress-boiler released on github (not rdy for primetime).</p>
 				</div>
 			</div>
 			<div className="info fs-85 x1 clead">

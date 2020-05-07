@@ -1,0 +1,29 @@
+section.content {
+
+	.gatsby-image-wrapper {
+		position: absolute !important;
+		z-index: 10;
+		top: 0;
+		right: 0;
+		width: 33%;
+		height: 100%;
+	}
+	
+	.content-box.g67 {
+		flex: 0 0 67%;
+		position: relative;
+		z-index: 50;
+		display: block;
+		width: 100%;
+		padding: calc(3em + 3vw) calc(2em + 2vw) calc(3em + 3vw) calc(2em + 5vw);
+		//margin: calc(3em + 3vw) 0 0;
+	
+		@media screen and (max-width: 1024px) {
+			padding: calc(3em + 2vw) calc(1em + 1vw);
+		}
+
+		.content-holder {
+			max-width: 100%;
+		}
+	}
+}

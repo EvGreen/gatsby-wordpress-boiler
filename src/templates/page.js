@@ -10,6 +10,7 @@ import Footer from '../components/Footer'
 
 import Hero from "../components/Hero"
 import Content from "../components/Content"
+import ACFContentWithImage from "../components/Content/ACF/WithImage"
 import Vimeo from "../components/Video/HTML"
 
 export default ({ data, pageContext }) => {
@@ -18,6 +19,7 @@ export default ({ data, pageContext }) => {
   const heroContent = data.wordpressPage.acf.hero_page[0].content
   
   const footerImage = data.wordpressAcfOptions.options.footer_image.localFile.childImageSharp.fluid
+  
 
   return (
     <>
@@ -29,7 +31,13 @@ export default ({ data, pageContext }) => {
         
         <Hero heroRef={headerBreakpointRef} image={heroImage} content={heroContent} />
 
-        <Content { ...data } />
+        { data.wordpressPage.acf.sections_page ?
+          <ACFContentWithImage { ...data } />
+        : null }
+
+        { data.wordpressPage.content ?
+          <Content { ...data } />
+        : null }
 
         {/* <Vimeo file="/rain.mp4" /> */}
   
@@ -51,9 +59,6 @@ export const query = graphql`
         name
       }
       content
-      featured_media {
-        source_url
-      }
       acf {
         hero_page {
           img {
@@ -63,6 +68,22 @@ export const query = graphql`
                   maxWidth: 1920,
                   quality: 85,
                   srcSetBreakpoints: [1656,1920,2560,3840]
+                ) {
+                  ...GatsbyImageSharpFluid_withWebp_noBase64
+                }
+              }
+            }
+          }
+          content
+        }
+        sections_page {
+          img {
+            localFile {
+              childImageSharp {
+                fluid (
+                  maxWidth: 1280,
+                  quality: 70,
+                  srcSetBreakpoints: [960,1280,1920,2560]
                 ) {
                   ...GatsbyImageSharpFluid_withWebp_noBase64
                 }

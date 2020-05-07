@@ -7,7 +7,6 @@ import './style.scss'
 
 import Details from './Details'
 
-
 function Hero(props) {
 	const image = props.image
 	const content = props.content
@@ -16,12 +15,11 @@ function Hero(props) {
 		anime({
 			targets: '.element',
 			translateX: ['-100%',0],
-			duration: 300,
+			duration: 400,
+			delay: 300,
 			easing: 'easeInOutSine'
 		})
 	},[])
-
-
 
 	return (
 		<>

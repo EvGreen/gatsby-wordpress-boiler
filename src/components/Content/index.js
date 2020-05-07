@@ -11,9 +11,11 @@ function Content(props) {
   return (
 		<>
 			{ page.content ? 
-			<section ref={ref} className='content c0'>
+			<section className='content c0'>
 
-				<div className='content-box animated' style={{opacity: refInView ? 1 : 0, transform: refInView ? "translateY(0px)" : "translateY(10px)"}} dangerouslySetInnerHTML={{__html: page.content}} />
+				<div ref={ref} className='content-box'>
+					<div className='content-holder animated' style={{opacity: refInView ? 1 : 0}} dangerouslySetInnerHTML={{__html: page.content}} />
+				</div>
 
 			</section>
 			: null }

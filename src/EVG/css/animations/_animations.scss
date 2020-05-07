@@ -1,4 +1,32 @@
 /* ==========================================================================
+  Animation Helpers
+========================================================================== */
+
+// Animated general class for reveals of content
+.animated {
+	transition: all .8s cubic-bezier(.5,.08,.54,.9) .1s;
+	opacity: 0;
+}
+
+// Text line-by-line reveal
+.line {
+	display: block;
+	overflow: hidden;
+
+	.word {
+		display: inline-block;
+		animation: slide-up 1.25s cubic-bezier(.5,.2,0,1);
+		animation-fill-mode: both;
+		animation-delay: calc( .1s + (.3s * var(--line-index)) );
+		opacity: 1;
+		
+		@keyframes slide-up {
+			from { transform: translateY(125%); opacity: 0; }
+		}
+	}
+}
+
+/* ==========================================================================
   Spinner
 ========================================================================== */
 

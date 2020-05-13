@@ -24,6 +24,10 @@ $speed: 1800;
 	}
 }
 
+.glitch {
+	position: relative;
+}
+
 .glitchframe {
 	position: relative;
 	display: block;
@@ -38,7 +42,7 @@ $speed: 1800;
 	// animation-direction: alternate;
 }
 
-.glitch {
+.glitch.loader {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -61,6 +65,10 @@ $speed: 1800;
 }
 
 .cmyk-c {
+	position: absolute;
+	z-index: -1;
+	left: 0;
+	top: 0;
 	//background-color: #0ff;
 	color: #0ff;
 	animation-duration: ($speed * 0.000242 + s);
@@ -74,6 +82,10 @@ $speed: 1800;
 }
 
 .cmyk-m {
+	position: absolute;
+	z-index: -1;
+	left: 0;
+	top: 0;
 	//background-color: #f0f;
 	color: #f0f;
 	animation-duration: ($speed * 0.000271 + s);
@@ -87,6 +99,10 @@ $speed: 1800;
 }
 
 .cmyk-y {
+	position: absolute;
+	z-index: -1;
+	left: 0;
+	top: 0;
 	//background-color: #ff0;
 	color: #ff0;
 	
@@ -96,6 +112,10 @@ $speed: 1800;
 }
 
 .cmyk-k {
+	position: absolute;
+	z-index: -1;
+	left: 0;
+	top: 0;
 	//background-color: #ff0;
 	color: #000;
 }

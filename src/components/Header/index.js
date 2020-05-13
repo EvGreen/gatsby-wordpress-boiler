@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useContext, useEffect} from 'react'
 import './style.scss'
+import NaviContext from '../../context/NaviContext'
 
 import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,6 +9,8 @@ import { faTwitter, faInstagram, faGithub } from '@fortawesome/free-brands-svg-i
 import { useStaticQuery, graphql } from 'gatsby'
 
 function Header(props) {
+	const naviContext = useContext(NaviContext)
+
 	const data = useStaticQuery(graphql`
 	{
 		wordpressWpApiMenusMenusItems {
@@ -57,10 +60,11 @@ function Header(props) {
 	)
 	
   return (
-		<header id='master-header' className={`x0 t ${props.mutate ? 'mutate' : '' }`}>
+		<header id='master-header' className={`x0 t ${props.mutate ? 'mutate' : '' }`} onClick={() => naviContext.activeToggle(true)}>
 			<div className='logo x1 c5'>
 				<Link to='/'>
 					.logo
+					{naviContext.isActive ? 'true' : 'false'}
 				</Link>
 			</div>
 			<nav className='navi c0'>

@@ -12,17 +12,24 @@
 .line {
 	display: block;
 	overflow: hidden;
+}
 
-	.word {
-		display: inline-block;
-		animation: slide-up 1.25s cubic-bezier(.5,.2,0,1);
-		animation-fill-mode: both;
-		animation-delay: calc( .1s + (.3s * var(--line-index)) );
-		opacity: 1;
-		
-		@keyframes slide-up {
-			from { transform: translateY(125%); opacity: 0; }
-		}
+.word {
+	display: inline-block;
+	animation: slide-up 1.25s cubic-bezier(.5,.2,0,1);
+	animation-fill-mode: both;
+	animation-delay: calc( .15s + (.3s * var(--line-index)) );
+	opacity: 1;
+	text-decoration: inherit;
+	
+	@keyframes slide-up {
+		from { transform: translateY(125%); opacity: 0; }
+	}
+}
+
+.splitting {
+	h1,h2,h3,h4,h5,h6,p {
+		overflow: hidden;
 	}
 }
 

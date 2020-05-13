@@ -103,16 +103,16 @@
 	}
 
 	.element {
-		position: absolute;
-		z-index: 300;
-		left: 0;
-		bottom: 23%;
-		width: 21%;
-		height: calc(2em + 2%);
-		background: #ff1233;
-		mix-blend-mode: darken;
+		// position: absolute;
+		// z-index: 300;
+		// left: 0;
+		// bottom: -1px;
+		// width: 100%;
+		// height: calc(1em + 1vw);
+		// background: #ccc;
+		// mix-blend-mode: multiply;
 
 		//opacity: 0;
-		transform: translateX(-100%);
+		//transform: translateX(-100%);
 	}
 }

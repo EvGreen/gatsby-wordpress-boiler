@@ -14,7 +14,7 @@ function Hero(props) {
 	useEffect(() => {
 		anime({
 			targets: '.element',
-			translateX: ['-100%',0],
+			translateY: ['100%',0],
 			duration: 400,
 			delay: 300,
 			easing: 'easeInOutSine'
@@ -38,17 +38,15 @@ function Hero(props) {
 						<div className='bg-overlay-x'></div>
 					</div>
 					
-					<div style={{minHeight: '90vh'}} className='hero-content'>
+					<div style={{minHeight: '100vh'}} className='hero-content'>
 						<div className="hero-content-animator">
 							<div data-splitting="lines" className='hero-content-box' dangerouslySetInnerHTML={{__html: content}} />
 						</div>
 					</div>
 
-					<div className="element"></div>
+					<Details />
 
 				</section>
-
-				<Details />
 		</>
   )
 }

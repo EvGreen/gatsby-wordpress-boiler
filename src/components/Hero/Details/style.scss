@@ -1,13 +1,24 @@
 .hero-details {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 300;
 	display: flex;
+	width: 100%;
 
 	.news {
-		flex: 1 1 67vw;
+		flex: 0 1 67vw;
 		display: flex;
 		align-items: center;
-		align-self: center;
+		align-self: stretch;
 		justify-content: flex-start;
 		padding: 1em 2em;
+
+		.v-center {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+		}
 
 		.aside {
 			align-self: flex-start;

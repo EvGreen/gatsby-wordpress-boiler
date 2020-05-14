@@ -10,10 +10,10 @@ function getRandomInt(min, max) {
 }
 
 const starFall = item => {
-	var randomDurationIntro = getRandomInt(200,300)
-	var randomDurationOutro = getRandomInt(200,300)
-	var randomDelayIntro = getRandomInt(100,220)
-	var randomDelayOutro = getRandomInt(150,250)
+	var randomDurationIntro = getRandomInt(150,300)
+	var randomDurationOutro = getRandomInt(150,300)
+	var randomDelayIntro = getRandomInt(50,120)
+	var randomDelayOutro = getRandomInt(50,150)
 	anime.timeline({
 		targets: item,
 		opacity: [1,0.05],
@@ -37,26 +37,27 @@ const starFall = item => {
 function Starfall(props) {	
 
 	useEffect(() => {
-		setTimeout(() => {
-			const startrails = document.getElementsByClassName('startrail')
-			for (var i = 0; i < startrails.length; i++) {
-				starFall(startrails[i])
-			}
-		}, 1500);
+		const startrails = document.getElementsByClassName('startrail')
+		for (var i = 0; i < startrails.length; i++) {
+			starFall(startrails[i])
+		}
 	},[])
 
 	return (
 		<div className='starfall'>
-			<div className='star' style={{ top: '30%', left: '20%', width: '2px', height: '5em' }}>
+			<div className='star' style={{ top: '0', left: '0%', width: '3px', height: '1em' }}>
 				<div className='startrail' style={{ opacity: 0 }}></div>
 			</div>
-			<div className='star' style={{ top: '40%', left: '40%', width: '2px', height: '7em' }}>
+			<div className='star' style={{ top: '0', left: '25%', width: '3px', height: '1.75em' }}>
 				<div className='startrail' style={{ opacity: 0 }}></div>
 			</div>
-			<div className='star' style={{ top: '50%', left: '60%', width: '2px', height: '8em' }}>
+			<div className='star' style={{ top: '18px', left: '50%', width: '3px', height: '1.5em' }}>
 				<div className='startrail' style={{ opacity: 0 }}></div>
 			</div>
-			<div className='star' style={{ top: '35%', left: '80%', width: '2px', height: '4em' }}>
+			<div className='star' style={{ top: '0', left: '75%', width: '3px', height: '1.75em' }}>
+				<div className='startrail' style={{ opacity: 0 }}></div>
+			</div>
+			<div className='star' style={{ top: '0', left: '100%', width: '3px', height: '1.25em' }}>
 				<div className='startrail' style={{ opacity: 0 }}></div>
 			</div>
 		</div>

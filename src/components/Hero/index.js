@@ -38,7 +38,7 @@ function Hero(props) {
 						<div className='bg-overlay-x'></div>
 					</div>
 					
-					<div style={{minHeight: '100vh'}} className='hero-content'>
+					<div style={{minHeight: '100.1vh'}} className='hero-content'>
 						<div className="hero-content-animator">
 							<div data-splitting="lines" className='hero-content-box' dangerouslySetInnerHTML={{__html: content}} />
 						</div>

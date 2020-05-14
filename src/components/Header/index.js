@@ -8,6 +8,8 @@ import { faTwitter, faInstagram, faGithub } from '@fortawesome/free-brands-svg-i
 
 import { useStaticQuery, graphql } from 'gatsby'
 
+import Hamburger from './Hamburger'
+
 function Header(props) {
 	const naviContext = useContext(NaviContext)
 
@@ -60,11 +62,12 @@ function Header(props) {
 	)
 	
   return (
-		<header id='master-header' className={`x0 t ${props.mutate ? 'mutate' : '' }`} onClick={() => naviContext.activeToggle(true)}>
+		<>
+		<Hamburger />
+		<header id='master-header' className={`x0 t ${props.mutate ? 'mutate' : '' }`}>
 			<div className='logo x1 c5'>
 				<Link to='/'>
 					.logo
-					{naviContext.isActive ? 'true' : 'false'}
 				</Link>
 			</div>
 			<nav className='navi c0'>
@@ -101,6 +104,7 @@ function Header(props) {
 			</nav>
 
 		</header>
+		</>
   )
 }
 

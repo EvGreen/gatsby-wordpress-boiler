@@ -102,6 +102,8 @@ $bounce: cubic-bezier(.87,-.50,.19,1.50);
 }
 
 .hamburger.hamburger--close1.open {
+	transform: translateX(-.5em);
+	
 	.hamburger__line--1 {
 		transform: translate3d(0, $to-translate, 0) rotate(135deg);
 	}

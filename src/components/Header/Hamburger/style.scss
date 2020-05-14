@@ -18,7 +18,7 @@ $bounce: cubic-bezier(.87,-.50,.19,1.50);
 	z-index: 502;
 	overflow: visible;
 
-	transition: left .5s ease-in-out;
+	//transition: left .5s ease-in-out;
 
 	@media screen and (max-width:768px) {
 
@@ -51,6 +51,7 @@ $bounce: cubic-bezier(.87,-.50,.19,1.50);
 	cursor: pointer;
 	margin: 0;
 	overflow: hidden;
+	transition: all .25s ease-in-out;
 
 	&__icon {
 		position: absolute;
@@ -103,7 +104,7 @@ $bounce: cubic-bezier(.87,-.50,.19,1.50);
 
 .hamburger.hamburger--close1.open {
 	transform: translateX(-.5em);
-	
+
 	.hamburger__line--1 {
 		transform: translate3d(0, $to-translate, 0) rotate(135deg);
 	}

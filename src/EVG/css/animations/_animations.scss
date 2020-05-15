@@ -16,44 +16,16 @@
 
 .word {
 	display: inline-block;
-	animation: slide-up 1.25s cubic-bezier(.5,.2,0,1);
+	animation: slide-up 1.25s cubic-bezier(0.17, 0.04, 0.03, 1);
 	animation-fill-mode: both;
-	animation-delay: calc( .15s + (.3s * var(--line-index)) );
-	opacity: 1;
+	animation-delay: calc( .15s + (.4s * var(--line-index)) );
+	opacity: 0;
 	text-decoration: inherit;
 }
 	
 @keyframes slide-up {
-	from { transform: translateY(125%); opacity: 0; }
-	to { transfomr: translateY(0%); opacity: 1; }
-}
-
-.splitting {
-	h1,h2,h3,h4,h5,h6,p {
-		overflow: hidden;
-	}
-}
-
-
-.muhlines {
-	position: relative;
-	display: flex;
-	flex: 0 0 auto;
-	align-items: flex-start;
-	justify-content: flex-start;
-	overflow: hidden;
-}
-.text-line {
-	position: relative;
-	display: flex;
-	flex: 0 0 auto;
-	align-items: flex-start;
-	justify-content: flex-start;
-	table-layout: fixed;
-	opacity: 0;
-
-	//transition: all .1s linear;
-	transform: translate3d(0,100%,0);
+	from { transform: translateY(.5em); opacity: 0; }
+	to { transfomr: translateY(0); opacity: 1; }
 }
 
 /* ==========================================================================

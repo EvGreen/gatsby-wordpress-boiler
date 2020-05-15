@@ -4,7 +4,7 @@ import Layout from "./src/components/layout"
 
 import { NaviContextProvider } from './src/context/NaviContext'
 
-import { TweenMax, SplitText, TimelineMax } from "gsap/all"
+import { SplitText, TimelineMax } from "gsap/all"
 
 // Splitting text lines for animation
 import Splitting from 'splitting'
@@ -31,52 +31,58 @@ export const onRouteUpdate = () => {
 
 
   // Elements that are direct children of splittext-lines class
-  const lines = document.querySelectorAll('.splittext-lines > *')
+  const lines = document.querySelectorAll('.splittext-lines')
   
-  // Wrap them once as per normal
-  const linesSplittext = new SplitText(lines, {
-    type: "lines",
-    linesClass: "text-line"
-  })
-  let linesToAnimate = linesSplittext.lines
-
-  // Wrap them again to prep for animation (overflow hidden)
-  const linesSplittextOverflow = new SplitText(lines, {
-    type: "lines",
-    linesClass: "muhlines line-++"
-  })
-
-  // Set threshold for
-  const config = {
-    threshold: 0 // 0% of the element is visible
-  }
-
-  // Start GSAP timeline
-  const tl = new TimelineMax()
+  Splitting({
+    target: lines,
+    by: 'lines',
+    key: null
+  });
   
-  // Set up observer
-  let observer = new IntersectionObserver(function(entries, self) {
-    entries.forEach(entry => {
-      console.log(entry.isIntersecting)
-      if (entry.isIntersecting) {
-        // If it's consecutive, cut next animation delay by overlap
-        let overlap = '-=0.8'
+  // // Wrap them once as per normal
+  // const linesSplittext = new SplitText(lines, {
+  //   type: "lines",
+  //   linesClass: "text-line"
+  // })
+  // let linesToAnimate = linesSplittext.lines
+
+  // // Wrap them again to prep for animation (overflow hidden)
+  // const linesSplittextOverflow = new SplitText(lines, {
+  //   type: "lines",
+  //   linesClass: "muhlines line-++"
+  // })
+
+  // // Set threshold for
+  // const config = {
+  //   threshold: 0 // 0% of the element is visible
+  // }
+
+  // // Start GSAP timeline
+  // const tl = new TimelineMax()
+  
+  // // Set up observer
+  // let observer = new IntersectionObserver(function(entries, self) {
+  //   entries.forEach(entry => {
+  //     if (entry.isIntersecting) {
+
+  //       // If it's consecutive, cut next animation delay by overlap
+  //       let overlap = '-=0.8'
         
-        // If it's a new - don't
-        if (!tl.isActive()) {
-          overlap = '+=0'
-        }
+  //       // If it's a new - don't
+  //       if (!tl.isActive()) {
+  //         overlap = '+=0'
+  //       }
         
-        tl.to(entry.target, 1, {x: 0, y: 0, autoAlpha: 1, ease: "power3.inOut"}, overlap)
-        self.unobserve(entry.target)
-      }
-    })
-  }, config)
+  //       tl.to(entry.target, 1, {x: 0, y: 0, autoAlpha: 1, ease: "power3.inOut"}, overlap)
+  //       self.unobserve(entry.target)
+  //     }
+  //   })
+  // }, config)
   
-  // Set up observers on all of the items
-  linesToAnimate.forEach(box => {
-    observer.observe(box)
-  })
+  // // Set up observers on all of the items
+  // lines.forEach(box => {
+  //   observer.observe(box)
+  // })
 
 }
 

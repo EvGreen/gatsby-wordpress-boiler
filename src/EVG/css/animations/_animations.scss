@@ -21,16 +21,39 @@
 	animation-delay: calc( .15s + (.3s * var(--line-index)) );
 	opacity: 1;
 	text-decoration: inherit;
+}
 	
-	@keyframes slide-up {
-		from { transform: translateY(125%); opacity: 0; }
-	}
+@keyframes slide-up {
+	from { transform: translateY(125%); opacity: 0; }
+	to { transfomr: translateY(0%); opacity: 1; }
 }
 
 .splitting {
 	h1,h2,h3,h4,h5,h6,p {
 		overflow: hidden;
 	}
+}
+
+
+.muhlines {
+	position: relative;
+	display: flex;
+	flex: 0 0 auto;
+	align-items: flex-start;
+	justify-content: flex-start;
+	overflow: hidden;
+}
+.text-line {
+	position: relative;
+	display: flex;
+	flex: 0 0 auto;
+	align-items: flex-start;
+	justify-content: flex-start;
+	table-layout: fixed;
+	opacity: 0;
+
+	//transition: all .1s linear;
+	transform: translate3d(0,100%,0);
 }
 
 /* ==========================================================================

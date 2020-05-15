@@ -4,6 +4,8 @@ import Layout from "./src/components/layout"
 
 import { NaviContextProvider } from './src/context/NaviContext'
 
+import { TweenMax, SplitText, TimelineMax } from "gsap/all"
+
 // Splitting text lines for animation
 import Splitting from 'splitting'
 
@@ -27,30 +29,55 @@ export const onRouteUpdate = () => {
   const isInview = document.querySelectorAll('.is-inview')
   const nodes = [...isInview]
 
-  // Run Splitting, awaits data-splitting="" chars/words/lines
-  const res = Splitting()
-  // res.forEach((splitResult) => {
 
-  //   const wrappedLines = splitResult.lines.map((line) => {
-  //     // Line is array of word objects, getting first word
-  //     const firstWordInLine = line[0]
-  //     // Allows for reading it's parent
-  //     const parentElement = firstWordInLine.parentNode
-  //     // Create line wrapper element
-  //     let newLine = document.createElement('span')
-  //     // Give it line class
-  //     newLine.className = 'line'
-  //     // Put the words in the line element
-  //     newLine.innerHTML = `${line.map((word) => `${word.outerHTML}<span class="whitespace"> </span>`).join('')}`
-  //     // Clear old words
-  //     line.map((word) => {
-  //       parentElement.removeChild(word)
-  //     })
-  //     // Append new lines
-  //     parentElement.appendChild(newLine)
-  //   })
+  // Elements that are direct children of splittext-lines class
+  const lines = document.querySelectorAll('.splittext-lines > *')
+  
+  // Wrap them once as per normal
+  const linesSplittext = new SplitText(lines, {
+    type: "lines",
+    linesClass: "text-line"
+  })
+  let linesToAnimate = linesSplittext.lines
 
-  // })
+  // Wrap them again to prep for animation (overflow hidden)
+  const linesSplittextOverflow = new SplitText(lines, {
+    type: "lines",
+    linesClass: "muhlines line-++"
+  })
+
+  // Set threshold for
+  const config = {
+    threshold: 0 // 0% of the element is visible
+  }
+
+  // Start GSAP timeline
+  const tl = new TimelineMax()
+  
+  // Set up observer
+  let observer = new IntersectionObserver(function(entries, self) {
+    entries.forEach(entry => {
+      console.log(entry.isIntersecting)
+      if (entry.isIntersecting) {
+        // If it's consecutive, cut next animation delay by overlap
+        let overlap = '-=0.8'
+        
+        // If it's a new - don't
+        if (!tl.isActive()) {
+          overlap = '+=0'
+        }
+        
+        tl.to(entry.target, 1, {x: 0, y: 0, autoAlpha: 1, ease: "power3.inOut"}, overlap)
+        self.unobserve(entry.target)
+      }
+    })
+  }, config)
+  
+  // Set up observers on all of the items
+  linesToAnimate.forEach(box => {
+    observer.observe(box)
+  })
+
 }
 
 export const onInitialClientRender = () => {

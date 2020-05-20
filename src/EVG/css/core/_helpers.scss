@@ -10,6 +10,16 @@ html {
 	overflow-x: hidden;
 }
 
+#observer-target {
+	position: absolute;
+	z-index: -1;
+	top: 150vh;
+	left: 0;
+	width: 5px;
+	height: calc(100% - 150vh);
+	// This 150vh means the target will come in view at 150 viewport height and start monitoring it from there, leaves some space before it starts spamming with direction output
+}
+
 img {
 	max-width: 100%;
 }

@@ -2,20 +2,18 @@
   Hamburger
 ========================================================================== */
 
-$size: 40px;
+$size: 4.25em;
 $height: 21px;
-$width: 40px;
+$width: 36px;
 $line-size: 4px;
-$line-color: #1d1f20;
-$line-radius: $line-size;
+$line-color: #f8f8f8;
+$line-radius: 1px;
 $to-translate: ($height - $line-size) / 2;
 $bounce: cubic-bezier(.87,-.50,.19,1.50);
 
-#main-hamburger {
-	position: fixed;
-	top: 1em;
-	left: 1.5em;
+#master-hamburger {
 	z-index: 502;
+	display: flex;
 	overflow: visible;
 
 	//transition: left .5s ease-in-out;
@@ -26,6 +24,12 @@ $bounce: cubic-bezier(.87,-.50,.19,1.50);
 
 	@media screen and (min-width:1024px) {
 		//display: none;
+	}
+
+	.hamburger-container {
+		position: relative;
+		top: 0;
+		left: 0;
 	}
 
 	.starfall-wrap {
@@ -47,11 +51,11 @@ $bounce: cubic-bezier(.87,-.50,.19,1.50);
 	position: relative;
 	height: $size;
 	width: $size;
-	background-color: transparent;
+	//background-color: transparent;
 	cursor: pointer;
 	margin: 0;
 	overflow: hidden;
-	transition: all .25s ease-in-out;
+	transition: all .1s ease-in-out;
 
 	&__icon {
 		position: absolute;
@@ -103,7 +107,7 @@ $bounce: cubic-bezier(.87,-.50,.19,1.50);
 }
 
 .hamburger.hamburger--close1.open {
-	transform: translateX(-.5em);
+	//transform: translateX(-.25em);
 
 	.hamburger__line--1 {
 		transform: translate3d(0, $to-translate, 0) rotate(135deg);

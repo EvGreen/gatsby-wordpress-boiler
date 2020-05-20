@@ -51,7 +51,7 @@ function Starfall(props) {
 			<div className='star' style={{ top: '0', left: '25%', width: '3px', height: '1.75em' }}>
 				<div className='startrail' style={{ opacity: 0 }}></div>
 			</div>
-			<div className='star' style={{ top: '18px', left: '50%', width: '3px', height: '1.5em' }}>
+			<div className='star' style={{ top: '17px', left: '50%', width: '3px', height: '1.5em' }}>
 				<div className='startrail' style={{ opacity: 0 }}></div>
 			</div>
 			<div className='star' style={{ top: '0', left: '75%', width: '3px', height: '1.75em' }}>

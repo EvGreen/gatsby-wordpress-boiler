@@ -13,7 +13,8 @@ function Hamburger(props) {
 			{ !naviContext.isActive ?
 				<Logo />
 			: null }
-			{naviContext.pastHeaderBreakpoint ? 'fold' : 'expand'}
+			{naviContext.pastHeaderBreakpoint ? 'past breakpoint' : 'before breakpoint'}
+			{naviContext.scrollingDirectionIsUp ? ' scrolling up' : ' scrolling down'}
 			<div className={naviContext.isActive ? 'hamburger-container hamburger hamburger--close1 open' : 'hamburger-container hamburger hamburger--close1'}>
 				<div className="hamburger__icon">
 					<div className="hamburger__line hamburger__line--1"></div>

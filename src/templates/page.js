@@ -1,8 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import { useInView } from 'react-intersection-observer'
-
 import SEO from "../components/seo"
 
 import Header from '../components/Header'
@@ -14,7 +12,6 @@ import ACFContentWithImage from "../components/Content/ACF/WithImage"
 import Vimeo from "../components/Video/HTML"
 
 export default ({ data, pageContext }) => {
-  const [headerBreakpointRef, headerBreakpointInView, headerBreakpointEntry] = useInView({ triggerOnce: false })
   const heroImage = data.wordpressPage.acf.hero_page[0].img.localFile.childImageSharp.fluid
   const heroContent = data.wordpressPage.acf.hero_page[0].content
   
@@ -23,13 +20,16 @@ export default ({ data, pageContext }) => {
 
   return (
     <>
-      <Header mutate={headerBreakpointEntry ? !headerBreakpointInView : null} />
+      <Header />
 
       <main className={`c0 main-${pageContext.slug === "/" ? "frontpage" : pageContext.slug}`}>
 
         <SEO title="Home" description="Description" />
         
-        <Hero heroRef={headerBreakpointRef} image={heroImage} content={heroContent} />
+        <Hero image={heroImage} content={heroContent} />
+
+			  {/* Point of reference for past hero observer threashold, so we can calculate if the user is past hero or not */}
+			  <div id="header-fold-breakpoint"></div>
 
         { data.wordpressPage.acf.sections_page ?
           <ACFContentWithImage { ...data } />

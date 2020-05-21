@@ -22,32 +22,30 @@ function Hero(props) {
 	},[])
 
 	return (
-		<>
-				<section ref={props.heroRef} className='hero x0 t'>
-					
-					{ image ?
-						<Img fluid={image}
-							imgStyle={{objectFit: 'cover'}}
-							objectPosition='50% 50%'
-							loading='eager'
-							fadeIn={true}
-						/>
-					: null }
+		<section id="master-hero" className='hero x0 t'>
+			
+			{ image ?
+				<Img fluid={image}
+					imgStyle={{objectFit: 'cover'}}
+					objectPosition='50% 50%'
+					loading='eager'
+					fadeIn={true}
+				/>
+			: null }
 
-					<div className='bg-overlay'>
-						<div className='bg-overlay-x'></div>
-					</div>
-					
-					<div style={{minHeight: '100.1vh'}} className='hero-content'>
-						<div className="hero-content-animator">
-							<div className='hero-content-box splittext-lines' dangerouslySetInnerHTML={{__html: content}} />
-						</div>
-					</div>
+			<div className='bg-overlay'>
+				<div className='bg-overlay-x'></div>
+			</div>
+			
+			<div style={{minHeight: '100.1vh'}} className='hero-content'>
+				<div className="hero-content-animator">
+					<div className='hero-content-box splittext-lines' dangerouslySetInnerHTML={{__html: content}} />
+				</div>
+			</div>
 
-					<Details />
+			<Details />
 
-				</section>
-		</>
+		</section>
   )
 }
 

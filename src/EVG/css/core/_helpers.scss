@@ -10,13 +10,14 @@ html {
 	overflow-x: hidden;
 }
 
-#observer-target {
-	position: absolute;
+#header-fold-breakpoint {
+	position: relative;
+	top: -1vw;
+	top: -1vh;
 	z-index: -1;
-	top: 150vh;
-	left: 0;
-	width: 5px;
-	height: calc(100% - 150vh);
+	width: 0;
+	height: 0;
+	visibility: hidden;
 	// This 150vh means the target will come in view at 150 viewport height and start monitoring it from there, leaves some space before it starts spamming with direction output
 }
 

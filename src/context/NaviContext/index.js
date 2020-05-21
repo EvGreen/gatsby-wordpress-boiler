@@ -1,4 +1,5 @@
 import React, {useState, createContext, useEffect} from 'react'
+import { throttle } from 'lodash'
 
 const NaviContext = createContext(false)
 
@@ -7,47 +8,36 @@ function NaviContextProvider(props) {
   const [isActive, setActive] = useState(false)
   // State for scrolling direction
   const [scrollingDirectionUp, setScrollingDirectionUp] = useState(null)
+  // State for detecting if we're past hero
+  const [pastHeaderBreakpoint, setPastHeaderBreakpoint] = useState(null)
   
-  // This one is for telling if user is scrolling up or down, will come to play when showing/hiding navi
+  // This one is for telling if user is scrolling past or before hero, this will come in handy when showing/hiding navi
   useEffect(() => {
 
-    // Set threshold array to not type them all out, also allow gradual changes in density
-    const thresholdArray = steps => Array(steps + 1)
-        .fill(0)
-        .map((_, index) => index / steps || 0)
-    
-    // Config for IntersectionObserver
-    const config = {
-      threshold: thresholdArray(50)
-    }
-
-    // Absolutely positioned div in layout.js that has height of whole document height minus 150% of viewport (editable in EVG/css/core/_helpers.scss)
-    const observer_target = document.getElementById('observer-target')
-
-    let lastPosition = 0
+    // Div in layout.js that marks end of hero element
+    const observer_target = document.getElementById('header-fold-breakpoint')
 
     // Set up what the observer will be doing
-    let observer = new IntersectionObserver(function(entries, self) {
+    let observer = new IntersectionObserver(function(entries) {
       entries.forEach(entry => {
-        const currentPosition = entry.intersectionRatio
-        if(currentPosition < lastPosition) {
-          setScrollingDirectionUp(true)
+        if(entry.isIntersecting) {
+          setPastHeaderBreakpoint(false)
         } else {
-          setScrollingDirectionUp(false)
+          setPastHeaderBreakpoint(true)
         }
-        lastPosition = currentPosition
       })
-    }, config)
+    })
     
     // Initialize observer on the target
     observer.observe(observer_target)
-    
+
   }, [])
 
 	return (
 		<NaviContext.Provider value={{
       isActive,
       activeToggle: () => setActive(!isActive),
+      pastHeaderBreakpoint,
       scrollingDirectionUp
     }}>
       {props.children}

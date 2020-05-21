@@ -20,9 +20,6 @@ function Layout({ children, location }) {
 			<Helmet>
 				<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
       </Helmet>
-
-			{/* Point of reference for observer threashold, so we can calculate if the user is scrolling up or down */}
-			<div id="observer-target"></div>
 			
 			<ParallaxProvider>
 				{children}

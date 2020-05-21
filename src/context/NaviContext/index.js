@@ -3,7 +3,7 @@ import { throttle } from 'lodash'
 
 const NaviContext = createContext(false)
 
-function NaviContextProvider(props) {
+function NaviContextProvider({children, location}) {
   // State for telling if the navi is expanded or not
   const [isActive, setActive] = useState(false)
   // State for scrolling direction
@@ -13,7 +13,6 @@ function NaviContextProvider(props) {
   
   // This one is for telling if user is scrolling past or before hero, this will come in handy when showing/hiding navi
   useEffect(() => {
-
     // Div in layout.js that marks end of hero element
     const observer_target = document.getElementById('header-fold-breakpoint')
 
@@ -31,7 +30,11 @@ function NaviContextProvider(props) {
     // Initialize observer on the target
     observer.observe(observer_target)
 
-  }, [])
+    return () => {
+      observer.unobserve(observer_target)
+    }
+
+  },[location])
 
 	return (
 		<NaviContext.Provider value={{
@@ -40,7 +43,7 @@ function NaviContextProvider(props) {
       pastHeaderBreakpoint,
       scrollingDirectionUp
     }}>
-      {props.children}
+      {children}
     </NaviContext.Provider>
 	)
 }

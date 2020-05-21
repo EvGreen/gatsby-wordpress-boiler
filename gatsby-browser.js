@@ -12,14 +12,14 @@ import Splitting from 'splitting'
 //const transitionDelay = 200;
 
 // Contexts
-export const wrapRootElement = ({ element }) => (
-  <NaviContextProvider>{element}</NaviContextProvider>
-)
+// export const wrapPageElement = ({ element }) => (
+//   <NaviContextProvider>{element}</NaviContextProvider>
+// )
 
 // Layout
 export const wrapPageElement = ({ element, props }) => {
   return (
-    <Layout {...props}>{element}</Layout>
+    <NaviContextProvider {...props}><Layout {...props}>{element}</Layout></NaviContextProvider>
   )
 }
 

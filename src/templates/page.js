@@ -9,14 +9,13 @@ import Footer from '../components/Footer'
 import Hero from "../components/Hero"
 import Content from "../components/Content"
 import ACFContentWithImage from "../components/Content/ACF/WithImage"
-import Vimeo from "../components/Video/HTML"
+import Video from "../components/Video/HTML"
 
 export default ({ data, pageContext }) => {
   const heroImage = data.wordpressPage.acf.hero_page[0].img.localFile.childImageSharp.fluid
   const heroContent = data.wordpressPage.acf.hero_page[0].content
   
   const footerImage = data.wordpressAcfOptions.options.footer_image.localFile.childImageSharp.fluid
-  
 
   return (
     <>
@@ -39,7 +38,7 @@ export default ({ data, pageContext }) => {
           <Content { ...data } />
         : null }
 
-        {/* <Vimeo file="/rain.mp4" /> */}
+        {/* <Video file="/rain.mp4" /> */}
   
       </main>
 

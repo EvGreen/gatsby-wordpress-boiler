@@ -13,7 +13,7 @@ if (typeof window !== 'undefined') {
 	})
 }
 
-function Layout({ children, location }) {
+function Layout({ children }) {
   return (
   	<>
 

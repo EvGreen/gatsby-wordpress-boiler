@@ -37,7 +37,18 @@ module.exports = {
         searchAndReplaceContentUrls: {
           sourceUrl: 'https://design-sentry.com/',
           replacementUrl: '/',
-        }
+        },
+        excludedRoutes: [
+          '**/categories', //skipping for now to speed up build process
+          '**/tags', //skipping for now to speed up build process
+          '**/taxonomies', //skipping for now to speed up build process
+          '**/themes', //skipping for good
+          '**/settings', //skipping for now to speed up build process
+          '**/users/me', //skipping for good
+          '**/contact-forms', //skipping for good
+          '/yoast/**', //skipping for now to speed up build process
+          '/*/*/comments' //skipping for now to speed up build process
+        ],
       },
     },
     `gatsby-transformer-sharp`,

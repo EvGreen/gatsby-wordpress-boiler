@@ -14,7 +14,7 @@ function Content(props) {
 			<section className='content c0'>
 
 				<div ref={ref} className='content-box'>
-					<div className='content-holder animated' style={{opacity: refInView ? 1 : 0}} dangerouslySetInnerHTML={{__html: page.content}} />
+					<div className='content-holder limit-width animated' style={{opacity: refInView ? 1 : 0}} dangerouslySetInnerHTML={{__html: page.content}} />
 				</div>
 
 			</section>

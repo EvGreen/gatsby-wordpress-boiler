@@ -5,6 +5,7 @@ section.content {
 	.content-box {
 		display: block;
 		width: 100%;
+		height: auto;
 		padding: calc(3em + 3vw) calc(2em + 2vw);
 	
 		@media screen and (max-width: 1024px) {
@@ -15,7 +16,10 @@ section.content {
 	.content-holder {
 		display: block;
 		width: 100%;
-		max-width: 42em;
 		margin: 0 auto;
+
+		&.limit-width {
+			max-width: 42em;
+		}
 	}
 }

@@ -2,44 +2,10 @@
   Grid
 ========================================================================== */
 
-.g100vw {
-	flex: 0 0 100vw;
-}
-
-.g83vw {
-	flex: 0 0 73vw;
-}
-
-.g67vw {
-	flex: 0 0 67vw;
-}
-
-.g50vw {
-	flex: 1 1 50vw;
-}
-
-.g33vw {
-	flex: 0 0 33vw;
-}
-
-.g25vw {
-	flex: 0 0 25vw;
-}
-
-.g17vw {
-	flex: 0 0 17vw;
-}
-
-@media screen and (max-width: 1024px) {
-	.g100vw,
-	.g83vw,
-	.g67vw,
-	.g50vw,
-	.g33vw,
-	.g25vw,
-	.g17vw {
-		flex: 0 0 100%;
-	}
+.grid-12 {
+	display: grid !important;
+	width: 100%;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 /* ==========================================================================

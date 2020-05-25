@@ -14,7 +14,7 @@ function Content(props) {
   return (
 		<>
 			{ content ? 
-			<section className='content c1'>
+			<section className='content c1 grid-12'>
 
 				{ image ?
 					<Img fluid={image}
@@ -23,7 +23,7 @@ function Content(props) {
 					/>
 				: null }
 
-				<div ref={ref} className='content-box c0 g67'>
+				<div ref={ref} className='content-box c0'>
 					<div className='content-holder animated' style={{opacity: refInView ? 1 : 0}} dangerouslySetInnerHTML={{__html: content}} />
 				</div>
 

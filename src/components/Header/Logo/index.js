@@ -6,7 +6,7 @@ function Logo(props) {
 	const naviContext = useContext(NaviContext)
 
   return (
-		<div id="master-logo" className='logo x1 c5'>
+		<div id="master-logo" className='logo'>
 			.logo
 		</div>
   )

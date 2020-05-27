@@ -76,9 +76,9 @@
 			padding: 3em 2em;
 		}
 
-		.hero-content-box {
-			//display: table;
-		}
+		// .hero-content-box {
+		// 	display: table;
+		// }
 	}
 
 	&.slim {
@@ -102,18 +102,17 @@
 		height: 5em;
 	}
 
-	.element {
-		// position: absolute;
-		// z-index: 300;
-		// left: 0;
-		// bottom: -1px;
-		// width: 100%;
-		// height: calc(1em + 1vw);
-		// background: #ccc;
-		// mix-blend-mode: multiply;
+	// .element {
+	// 	position: absolute;
+	// 	z-index: 300;
+	// 	left: 0;
+	// 	bottom: -1px;
+	// 	width: 100%;
+	// 	height: calc(1em + 1vw);
+	// 	background: #ccc;
+	// 	mix-blend-mode: multiply;
 
-		//opacity: 0;
-		//transform: translateX(-100%);
-	}
-
+	// 	opacity: 0;
+	// 	transform: translateX(-100%);
+	// }
 }

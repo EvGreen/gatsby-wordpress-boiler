@@ -9,10 +9,13 @@ import SocialIcons from '../SocialIcons'
 function Header(props) {
 	const naviContext = useContext(NaviContext)
 
+
   return (
-		<header id='master-header' className={`x0 t ${props.mutate ? 'mutate' : '' }`}>
+		<header id='master-header' className={'x0 t'}>
 			<Hamburger />
 
+			{/* {naviContext.beforeHeaderBreakpoint ? 'true' :	
+			naviContext.scrollingDirectionIsDown ? 'false' : 'true'} */}
 			{ naviContext.isActive ?
 				<>
 					<Navi />

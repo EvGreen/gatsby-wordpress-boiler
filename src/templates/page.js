@@ -3,7 +3,6 @@ import { graphql } from "gatsby"
 
 import SEO from "../components/seo"
 
-import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 import Hero from "../components/Hero"
@@ -19,8 +18,6 @@ export default ({ data, pageContext }) => {
 
   return (
     <>
-      <Header />
-
       <main className={`c0 main-${pageContext.slug === "/" ? "frontpage" : pageContext.slug}`}>
 
         <SEO title="Home" description="Description" />

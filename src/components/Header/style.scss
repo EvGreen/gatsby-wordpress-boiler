@@ -4,10 +4,15 @@ header#master-header {
 	top: 0;
 	left: 0;
 	display: flex;
-	align-items: center;
+	align-items: stretch;
 	//justify-content: space-between;
 	width: 100%;
 	max-width: 100%;
 	height: auto;
 	//padding: .25em 1em;
+
+	.navi-animator {
+		display: flex;
+		align-items: stretch;
+	}
 }

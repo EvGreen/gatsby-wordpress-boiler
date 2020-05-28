@@ -1,6 +1,8 @@
 import React from 'react'
 import '../EVG/css/_core.scss';
 
+import Header from './Header'
+
 import { Helmet } from 'react-helmet'
 import { ParallaxProvider } from 'react-scroll-parallax'
 
@@ -20,6 +22,8 @@ function Layout({ children }) {
 			<Helmet>
 				<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
       </Helmet>
+
+			<Header />
 			
 			<ParallaxProvider>
 				{children}

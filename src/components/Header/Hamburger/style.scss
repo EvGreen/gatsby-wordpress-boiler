@@ -12,6 +12,7 @@ $to-translate: ($height - $line-size) / 2;
 $bounce: cubic-bezier(.87,-.50,.19,1.50);
 
 #master-hamburger {
+	position: relative;
 	z-index: 502;
 	display: flex;
 	overflow: visible;
@@ -30,7 +31,7 @@ $bounce: cubic-bezier(.87,-.50,.19,1.50);
 	.hamburger-container {
 		position: relative;
 		top: 0;
-		left: 0;
+		right: 0;
 	}
 
 	.starfall-wrap {
@@ -42,6 +43,15 @@ $bounce: cubic-bezier(.87,-.50,.19,1.50);
 		transform: translate3d(-50%,0,0) rotate(225deg);
 		transform-origin: top center;
 	}
+}
+
+#master-hamburger-positioner {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	transform: translate3d(0,-50%,0);
+}
+#master-hamburger-container {
 }
 
 #master-header-hamburger.hidden {

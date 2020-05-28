@@ -9,7 +9,7 @@ function NaviContextProvider({children, location}) {
   // State for scrolling direction
   const [scrollingDirectionIsDown, setScrollingDirectionIsDown] = useState(null)
   // State for detecting if we're in the hero zone
-  const [beforeHeaderBreakpoint, setBeforeHeaderBreakpoint] = useState(null)
+  const [beforeHeaderBreakpoint, setBeforeHeaderBreakpoint] = useState(true)
   
 
   /* ==========================================================================

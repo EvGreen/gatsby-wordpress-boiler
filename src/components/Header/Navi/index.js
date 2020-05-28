@@ -97,7 +97,7 @@ function Navi(props) {
 	
   return (
 		<>
-			<nav className='navi c0'>
+			<nav className='navi'>
 				<div className='navi-items'>
 					{menuItems}
 				</div>

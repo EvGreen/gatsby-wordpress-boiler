@@ -1,4 +1,4 @@
-<h3>v0.4.8 (not rdy for primetime)</h3>
+<h3>v0.4.9 (not rdy for primetime)</h3>
 <h3>Effort to produce good starting point for headless WP based, gatsby driven websites.</h3>
 <h4>What is it for?</h4>
 <ul><li>For starting <strong>new projects</strong> with a bunch of reusable components and styling. </li><li>For <strong>quickly mocking up websites</strong> for people on too tight of a budget for custom solutions.</li></ul>

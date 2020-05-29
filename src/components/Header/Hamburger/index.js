@@ -69,8 +69,7 @@ function Hamburger(props) {
 		anime({
 				targets: element,
 				opacity: [1, 0],
-				translateY: [0, -10],
-				duration: baseDuration,
+				duration: baseDuration / 2,
 				easing: 'easeInOutQuad'
 			})
 	}

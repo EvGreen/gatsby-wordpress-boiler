@@ -54,13 +54,13 @@ function NaviContextProvider({children, location}) {
   // Starting with offset at 0, as base for comparison
   let lastYOffset = 0
 
-  // As the name says, setting delta at 30px so user could slowly pan across the site without triggering animations left and right
+  // As the name says, setting delta at 100px so user could slowly pan across the site without triggering animations left and right
   function checkScrollingDirection() {
     const currentYOffset = window.pageYOffset
     const delta = lastYOffset - currentYOffset
-    if(delta > 30) {
+    if(delta > 100) {
       setScrollingDirectionIsDown(false)
-    } else if (delta < -30) {
+    } else if (delta < -100) {
       setScrollingDirectionIsDown(true)
     }
     lastYOffset = currentYOffset
@@ -73,6 +73,24 @@ function NaviContextProvider({children, location}) {
     throttledScrollDirectionDetection()
   },[])
 
+
+  /* ==========================================================================
+    Activate navi based on other parameters
+  ========================================================================== */
+  useEffect(() => {
+    if (isActive) {
+      if (scrollingDirectionIsDown && !beforeHeaderBreakpoint) {
+        setActive(false)
+      }
+    }
+    if (!isActive) {
+      if (beforeHeaderBreakpoint) {
+        setActive(true)
+      } else if (!scrollingDirectionIsDown) {
+        setActive(true)
+      }
+    }
+  }, [scrollingDirectionIsDown, beforeHeaderBreakpoint])
 
 
 	return (

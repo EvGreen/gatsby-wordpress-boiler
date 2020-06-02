@@ -10,50 +10,50 @@ $c0: #f8f8f8; // Background
 $c0h: #0a0a0c; // Headers Text
 $c0p: #0a0a0c; // Body Text
 $c0a: $clead; // Links
-$c0h: #0a0a0c; // Links Hover
+$c0ah: #0a0a0c; // Links Hover
 
 $c1: #f0efee; // Background
 $c1h: #0a0a0c; // Headers Text
 $c1p: #0a0a0c; // Body Text
 $c1a: $clead; // Links
-$c1h: #0a0a0c; // Links Hover
+$c1ah: #0a0a0c; // Links Hover
 
 $c2: #d8dadc; // Background
 $c2h: #0a0a0c; // Headers Text
 $c2p: #0a0a0c; // Body Text
 $c2a: $clead; // Links
-$c2h: #0a0a0c; // Links Hover
+$c2ah: #0a0a0c; // Links Hover
 
 $c3: #e1e1e1; // Background
 $c3h: #0a0a0c; // Headers Text
 $c3p: #0a0a0c; // Body Text
 $c3a: $clead; // Links
-$c3h: #0a0a0c; // Links Hover
+$c3ah: #0a0a0c; // Links Hover
 
 $c4: #242728; // Background
 $c4h: #ffffff; // Headers Text
 $c4p: #ffffff; // Body Text
 $c4a: #ffffff; // Links
-$c4h: $clead; // Links Hover
+$c4ah: $clead; // Links Hover
 
 $c5: #1d1f20; // Background
 $c5h: #fbfdff; // Headers Text
 $c5p: #fbfdff; // Body Text
 $c5a: $clead; // Links
-$c5h: #ffffff; // Links Hover
+$c5ah: #ffffff; // Links Hover
 
 // Black/White, usually used for dark or bright image backgrounds
 $x0: #ffffff; // Background
 $x0h: #0a0a0c; // Headers Text
 $x0p: #0a0a0c; // Body Text
 $x0a: #0a0a0c; // Links
-$x0h: $clead; // Links Hover
+$x0ah: $clead; // Links Hover
 
 $x1: #1d1f20; // Background
 $x1h: #fbfdff; // Headers Text
 $x1p: #fbfdff; // Body Text
 $x1a: #fbfdff; // Links
-$x1h: $clead; // Links Hover
+$x1ah: $clead; // Links Hover
 
 // Don't forget to delete unused styles! Font imports at components/layout.js
 $font1: 'Montserrat', Helvetica, Arial, sans-serif; // Headers

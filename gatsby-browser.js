@@ -4,7 +4,7 @@ import Layout from "./src/components/layout"
 
 import { NaviContextProvider } from './src/context/NaviContext'
 
-import { SplitText, TimelineMax } from "gsap/all"
+//import { SplitText, TimelineMax } from "gsap/all"
 
 // Splitting text lines for animation
 import Splitting from 'splitting'
@@ -29,60 +29,35 @@ export const onRouteUpdate = () => {
   const isInview = document.querySelectorAll('.is-inview')
   const nodes = [...isInview]
 
-
-  // Elements that are direct children of splittext-lines class
-  const lines = document.querySelectorAll('.splittext-lines')
-  
   Splitting({
     target: lines,
     by: 'lines',
     key: null
   });
+
+  // Set threshold for
+  const config = {
+    threshold: 0 // 0% of the element is visible
+  }
   
-  // // Wrap them once as per normal
-  // const linesSplittext = new SplitText(lines, {
-  //   type: "lines",
-  //   linesClass: "text-line"
-  // })
-  // let linesToAnimate = linesSplittext.lines
-
-  // // Wrap them again to prep for animation (overflow hidden)
-  // const linesSplittextOverflow = new SplitText(lines, {
-  //   type: "lines",
-  //   linesClass: "muhlines line-++"
-  // })
-
-  // // Set threshold for
-  // const config = {
-  //   threshold: 0 // 0% of the element is visible
-  // }
-
-  // // Start GSAP timeline
-  // const tl = new TimelineMax()
+  // Set up observer
+  let observer = new IntersectionObserver(function(entries, self) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('inview')
+      } else {
+        entry.target.classList.remove('inview')
+      }
+    })
+  }, config)
   
-  // // Set up observer
-  // let observer = new IntersectionObserver(function(entries, self) {
-  //   entries.forEach(entry => {
-  //     if (entry.isIntersecting) {
+  // Set up observers on all of the items
+  nodes.forEach(box => {
+    observer.observe(box)
+  })
 
-  //       // If it's consecutive, cut next animation delay by overlap
-  //       let overlap = '-=0.8'
-        
-  //       // If it's a new - don't
-  //       if (!tl.isActive()) {
-  //         overlap = '+=0'
-  //       }
-        
-  //       tl.to(entry.target, 1, {x: 0, y: 0, autoAlpha: 1, ease: "power3.inOut"}, overlap)
-  //       self.unobserve(entry.target)
-  //     }
-  //   })
-  // }, config)
-  
-  // // Set up observers on all of the items
-  // lines.forEach(box => {
-  //   observer.observe(box)
-  // })
+  // Elements that are direct children of splittext-lines class
+  const lines = document.querySelectorAll('.splittext-lines > h1, .splittext-lines > h2, .splittext-lines > h3, .splittext-lines > h4, .splittext-lines > h5, .splittext-lines > h6')
 
 }
 

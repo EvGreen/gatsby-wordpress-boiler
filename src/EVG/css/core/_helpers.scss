@@ -107,6 +107,35 @@ br {
 }
 
 /* ==========================================================================
+  Map
+  ========================================================================== */
+	
+.gmnoprint a, .gmnoprint span, .gm-style-cc {
+	display:none;
+}
+.gmnoprint div {
+	background:none !important;
+}
+#GMapsID div div a div img{
+	display:none;
+}
+
+#map {
+
+	button, .gm-svpc {
+		background: #fff !important;
+	}
+	.gm-style-mtc {
+		display: none;
+	}
+
+	img {
+			max-width: none;
+			width: auto;
+	}
+}
+
+/* ==========================================================================
 	Aspect Ratios
 ========================================================================== */
 

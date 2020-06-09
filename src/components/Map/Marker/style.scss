@@ -1,10 +1,12 @@
+$size: 5em;
+
 .map-marker {
 	position: relative;
 	z-index: 500;
-	width: 4em;
-	height: 4em;
-	top: -4em;
-	left: -2em;
+	width: $size;
+	height: $size;
+	top: -$size;
+	left: -($size / 2);
 
 	img {
 		position: absolute;

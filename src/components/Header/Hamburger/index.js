@@ -15,7 +15,7 @@ function Hamburger(props) {
 	useEffect(() => {
 		const logo = document.getElementById('master-logo')
 		const hamburger = document.getElementById('master-hamburger-container')
-		const offset = logo.offsetWidth - hamburger.offsetWidth
+		const offset = logo.clientWidth - hamburger.clientWidth
 		setLogoWidthOffset(offset)
 	}, [])
 

@@ -7,6 +7,8 @@ import './style.scss'
 
 function GMap(props) {
 
+	const gMapKey = 'YOUR_API_KEY'
+
 	const defaultProps = {
 		center: {
 			lat: props.lat,
@@ -17,7 +19,7 @@ function GMap(props) {
 
 	return (
 		<GoogleMapReact
-			bootstrapURLKeys={{ key: 'AIzaSyBv15HTkcP5KWR7sWACWAI52qb2Y-bBQko' }}
+			bootstrapURLKeys={{ key: gMapKey }}
 			defaultCenter={defaultProps.center}
 			defaultZoom={defaultProps.zoom}
 			options={

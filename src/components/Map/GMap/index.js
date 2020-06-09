@@ -95,51 +95,6 @@ function GMap(props) {
 							]
 						},
 						{
-							"featureType": "poi",
-							"elementType": "geometry",
-							"stylers": [
-								{
-									"color": "#283d6a"
-								}
-							]
-						},
-						{
-							"featureType": "poi",
-							"elementType": "labels.text.fill",
-							"stylers": [
-								{
-									"color": "#6f9ba5"
-								}
-							]
-						},
-						{
-							"featureType": "poi",
-							"elementType": "labels.text.stroke",
-							"stylers": [
-								{
-									"color": "#1d2c4d"
-								}
-							]
-						},
-						{
-							"featureType": "poi.park",
-							"elementType": "geometry.fill",
-							"stylers": [
-								{
-									"color": "#023e58"
-								}
-							]
-						},
-						{
-							"featureType": "poi.park",
-							"elementType": "labels.text.fill",
-							"stylers": [
-								{
-									"color": "#3C7680"
-								}
-							]
-						},
-						{
 							"featureType": "road",
 							"elementType": "geometry",
 							"stylers": [

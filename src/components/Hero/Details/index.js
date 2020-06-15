@@ -7,7 +7,7 @@ import './style.scss'
 function Details(props) {
 	return (
 		<div as="section" className="hero-details grid-12" style={{minHeight: '10.1vh'}}>
-			<div className="news fs-85 c5">
+			<div className="news fs-85 x1 c5">
 				<div className="v-center splittext-lines">
 					<div className="aside">
 						<h6><b>news:</b></h6>

@@ -38,7 +38,7 @@ function Footer(props) {
 				<a href='https://github.com/EvGreen?tab=repositories' className='hint--rounded hint--left' data-hint='@EvGreen' target='_blank' rel='noopener noreferrer'><FontAwesomeIcon icon={faGithub} /></a>
 			</div>
 
-			<div className="details padd2 c4 fs-85 text-left">
+			<div className="details padd-2 c4 fs-85 text-left">
 				<div className="content-box">
 					<h6>what?</h6>
 					<p>A crack commando unit from Poland that was sent to prison in 2011 for a crime they did not commit.</p><p>After promptly escaping from a maximum security stocade, they now survive as soldiers of fortune, still on the run from the military police.</p><p>They work for anyone who is in need of help and are innocent, hard-working people trying to make a living.</p>
@@ -47,7 +47,7 @@ function Footer(props) {
 				</div>
 			</div>
 
-			<div id="contact" className="contact padd2 c5 fs-85">
+			<div id="contact" className="contact padd-2 c5 fs-85">
 				<CF7Basic />
 			</div>
 

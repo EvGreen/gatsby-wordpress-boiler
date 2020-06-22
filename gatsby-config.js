@@ -6,6 +6,10 @@
 
 const path = require(`path`)
 
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: 'CHANGEME',
@@ -47,7 +51,8 @@ module.exports = {
           '**/users/me', //skipping for good
           '**/contact-forms', //skipping for good
           '/yoast/**', //skipping for now to speed up build process
-          '/*/*/comments' //skipping for now to speed up build process
+          '/*/*/comments', //skipping for now to speed up build process
+          '/siteground-optimizer/**' //skipping for now to speed up build process
         ],
       },
     },

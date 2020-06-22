@@ -8,12 +8,12 @@
 
 body {
 	margin: 0;
-	overflow: hidden;
+	//overflow: hidden;
 }
 
 #gatsby-focus-wrapper {
 	width: 100%;
-	overflow: hidden;
+	//overflow: hidden;
 }
 
 /* ==========================================================================
@@ -27,5 +27,5 @@ main {
 
 section {
 	position: relative;
-	z-index: 250;
+	z-index: 150;
 }

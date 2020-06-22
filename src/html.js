@@ -24,6 +24,7 @@ export default function HTML(props) {
           style={{
             alignItems: "center",
             backgroundColor: "#F2F2F2",
+            color: "#1a1a1a",
             display: "flex",
             justifyContent: "center",
             position: "absolute",
@@ -32,6 +33,9 @@ export default function HTML(props) {
             right: 0,
             bottom: 0,
             zIndex: 10,
+            fontFamily: "'Montserrat', Helvetica, Arial, sans-serif",
+            fontWeight: "400",
+            fontSize: "12px",
           }}
         >.hello</div>
         <div

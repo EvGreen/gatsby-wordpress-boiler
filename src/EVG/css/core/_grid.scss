@@ -6,8 +6,6 @@
 	display: grid !important;
 	width: 100%;
 	grid-template-columns: repeat(12, 1fr);
-	justify-items: center;
-	justify-content: center;
 
 	&.center {
 		align-items: center;

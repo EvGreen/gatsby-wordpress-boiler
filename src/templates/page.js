@@ -6,8 +6,8 @@ import SEO from "../components/seo"
 import Footer from '../components/Footer'
 
 import Hero from "../components/Hero"
-import Content from "../components/Content"
-import ACFContentWithImage from "../components/Content/ACF/WithImage"
+import WPDefault from "../components/Content/WP/Default"
+import ACF from "../components/Content"
 import Video from "../components/Video/HTML"
 
 export default ({ data, pageContext }) => {
@@ -28,11 +28,11 @@ export default ({ data, pageContext }) => {
 			  <div id="header-fold-breakpoint"></div>
 
         { data.wordpressPage.acf.sections_page ?
-          <ACFContentWithImage { ...data } />
+          <ACF { ...data } />
         : null }
 
         { data.wordpressPage.content ?
-          <Content { ...data } />
+          <WPDefault { ...data } />
         : null }
 
         {/* <Video file="/rain.mp4" /> */}
@@ -73,20 +73,25 @@ export const query = graphql`
           content
         }
         sections_page {
-          img {
-            localFile {
-              childImageSharp {
-                fluid (
-                  maxWidth: 1280,
-                  quality: 70,
-                  srcSetBreakpoints: [960,1280,1920,2560]
-                ) {
-                  ...GatsbyImageSharpFluid_withWebp_noBase64
+          ... on WordPressAcf_hero {
+            id
+          }
+          ... on WordPressAcf_content {
+            img {
+              localFile {
+                childImageSharp {
+                  fluid (
+                    maxWidth: 1280,
+                    quality: 70,
+                    srcSetBreakpoints: [960,1280,1920,2560]
+                  ) {
+                    ...GatsbyImageSharpFluid_withWebp_noBase64
+                  }
                 }
               }
             }
+            content
           }
-          content
         }
       }
     }

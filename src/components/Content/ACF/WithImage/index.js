@@ -8,8 +8,8 @@ import { useInView } from 'react-intersection-observer'
 function Content(props) {
   const [ref, refInView, refEntry] = useInView({ triggerOnce: true })
 
-	const content = props.wordpressPage.acf.sections_page[0].content
-	const image = props.wordpressPage.acf.sections_page[0].img.localFile.childImageSharp.fluid
+	const content = props.content
+	const image = props.img.localFile.childImageSharp.fluid
 
   return (
 		<>

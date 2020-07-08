@@ -11,7 +11,8 @@ if (typeof window !== 'undefined') {
 	require('smooth-scroll')('a[href*="#"]', {
 		speed: 800,
 		speedAsDuration: true,
-		easing: 'easeInOutCubic'
+		easing: 'easeInOutCubic',
+		offset: window.innerHeight * 0.5
 	})
 }
 

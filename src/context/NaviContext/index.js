@@ -10,7 +10,8 @@ function NaviContextProvider({children, location}) {
   const [scrollingDirectionIsDown, setScrollingDirectionIsDown] = useState(null)
   // State for detecting if we're in the hero zone
   const [beforeHeaderBreakpoint, setBeforeHeaderBreakpoint] = useState(true)
-  
+  // State for current location
+  const [locationPathname, setLocationPathname] = useState(true)
 
   /* ==========================================================================
     Before Breakpoint Check
@@ -18,25 +19,30 @@ function NaviContextProvider({children, location}) {
 
   // This one is for telling if user is scrolling before or after hero, this will come in handy when showing/hiding navi
   useEffect(() => {
+    setLocationPathname(location.pathname)
+
     // Div in page.js that marks end of hero element
     const observer_target = document.getElementById('header-fold-breakpoint')
-
-    // Set up what the observer will be doing
-    let observer = new IntersectionObserver(function(entries) {
-      entries.forEach(entry => {
-        if(entry.isIntersecting) {
-          setBeforeHeaderBreakpoint(true)
-        } else {
-          setBeforeHeaderBreakpoint(false)
-        }
-      })
-    })
     
-    // Initialize observer on the target
-    observer.observe(observer_target)
+    if(observer_target) {
 
-    return () => {
-      observer.unobserve(observer_target)
+      // Set up what the observer will be doing
+      let observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if(entry.isIntersecting) {
+            setBeforeHeaderBreakpoint(true)
+          } else {
+            setBeforeHeaderBreakpoint(false)
+          }
+        })
+      })
+      
+      // Initialize observer on the target
+      observer.observe(observer_target)
+
+      return () => {
+        observer.unobserve(observer_target)
+      }
     }
 
   },[location])
@@ -98,7 +104,8 @@ function NaviContextProvider({children, location}) {
       isActive,
       activeToggle: () => setActive(!isActive),
       beforeHeaderBreakpoint,
-      scrollingDirectionIsDown
+      scrollingDirectionIsDown,
+      locationPathname
     }}>
       {children}
     </NaviContext.Provider>

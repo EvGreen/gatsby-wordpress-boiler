@@ -15,7 +15,7 @@ function Header(props) {
 	const baseDuration = 300
 	// Animating fade in/out
 	const fadeInLogo = element => {
-		const links = element.querySelectorAll('.nav-item')
+		const links = element.querySelectorAll('.nav-item, .social-icons a')
 		anime
 			.timeline()
 			.add({
@@ -26,29 +26,22 @@ function Header(props) {
 			})
 			.add({
 				targets: links,
-				translateX: [-24, 0],
+				opacity: [0, 1],
+				translateX: [-22, 0],
 				duration: baseDuration,
 				easing: 'easeInOutSine',
-				delay: anime.stagger(100)
+				delay: anime.stagger(75)
 			}, `-=${baseDuration}`)
 	}
 	const fadeOutLogo = element => {
-		const links = element.querySelectorAll('.nav-item')
 		anime
 			.timeline()
 			.add({
 				targets: element,
 				opacity: [1, 0],
 				duration: baseDuration,
-				easing: 'easeInOutSine'
+				easing: 'linear'
 			})
-			.add({
-				targets: links,
-				translateX: [0, -24],
-				duration: baseDuration,
-				easing: 'easeInOutSine',
-				delay: anime.stagger(100)
-			}, `-=${baseDuration}`)
 	}
 
   return (

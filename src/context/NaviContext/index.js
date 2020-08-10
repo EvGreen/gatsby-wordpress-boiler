@@ -79,7 +79,6 @@ function NaviContextProvider({children, location}) {
     throttledScrollDirectionDetection()
   },[])
 
-
   /* ==========================================================================
     Activate navi based on other parameters
   ========================================================================== */

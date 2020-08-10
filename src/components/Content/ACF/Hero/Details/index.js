@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react'
-import Img from 'gatsby-image'
-import anime from 'animejs'
+import React from 'react'
 
 import './style.scss'
 

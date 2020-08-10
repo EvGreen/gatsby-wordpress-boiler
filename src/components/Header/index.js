@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import './style.scss'
 import NaviContext from '../../context/NaviContext'
 import { Transition } from 'react-transition-group'
-import anime, { stagger } from 'animejs'
+import anime from 'animejs'
 
 import Hamburger from './Hamburger'
 import Navi from './Navi'
@@ -26,7 +26,7 @@ function Header(props) {
 			})
 			.add({
 				targets: links,
-				translateX: [-75, 0],
+				translateX: [-24, 0],
 				duration: baseDuration,
 				easing: 'easeInOutSine',
 				delay: anime.stagger(100)
@@ -44,7 +44,7 @@ function Header(props) {
 			})
 			.add({
 				targets: links,
-				translateX: [0, -75],
+				translateX: [0, -24],
 				duration: baseDuration,
 				easing: 'easeInOutSine',
 				delay: anime.stagger(100)

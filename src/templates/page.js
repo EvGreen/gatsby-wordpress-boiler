@@ -5,15 +5,10 @@ import SEO from "../components/seo"
 
 import Footer from '../components/Footer'
 
-import Hero from "../components/Hero"
-import WPDefault from "../components/Content/WP/Default"
+//import WPDefault from "../components/Content/WP/Default"
 import ACF from "../components/Content"
-import Video from "../components/Video/HTML"
 
 export default ({ data, pageContext }) => {
-  const heroImage = data.wordpressPage.acf.hero_page[0].img.localFile.childImageSharp.fluid
-  const heroContent = data.wordpressPage.acf.hero_page[0].content
-  
   const footerImage = data.wordpressAcfOptions.options.footer_image.localFile.childImageSharp.fluid
 
   return (
@@ -22,20 +17,13 @@ export default ({ data, pageContext }) => {
 
         <SEO title="Home" description="Description" />
         
-        <Hero image={heroImage} content={heroContent} />
-
-			  {/* Point of reference for past hero observer threashold, so we can calculate if the user is past hero or not */}
-			  <div id="header-fold-breakpoint"></div>
-
         { data.wordpressPage.acf.sections_page ?
           <ACF { ...data } />
         : null }
 
-        { data.wordpressPage.content ?
-          <WPDefault { ...data } />
-        : null }
-
-        {/* <Video file="/rain.mp4" /> */}
+        {/* { data.wordpressPage.content ?
+          <WPDefault key="WP-default-1" { ...data } />
+        : null } */}
   
       </main>
 
@@ -54,29 +42,32 @@ export const query = graphql`
       author {
         name
       }
-      content
       acf {
-        hero_page {
-          img {
-            localFile {
-              childImageSharp {
-                fluid (
-                  maxWidth: 1920,
-                  quality: 85,
-                  srcSetBreakpoints: [1656,1920,2560,3840]
-                ) {
-                  ...GatsbyImageSharpFluid_withWebp_noBase64
-                }
-              }
-            }
-          }
-          content
-        }
         sections_page {
           ... on WordPressAcf_hero {
             id
+            anchor
+            classes
+            type
+            img {
+              localFile {
+                childImageSharp {
+                  fluid (
+                    maxWidth: 1280,
+                    quality: 85,
+                    srcSetBreakpoints: [960,1280,1920,2560]
+                  ) {
+                    ...GatsbyImageSharpFluid_withWebp_noBase64
+                  }
+                }
+              }
+            }
+            wysiwyg
           }
           ... on WordPressAcf_content {
+            id
+            anchor
+            classes
             img {
               localFile {
                 childImageSharp {
@@ -90,7 +81,7 @@ export const query = graphql`
                 }
               }
             }
-            content
+            wysiwyg
           }
         }
       }

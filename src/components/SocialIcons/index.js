@@ -1,12 +1,12 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import './style.scss'
-import NaviContext from '../../context/NaviContext'
+//import NaviContext from '../../context/NaviContext'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter, faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons'
 
 function SocialIcons(props) {
-	const naviContext = useContext(NaviContext)
+	//const naviContext = useContext(NaviContext)
 	
   return (
 		<>

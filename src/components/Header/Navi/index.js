@@ -1,51 +1,14 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import './style.scss'
-import NaviContext from '../../../context/NaviContext'
-import { Transition, TransitionGroup } from 'react-transition-group'
-import anime from 'animejs'
+//import NaviContext from '../../../context/NaviContext'
+//import { Transition, TransitionGroup } from 'react-transition-group'
+//import anime from 'animejs'
 
 import { Link } from 'gatsby'
 import { useStaticQuery, graphql } from 'gatsby'
 
 function Navi(props) {
-	const naviContext = useContext(NaviContext)
-
-	// Animations
-	const baseDuration = 300
-	// Animating fade in/out
-	const fadeInLogo = element => {
-		anime
-			.timeline()
-			.add({
-				targets: element,
-				opacity: [0, 1],
-				duration: baseDuration,
-				easing: 'easeInOutSine'
-			})
-			.add({
-				targets: element.parentElement.parentElement,
-				translateX: [-10, 0],
-				duration: baseDuration,
-				easing: 'easeInOutSine'
-			}, `-=${baseDuration}`)
-	}
-	const fadeOutLogo = element => {
-		anime
-			.timeline()
-			.add({
-				targets: element,
-				opacity: [1, 0],
-				duration: baseDuration,
-				easing: 'easeInOutSine'
-			})
-			.add({
-				targets: element.parentElement.parentElement,
-				translateX: [0, -10],
-				duration: baseDuration,
-				easing: 'easeInOutSine'
-			}, `-=${baseDuration}`)
-	}
-
+	//const naviContext = useContext(NaviContext)
 
 	const data = useStaticQuery(graphql`
 	{

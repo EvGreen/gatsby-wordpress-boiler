@@ -8,6 +8,8 @@ import ModalContext from '../../context/ModalContext'
 
 function Modal(props) {
 	const modalContext = useContext(ModalContext)
+
+	console.log(modalContext)
 	
 	// Animations
 	const baseDuration = 300
@@ -37,7 +39,7 @@ function Modal(props) {
   return (
 		<>
 			<Transition
-				in={modalContext.isActive ? true : false}
+				in={modalContext.isActive && props.trigger === modalContext.dataAttr ? true : false}
 				timeout={baseDuration}
 				onEntering={fadeInLogo}
 				onExiting={fadeOutLogo}
@@ -46,7 +48,7 @@ function Modal(props) {
 			>
 				<section className='evg-modal' onClick={(e) => { if(e.target !== e.currentTarget) { return } modalContext.setActive(false)}}>
 
-					<div className="box c4">
+					<div className="box c2">
 						<div className="button-positioner">
 							<button className="close" onClick={() => modalContext.setActive(false)}></button>
 						</div>

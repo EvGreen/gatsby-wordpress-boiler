@@ -75,7 +75,7 @@ function Hamburger(props) {
 	}
 	
   return (
-		<div id="master-hamburger" className="c5" onClick={() => naviContext.activeToggle(true)}>
+		<div id="master-hamburger" className="c5" onClick={() => naviContext.activeToggle(true)} onKeyDown={() => naviContext.activeToggle(true)} role="button" tabIndex={0}>
 			<Transition
 				in={naviContext.beforeHeaderBreakpoint ? true :	false}
 				timeout={baseDuration}

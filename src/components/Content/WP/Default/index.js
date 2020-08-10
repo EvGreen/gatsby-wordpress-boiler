@@ -4,7 +4,7 @@ import './style.scss'
 import { useInView } from 'react-intersection-observer'
 
 function Content(props) {
-  const [ref, refInView, refEntry] = useInView({ triggerOnce: true })
+  const [ref, refInView] = useInView({ triggerOnce: true })
 
 	const page = props.wordpressPage
 

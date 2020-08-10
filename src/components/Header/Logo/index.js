@@ -1,9 +1,9 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import './style.scss'
-import NaviContext from '../../../context/NaviContext'
+//import NaviContext from '../../../context/NaviContext'
 
 function Logo(props) {
-	const naviContext = useContext(NaviContext)
+	//const naviContext = useContext(NaviContext)
 
   return (
 		<div id="master-logo" className='logo'>

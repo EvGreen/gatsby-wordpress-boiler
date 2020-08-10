@@ -1,4 +1,4 @@
-import React, {useState, createContext, useEffect, useCallback} from 'react'
+import React, {useState, createContext, useEffect} from 'react'
 
 const ModalContext = createContext(false)
 
@@ -13,12 +13,12 @@ function ModalContextProvider({children, location}) {
 
   useEffect(() => {
 		//setActive(true)
-		const btn = document.querySelectorAll("[href='#request-a-quote']")
+		const btn = document.querySelectorAll('[href*="#evg-modal-"]')
 		if(btn.length){
 			btn.forEach(item => {
 				item.addEventListener('click', event => {
 					event.preventDefault()
-					setDataAttr(event.target.parentElement.dataset.modal)
+					setDataAttr(event.currentTarget.attributes.href.nodeValue)
 					setActive(true)
 				})
 			})		

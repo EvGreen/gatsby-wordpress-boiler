@@ -6,10 +6,10 @@ import Img from 'gatsby-image'
 import { useInView } from 'react-intersection-observer'
 
 function Content(props) {
-  const [ref, refInView, refEntry] = useInView({ triggerOnce: true })
+  const [ref, refInView] = useInView({ triggerOnce: true })
 
-	const content = props.content
-	const image = props.img.localFile.childImageSharp.fluid
+	const content = props.wysiwyg
+	const image = props.img?.localFile.childImageSharp.fluid
 
   return (
 		<>

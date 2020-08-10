@@ -1,28 +1,15 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Img from 'gatsby-image'
-import anime from 'animejs'
 
 //import PropTypes from 'prop-types'
 import './style.scss'
 
-import Details from './Details'
-
-function Hero(props) {
-	const image = props.image
-	const content = props.content
-
-	useEffect(() => {
-		anime({
-			targets: '.element',
-			translateY: ['100%',0],
-			duration: 400,
-			delay: 300,
-			easing: 'easeInOutSine'
-		})
-	},[])
+function SingleIMG(props) {
+	const image = props.img.localFile.childImageSharp.fluid
+	const content = props.wysiwyg
 
 	return (
-		<section id="master-hero" className='hero x0 t'>
+		<>
 			
 			{ image ?
 				<Img fluid={image}
@@ -43,10 +30,8 @@ function Hero(props) {
 				</div>
 			</div>
 
-			<Details />
-
-		</section>
+		</>
   )
 }
 
-export default Hero
+export default SingleIMG

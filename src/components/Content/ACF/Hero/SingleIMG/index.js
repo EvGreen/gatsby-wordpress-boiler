@@ -10,6 +10,7 @@ function SingleIMG(props) {
 	const content = props.wysiwyg
 	const parallax = props.parallax
 	const bg_overlay = props.bg_overlay
+	const min_height = props.min_height
 
 	return (
 		<>
@@ -38,7 +39,7 @@ function SingleIMG(props) {
 			</div>
 			: null }
 			
-			<div style={{minHeight: '100.1vh'}} className='hero-content'>
+			<div style={{minHeight: min_height}} className='hero-content'>
 				<div className="hero-content-animator">
 					<div className='hero-content-box splittext-lines' dangerouslySetInnerHTML={{__html: content}} />
 				</div>

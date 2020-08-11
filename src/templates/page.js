@@ -51,6 +51,7 @@ export const query = graphql`
             type
             parallax
             bg_overlay
+            min_height
             img {
               localFile {
                 childImageSharp {

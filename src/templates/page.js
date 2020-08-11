@@ -15,7 +15,7 @@ export default ({ data, pageContext }) => {
     <>
       <main className={`c0 main-${pageContext.slug === "/" ? "frontpage" : pageContext.slug}`}>
 
-        <SEO title="Home" description="Description" />
+        <SEO title={data.wordpressPage.title} description="Description" />
         
         { data.wordpressPage.acf.sections_page ?
           <ACF { ...data } />
@@ -49,6 +49,8 @@ export const query = graphql`
             anchor
             classes
             type
+            parallax
+            bg_overlay
             img {
               localFile {
                 childImageSharp {

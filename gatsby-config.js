@@ -47,6 +47,9 @@ module.exports = {
           '**/tags', //skipping for now to speed up build process
           '**/taxonomies', //skipping for now to speed up build process
           '**/themes', //skipping for good
+          '**/plugins', //skipping for good
+          '**/block-types', //skipping for good
+          '**/block-directory/search', //skipping for good
           '**/settings', //skipping for now to speed up build process
           '**/users/me', //skipping for good
           '**/contact-forms', //skipping for good

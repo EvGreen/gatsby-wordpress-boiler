@@ -48,24 +48,54 @@ export const query = graphql`
             id
             anchor
             classes
-            type
-            parallax
-            bg_overlay
             min_height
-            img {
-              localFile {
-                childImageSharp {
-                  fluid (
-                    maxWidth: 1280,
-                    quality: 85,
-                    srcSetBreakpoints: [960,1280,1920,2560]
-                  ) {
-                    ...GatsbyImageSharpFluid_withWebp_noBase64
+            slides {
+              classes
+              type
+              parallax
+              bg_overlay
+              wysiwyg
+              theme
+              img {
+                localFile {
+                  childImageSharp {
+                    fluid (
+                      maxWidth: 1280,
+                      quality: 85,
+                      srcSetBreakpoints: [960,1280,1920,2560]
+                    ) {
+                      ...GatsbyImageSharpFluid_withWebp_noBase64
+                    }
+                  }
+                }
+              }
+              img2 {
+                localFile {
+                  childImageSharp {
+                    fluid (
+                      maxWidth: 1280,
+                      quality: 70,
+                      srcSetBreakpoints: [960,1280,1920,2560]
+                    ) {
+                      ...GatsbyImageSharpFluid_withWebp_noBase64
+                    }
+                  }
+                }
+              }
+              img3 {
+                localFile {
+                  childImageSharp {
+                    fluid (
+                      maxWidth: 1280,
+                      quality: 70,
+                      srcSetBreakpoints: [960,1280,1920,2560]
+                    ) {
+                      ...GatsbyImageSharpFluid_withWebp_noBase64
+                    }
                   }
                 }
               }
             }
-            wysiwyg
           }
           ... on WordPressAcf_content {
             id

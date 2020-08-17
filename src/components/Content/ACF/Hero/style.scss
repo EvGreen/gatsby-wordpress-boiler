@@ -5,6 +5,16 @@
 	overflow: hidden;
 	padding: 0;
 
+	.hero-slider {
+		display: flex;
+		align-items: center;
+	}
+
+	.hero-single {
+		display: flex;
+		align-items: center;
+	}
+
 	h1 + h6 {
 		margin-top: -1rem;
 	}

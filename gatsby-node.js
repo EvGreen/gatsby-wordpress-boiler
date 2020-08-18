@@ -22,7 +22,7 @@ exports.createPages = async function({ actions, graphql }) {
     path === "/" ? slug = path : null
     actions.createPage({
       path: slug,
-      component: require.resolve(`./src/templates/page.js`),
+      component: require.resolve(`./src/templates/page/index.js`),
       context: {
         slug: slug,
         id: edge.node.id,

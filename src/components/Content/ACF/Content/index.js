@@ -1,5 +1,6 @@
 import React from 'react'
 import './style.scss'
+import { acfContent } from './data'
 
 import Img from 'gatsby-image'
 

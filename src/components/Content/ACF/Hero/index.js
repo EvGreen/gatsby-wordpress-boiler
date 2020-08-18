@@ -13,10 +13,9 @@ function Hero(props) {
 
 	const SlidesMap = slides?.map((node, i) => {
 		const type = node.type
-		console.log(node)
 		if (type === 'img') {
 			return (
-				<SingleIMG { ...node } />
+				<SingleIMG key={`singleimghero - ${i}`} { ...node } />
 			)
 		}
 		return false

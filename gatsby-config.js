@@ -10,6 +10,8 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+console.log('Source used:', process.env.GATSBY_WP_URL)
+
 module.exports = {
   siteMetadata: {
     title: 'CHANGEME',
@@ -23,6 +25,14 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        typeName: "WPGraphQL",
+        fieldName: "wpgraphql",
+        url: `${process.env.GATSBY_WP_URL}/graphql`,
+      },
+    },
     {
       resolve: 'gatsby-source-wordpress',
       options: {

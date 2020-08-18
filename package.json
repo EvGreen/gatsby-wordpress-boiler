@@ -27,6 +27,7 @@
 		"gatsby-plugin-sass": "^2.2.0",
 		"gatsby-plugin-sharp": "^2.4.13",
 		"gatsby-source-filesystem": "^2.1.56",
+		"gatsby-source-graphql": "^2.7.1",
 		"gatsby-source-wordpress": "^3.2.1",
 		"gatsby-transformer-sharp": "^2.3.19",
 		"google-map-react": "^1.1.7",

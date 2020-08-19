@@ -6,6 +6,8 @@ const NaviContext = createContext(false)
 function NaviContextProvider({children, location}) {
   // State for telling if the navi is expanded or not
   const [isActive, setActive] = useState(false)
+  // State for telling if the hamburger is expanded or not
+  const [isHamburgerActive, setHamburgerActive] = useState(false)
   // State for scrolling direction
   const [scrollingDirectionIsDown, setScrollingDirectionIsDown] = useState(null)
   // State for detecting if we're in the hero zone
@@ -83,7 +85,7 @@ function NaviContextProvider({children, location}) {
     Activate navi based on other parameters
   ========================================================================== */
   useEffect(() => {
-    if (isActive) {
+    if (isActive && !isHamburgerActive) {
       if (scrollingDirectionIsDown && !beforeHeaderBreakpoint) {
         setActive(false)
       }
@@ -93,15 +95,19 @@ function NaviContextProvider({children, location}) {
         setActive(true)
       } else if (!scrollingDirectionIsDown) {
         setActive(true)
+      } else if (isHamburgerActive) {
+        setActive(true)
       }
     }
-  }, [scrollingDirectionIsDown, beforeHeaderBreakpoint])
+  }, [scrollingDirectionIsDown, beforeHeaderBreakpoint, isActive, isHamburgerActive])
 
 
 	return (
 		<NaviContext.Provider value={{
       isActive,
       activeToggle: () => setActive(!isActive),
+      isHamburgerActive,
+      hamburgerActiveToggle: () => setHamburgerActive(!isHamburgerActive),
       beforeHeaderBreakpoint,
       scrollingDirectionIsDown,
       locationPathname

@@ -19,13 +19,14 @@ function Hamburger(props) {
 		setLogoWidthOffset(offset)
 	}, [])
 
+	let animateThis = anime.timeline()
+
 	// Animations
 	const baseDuration = 300
 	// Animating fade in/out
 	const fadeInLogo = element => {
-		anime
-			.timeline()
-			.add({
+		const hamburger = document.getElementById('master-hamburger-container')
+		animateThis.add({
 				targets: element,
 				opacity: [0, 1],
 				delay: baseDuration,
@@ -38,11 +39,16 @@ function Hamburger(props) {
 				duration: baseDuration / 2,
 				easing: 'easeInOutSine'
 			}, `-=${baseDuration}`)
+			.add({
+				targets: hamburger,
+				opacity: 0,
+				duration: baseDuration / 2,
+				easing: 'easeInOutQuad'
+			}, `-=${baseDuration * 1.5}`)
 	}
 	const fadeOutLogo = element => {
-		anime
-			.timeline()
-			.add({
+		const hamburger = document.getElementById('master-hamburger-container')
+		animateThis.add({
 				targets: element,
 				opacity: [1, 0],
 				duration: baseDuration,
@@ -54,28 +60,18 @@ function Hamburger(props) {
 				duration: baseDuration,
 				easing: 'easeInOutSine'
 			}, `-=${baseDuration}`)
-	}
-	const fadeInHamburger = element => {
-		anime({
-				targets: element,
-				opacity: [0, 1],
+			.add({
+				targets: hamburger,
+				opacity: 1,
 				translateY: [-10, 0],
-				delay: baseDuration,
+				delay: 300,
 				duration: baseDuration,
 				easing: 'easeInOutQuad'
-			})
-	}
-	const fadeOutHamburger = element => {
-		anime({
-				targets: element,
-				opacity: [1, 0],
-				duration: baseDuration / 2,
-				easing: 'easeInOutQuad'
-			})
+			}, `-=${baseDuration}`)
 	}
 	
   return (
-		<div id="master-hamburger" className="c5" onClick={() => naviContext.activeToggle(true)} onKeyDown={() => naviContext.activeToggle(true)} role="button" tabIndex={0}>
+		<div id="master-hamburger" className="c5" onClick={() => { naviContext.activeToggle(true); naviContext.hamburgerActiveToggle(true)}} onKeyDown={() => { naviContext.activeToggle(true); naviContext.hamburgerActiveToggle(true)}} role="button" tabIndex={0}>
 			<Transition
 				in={naviContext.beforeHeaderBreakpoint ? true :	false}
 				timeout={baseDuration}
@@ -85,28 +81,21 @@ function Hamburger(props) {
 				<Logo />
 			</Transition>
 				<div id="master-hamburger-positioner">
-					<Transition
-						in={naviContext.beforeHeaderBreakpoint ? false :	true}
-						timeout={baseDuration}
-						onEntering={fadeInHamburger}
-						onExiting={fadeOutHamburger}
-					>
-						<div style={{opacity: 0}} id="master-hamburger-container">
-							<div className={naviContext.isActive ? 'hamburger-container hamburger hamburger--close1 open' : 'hamburger-container hamburger hamburger--close1'}>
-								<div className="hamburger__icon">
-									<div className="hamburger__line hamburger__line--1"></div>
-									<div className="hamburger__line hamburger__line--2"></div>
-									<div className="hamburger__line hamburger__line--3"></div>
-								</div>
-								
-								{ naviContext.isActive ?
-								<div className="starfall-wrap">
-									<Starfall />
-								</div>
-								: null }
+					<div style={{opacity: 0}} id="master-hamburger-container">
+						<div className={`hamburger-container hamburger hamburger--close1 ${naviContext.isHamburgerActive ? 'open' : null }`}>
+							<div className="hamburger__icon">
+								<div className="hamburger__line hamburger__line--1"></div>
+								<div className="hamburger__line hamburger__line--2"></div>
+								<div className="hamburger__line hamburger__line--3"></div>
 							</div>
+							
+							{ naviContext.isHamburgerActive ?
+							<div className="starfall-wrap">
+								<Starfall />
+							</div>
+							: null }
 						</div>
-					</Transition>
+					</div>
 				</div>
 		</div>
   )

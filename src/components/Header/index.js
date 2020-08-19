@@ -59,7 +59,7 @@ function Header(props) {
 				mountOnEnter
 				unmountOnExit
 			>
-				<div className="navi-animator x0">
+				<div className="navi-animator x0 t">
 					<Navi />
 					<SocialIcons />
 				</div>

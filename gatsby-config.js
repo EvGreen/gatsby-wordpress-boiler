@@ -26,14 +26,6 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     {
-      resolve: "gatsby-source-graphql",
-      options: {
-        typeName: "WPGraphQL",
-        fieldName: "wpgraphql",
-        url: `${process.env.GATSBY_WP_URL}/graphql`,
-      },
-    },
-    {
       resolve: 'gatsby-source-wordpress',
       options: {
         // The base url to your WP site.
@@ -103,16 +95,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
-    {
-      // Removes unused css rules
-      resolve:'gatsby-plugin-purgecss',
-      options: {
-        // Activates purging in gatsby develop
-        develop: true,
-        // Purge only the main css file
-        purgeOnly: ['/all.sass'],
-      },
-    }, // must be after other CSS plugins
     `gatsby-plugin-netlify-cache`,
     `gatsby-plugin-netlify`, // make sure to keep it last in the array
   ],

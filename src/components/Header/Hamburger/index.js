@@ -19,14 +19,14 @@ function Hamburger(props) {
 		setLogoWidthOffset(offset)
 	}, [])
 
-	let animateThis = anime.timeline()
-
 	// Animations
 	const baseDuration = 250
 	// Animating fade in/out
 	const fadeInLogo = element => {
 		const hamburger = document.getElementById('master-hamburger-container')
-		animateThis.add({
+		anime
+			.timeline()
+			.add({
 				targets: element,
 				opacity: [0, 1],
 				delay: baseDuration,
@@ -48,7 +48,9 @@ function Hamburger(props) {
 	}
 	const fadeOutLogo = element => {
 		const hamburger = document.getElementById('master-hamburger-container')
-		animateThis.add({
+		anime
+			.timeline()
+			.add({
 				targets: element,
 				opacity: [1, 0],
 				duration: baseDuration * .75,

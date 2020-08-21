@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import './style.scss'
 import NaviContext from '../../context/NaviContext'
 import { Transition } from 'react-transition-group'
@@ -11,14 +11,12 @@ import SocialIcons from '../SocialIcons'
 function Header(props) {
 	const naviContext = useContext(NaviContext)
 
-	let animateThis = anime.timeline()
-
-	// Animations
-	const baseDuration = 250
 	// Animating fade in/out
+	const baseDuration = 250
 	const fadeInLogo = element => {
 		const links = element.querySelectorAll('.nav-item, .social-icons a')
-		animateThis
+		anime
+			.timeline()
 			.add({
 				targets: element,
 				opacity: [0, 1],
@@ -35,7 +33,8 @@ function Header(props) {
 			}, `-=${baseDuration}`)
 	}
 	const fadeOutLogo = element => {
-		animateThis
+		anime
+			.timeline()
 			.add({
 				targets: element,
 				opacity: [1, 0],
@@ -43,8 +42,6 @@ function Header(props) {
 				easing: 'linear'
 			})
 	}
-
-	console.log(naviContext.isActive)
 
   return (
 		<header id='master-header' className={'x0 t'}>

@@ -22,7 +22,7 @@ function Hamburger(props) {
 	let animateThis = anime.timeline()
 
 	// Animations
-	const baseDuration = 300
+	const baseDuration = 250
 	// Animating fade in/out
 	const fadeInLogo = element => {
 		const hamburger = document.getElementById('master-hamburger-container')
@@ -51,13 +51,13 @@ function Hamburger(props) {
 		animateThis.add({
 				targets: element,
 				opacity: [1, 0],
-				duration: baseDuration,
+				duration: baseDuration * .75,
 				easing: 'easeInOutSine'
 			})
 			.add({
 				targets: element.parentElement.parentElement,
 				translateX: [0, -logoWidthOffset],
-				duration: baseDuration,
+				duration: baseDuration * .75,
 				easing: 'easeInOutSine'
 			}, `-=${baseDuration}`)
 			.add({

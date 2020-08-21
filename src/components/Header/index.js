@@ -11,13 +11,14 @@ import SocialIcons from '../SocialIcons'
 function Header(props) {
 	const naviContext = useContext(NaviContext)
 
+	let animateThis = anime.timeline()
+
 	// Animations
-	const baseDuration = 300
+	const baseDuration = 250
 	// Animating fade in/out
 	const fadeInLogo = element => {
 		const links = element.querySelectorAll('.nav-item, .social-icons a')
-		anime
-			.timeline()
+		animateThis
 			.add({
 				targets: element,
 				opacity: [0, 1],
@@ -30,19 +31,20 @@ function Header(props) {
 				translateX: [-22, 0],
 				duration: baseDuration,
 				easing: 'easeInOutSine',
-				delay: anime.stagger(75)
+				delay: anime.stagger(50)
 			}, `-=${baseDuration}`)
 	}
 	const fadeOutLogo = element => {
-		anime
-			.timeline()
+		animateThis
 			.add({
 				targets: element,
 				opacity: [1, 0],
-				duration: baseDuration,
+				duration: baseDuration / 2,
 				easing: 'linear'
 			})
 	}
+
+	console.log(naviContext.isActive)
 
   return (
 		<header id='master-header' className={'x0 t'}>
@@ -59,7 +61,7 @@ function Header(props) {
 				mountOnEnter
 				unmountOnExit
 			>
-				<div className="navi-animator x0 t">
+				<div className={`navi-animator x0 ${naviContext.isHamburgerActive && !naviContext.beforeHeaderBreakpoint ? null : 't'}`}>
 					<Navi />
 					<SocialIcons />
 				</div>

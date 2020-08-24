@@ -21,6 +21,10 @@ header#master-header {
 				display: flex;
 				align-items: center;
 				padding: .5em .5em;
+
+				&:focus {
+					outline: none;
+				}
 			}
 		}
 	}

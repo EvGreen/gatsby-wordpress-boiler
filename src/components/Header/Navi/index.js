@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './style.scss'
-//import NaviContext from '../../../context/NaviContext'
+import NaviContext from '../../../context/NaviContext'
 //import { Transition, TransitionGroup } from 'react-transition-group'
 //import anime from 'animejs'
 
@@ -8,7 +8,7 @@ import { Link } from 'gatsby'
 import { useStaticQuery, graphql } from 'gatsby'
 
 function Navi(props) {
-	//const naviContext = useContext(NaviContext)
+	const naviContext = useContext(NaviContext)
 
 	const data = useStaticQuery(graphql`
 	{
@@ -51,8 +51,8 @@ function Navi(props) {
 					{ item.classes === 'coming' ? 
 						<div className='coming'>{item.title}</div>
 							:
-						<Link to={item.url}>{item.title}</Link>
-					}
+							<Link to={item.url} onClick={() => { naviContext.setHamburgerActive(false)}} onKeyDown={() => { naviContext.setHamburgerActive(false)}}>{item.title}</Link>
+						}
 				</div>
 			)
 		}

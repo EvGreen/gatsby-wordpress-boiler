@@ -74,6 +74,7 @@ function Hamburger(props) {
 	
   return (
 		<div id="master-hamburger" className="c5" onClick={() => { naviContext.activeToggle(true); naviContext.hamburgerActiveToggle(true)}} onKeyDown={() => { naviContext.activeToggle(true); naviContext.hamburgerActiveToggle(true)}} role="button" tabIndex={0}>
+			<div className="cover"></div>
 			<Transition
 				in={naviContext.beforeHeaderBreakpoint ? true :	false}
 				timeout={baseDuration}
@@ -82,23 +83,23 @@ function Hamburger(props) {
 			>
 				<Logo />
 			</Transition>
-				<div id="master-hamburger-positioner">
-					<div style={{opacity: 0}} id="master-hamburger-container">
-						<div className={`hamburger-container hamburger hamburger--close1 ${naviContext.isHamburgerActive ? 'open' : null }`}>
-							<div className="hamburger__icon">
-								<div className="hamburger__line hamburger__line--1"></div>
-								<div className="hamburger__line hamburger__line--2"></div>
-								<div className="hamburger__line hamburger__line--3"></div>
-							</div>
-							
-							{ naviContext.isHamburgerActive ?
-							<div className="starfall-wrap">
-								<Starfall />
-							</div>
-							: null }
+			<div id="master-hamburger-positioner">
+				<div style={{opacity: 0}} id="master-hamburger-container">
+					<div className={`hamburger-container hamburger hamburger--close1 ${naviContext.isHamburgerActive ? 'open' : null }`}>
+						<div className="hamburger__icon">
+							<div className="hamburger__line hamburger__line--1"></div>
+							<div className="hamburger__line hamburger__line--2"></div>
+							<div className="hamburger__line hamburger__line--3"></div>
 						</div>
+						
+						{ naviContext.isHamburgerActive ?
+						<div className="starfall-wrap">
+							<Starfall />
+						</div>
+						: null }
 					</div>
 				</div>
+			</div>
 		</div>
   )
 }

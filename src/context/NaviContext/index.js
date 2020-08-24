@@ -106,8 +106,10 @@ function NaviContextProvider({children, location}) {
 		<NaviContext.Provider value={{
       isActive,
       activeToggle: () => setActive(!isActive),
+      setActive: (bool) => setActive(bool),
       isHamburgerActive,
       hamburgerActiveToggle: () => setHamburgerActive(!isHamburgerActive),
+      setHamburgerActive: (bool) => setHamburgerActive(bool),
       beforeHeaderBreakpoint,
       scrollingDirectionIsDown,
       locationPathname

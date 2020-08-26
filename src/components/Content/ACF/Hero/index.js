@@ -22,7 +22,7 @@ function Hero(props) {
 	})
 
 	return (
-		<section id={`${anchor ? anchor : ''}`} className={`hero x0 t ${classes ? classes : ''}`}>
+		<section id={`${anchor ? anchor : ''}`} className={`hero is-inview x0 t ${classes ? classes : ''}`}>
 
 			<div className={slides && slides.length > 1 ? 'hero-slider' : 'hero-single'} style={{minHeight: min_height}}>
 				{SlidesMap}

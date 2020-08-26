@@ -8,24 +8,46 @@
 	opacity: 0;
 }
 
+.inview .animated {
+	opacity: 1;
+}
+
 // Text line-by-line reveal
 .line {
 	display: block;
 	overflow: hidden;
 }
 
-.word {
+.splittext-lines .word {
 	display: inline-block;
-	animation: slide-up 1.25s cubic-bezier(0.17, 0.04, 0.03, 1);
-	animation-fill-mode: both;
-	animation-delay: calc( .15s + (.4s * var(--line-index)) );
 	opacity: 0;
 	text-decoration: inherit;
+}
+.inview .splittext-lines .word {
+	animation: slide-up 1.25s cubic-bezier(0.17, 0.04, 0.03, 1);
+	animation-fill-mode: both;
+	animation-delay: calc( .15s + (.2s * var(--word-index)) );
+}
+
+.splittext-chars .char {
+	display: inline-block;
+	opacity: 0;
+	text-decoration: inherit;
+}
+.inview .splittext-chars .char {
+	animation: slide-left .5s cubic-bezier(0.17, 0.04, 0.03, 1);
+	animation-fill-mode: both;
+	animation-delay: calc( .15s + (.05s * var(--char-index)) );
 }
 	
 @keyframes slide-up {
 	from { transform: translateY(.5em); opacity: 0; }
 	to { transfomr: translateY(0); opacity: 1; }
+}
+	
+@keyframes slide-left {
+	from { transform: translateX(.5em); opacity: 0; }
+	to { transfomr: translateX(0); opacity: 1; }
 }
 
 /* ==========================================================================

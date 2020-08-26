@@ -190,6 +190,71 @@
 }
 
 /* ==========================================================================
+  Order
+========================================================================== */
+
+.order-1 {
+	order: 1;
+}
+.order-2 {
+	order: 2;
+}
+.order-3 {
+	order: 3;
+}
+.order-4 {
+	order: 4;
+}
+.order-5 {
+	order: 5;
+}
+.order-6 {
+	order: 6;
+}
+
+@media screen and (max-width: 1024px) {
+	.order-1-tablet {
+		order: 1;
+	}
+	.order-2-tablet {
+		order: 2;
+	}
+	.order-3-tablet {
+		order: 3;
+	}
+	.order-4-tablet {
+		order: 4;
+	}
+	.order-5-tablet {
+		order: 5;
+	}
+	.order-6-tablet {
+		order: 6;
+	}
+}
+
+@media screen and (max-width: 728px) {
+	.order-1-mobile {
+		order: 1;
+	}
+	.order-2-mobile {
+		order: 2;
+	}
+	.order-3-mobile {
+		order: 3;
+	}
+	.order-4-mobile {
+		order: 4;
+	}
+	.order-5-mobile {
+		order: 5;
+	}
+	.order-6-mobile {
+		order: 6;
+	}
+}
+
+/* ==========================================================================
   Display
 ========================================================================== */
 

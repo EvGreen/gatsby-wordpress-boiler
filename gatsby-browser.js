@@ -27,18 +27,21 @@ export const wrapPageElement = ({ element, props }) => {
 // Splitting
 export const onRouteUpdate = () => {
 
-  const isInview = document.querySelectorAll('.is-inview')
-  const nodes = [...isInview]
-
-
   // Elements that are direct children of splittext-lines class
   const lines = document.querySelectorAll('.splittext-lines > h1, .splittext-lines > h2, .splittext-lines > h3, .splittext-lines > h4, .splittext-lines > h5, .splittext-lines > h6')
+  const chars = document.querySelectorAll('.splittext-chars > h1, .splittext-chars > h2, .splittext-chars > h3, .splittext-chars > h4, .splittext-chars > h5, .splittext-chars > h6')
   
   Splitting({
     target: lines,
     by: 'lines',
     key: null
-  });
+  })
+
+  Splitting({
+    target: chars,
+    by: 'chars',
+    key: null
+  })
   
   // // Wrap them once as per normal
   // const linesSplittext = new SplitText(lines, {
@@ -52,6 +55,10 @@ export const onRouteUpdate = () => {
   //   type: "lines",
   //   linesClass: "muhlines line-++"
   // })
+
+
+  const isInview = document.querySelectorAll('.is-inview')
+  const nodes = [...isInview]
 
   // Set threshold for
   const config = {
@@ -76,13 +83,6 @@ export const onRouteUpdate = () => {
   nodes.forEach(box => {
     observer.observe(box)
   })
-
-
-
-
-
-
-  
 
 }
 

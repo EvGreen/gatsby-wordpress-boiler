@@ -59,7 +59,7 @@ function Header(props) {
 				unmountOnExit
 			>
 				<div className={`navi-animator x0 ${naviContext.isHamburgerActive && !naviContext.beforeHeaderBreakpoint ? null : 't'}`}>
-					<Navi />
+					<Navi {...props} />
 					<SocialIcons />
 				</div>
 			</Transition>

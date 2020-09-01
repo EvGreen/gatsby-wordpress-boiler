@@ -26,7 +26,7 @@
 .inview .splittext-lines .word {
 	animation: slide-up 1.25s cubic-bezier(0.17, 0.04, 0.03, 1);
 	animation-fill-mode: both;
-	animation-delay: calc( .15s + (.2s * var(--word-index)) );
+	animation-delay: calc( .15s + (.2s * var(--line-index)) );
 }
 
 .splittext-chars .char {

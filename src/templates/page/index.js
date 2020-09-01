@@ -35,6 +35,10 @@ export default ({ data, pageContext }) => {
 export const query = graphql`
 
   query($id: String!) {
+    wpgraphql {
+      ...wpNaviPrimary
+      ...wpNaviSecondary
+    }
     wordpressPage( id: { eq: $id } ) {
       id
       title

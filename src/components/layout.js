@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from "gatsby"
 import '../EVG/css/_core.scss';
 
 import Header from './Header'
@@ -16,7 +17,8 @@ if (typeof window !== 'undefined') {
 	})
 }
 
-function Layout({ children }) {
+function Layout(props) {
+	console.log('Layout:', props)
   return (
   	<>
 
@@ -24,10 +26,10 @@ function Layout({ children }) {
 				<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
       </Helmet>
 
-			<Header />
+			<Header {...props.data} />
 			
 			<ParallaxProvider>
-				{children}
+				{props.children}
 			</ParallaxProvider>
 
   	</>

@@ -34,8 +34,6 @@ function NaviItem(props) {
 	const parentId = props.parentId
 	const internal = props.connectedNode
 
-	console.log('d', classes)
-
 	if ( internal ) {
 		return (
 			<div
@@ -56,6 +54,7 @@ function NaviItem(props) {
 						{label}
 					</div>
 				}
+				{props.children}
 			</div>
 		)
 	}
@@ -79,6 +78,7 @@ function NaviItem(props) {
 					{label}
 				</div>
 			}
+			{props.children}
 		</div>
 	)
 }

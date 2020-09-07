@@ -18,7 +18,6 @@ if (typeof window !== 'undefined') {
 }
 
 function Layout(props) {
-	console.log('Layout:', props)
   return (
   	<>
 

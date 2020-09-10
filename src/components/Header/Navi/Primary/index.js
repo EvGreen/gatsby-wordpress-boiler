@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import './style.scss'
 import NaviContext from '../../../../context/NaviContext'
-import _ from 'lodash'
 
 import NaviItem from '../NaviItem'
 //import { Transition, TransitionGroup } from 'react-transition-group'
@@ -15,6 +14,20 @@ function NaviPrimary(props) {
 		[]
 	]
 
+	// Mark navi items that have children
+	function markParent(id, array) {
+		for (var key in array) {
+			if(array.hasOwnProperty(key)) {
+				array[key].map((item) => {
+					if(item.id === id) {
+						return item['itHasChildren'] = id
+					}
+				})
+			}
+		}
+	}
+
+	// Organize all menu items into arrays of parents
 	function organizeMenuNodes(item) {
 		const parent = item.parentId
 		const id = item.id
@@ -22,11 +35,16 @@ function NaviPrimary(props) {
 		const order = item.order
 
 		if(parent) {
+			// Mark navi item that have children
+			markParent(parent, usedNodes)
+			// Has parent that already has its array, add to it
 			if(usedNodes[parent]) {
 				usedNodes[parent].push(item)
+			// Has parent that doesn't have its array, create array for said parent, put it there
 			} else {
 				usedNodes[parent] = [item]
 			}
+		// No Parents
 		} else {
 			usedNodes[0].push(item)
 		}
@@ -36,7 +54,7 @@ function NaviPrimary(props) {
 
 	const menuNodesMap = menuNodes.map(organizeMenuNodes)
 
-	console.log('usedNodes', menuNodesMap, usedNodes.length, usedNodes)
+	//console.log('usedNodes', menuNodesMap, usedNodes.length, usedNodes)
 
 	// const menuClearedItems = menuNodes.map(
 	// 	(item) => {
@@ -59,12 +77,25 @@ function NaviPrimary(props) {
 	// 	}
 	// )
 
+	function menuServe(naviNodes, key) {
+		let result = []
 
+		result.push(naviNodes[key].map((item) => {
+			return [(
+				<NaviItem key={item.id} { ...item }>
+					{item.itHasChildren ? menuServe(naviNodes, item.itHasChildren) : null}
+				</NaviItem>
+			)]
+		}))
 
-	const menuItems = menuNodes.map(
+		return result 
+	}
+
+	const menuItems = usedNodes.map(
 		(item) => {
 			const parent = item.parentId
 			let submenuItems = null
+			//console.log('xxx',item)
 			//const children = item.childItems.nodes
 
 			// if(children.length > 0) {
@@ -78,19 +109,20 @@ function NaviPrimary(props) {
 			// 		}
 			// 	)
 			// }
-		
-			return (
-				<NaviItem key={item.id} { ...item }>
-					{submenuItems}
-				</NaviItem>
-			)
+			return item.map((item) => {
+				return (
+					<NaviItem key={item.id} { ...item }>
+						{submenuItems}
+					</NaviItem>
+				)
+			})
 		}
 	)
 
 	
   return (
 		<>
-			{menuItems}
+			{menuServe(usedNodes, 0)}
 		</>
   )
 }

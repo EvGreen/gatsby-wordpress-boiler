@@ -19,35 +19,12 @@ export const wpNaviSecondary = graphql`
             target
             path
 						parentId
+						order
             connectedNode {
               node {
                 uri
               }
             }
-						childItems {
-              nodes {
-								id
-								label
-								title
-								description
-								cssClasses
-								target
-								path
-								parentId
-								childItems {
-									nodes {
-										id
-										label
-										title
-										description
-										cssClasses
-										target
-										path
-										parentId
-									}
-								}
-							}
-						}
           }
         }
 			}

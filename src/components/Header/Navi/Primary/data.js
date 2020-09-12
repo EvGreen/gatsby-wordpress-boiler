@@ -9,7 +9,7 @@ export const wpNaviPrimary = graphql`
         count
         slug
         locations
-        menuItems {
+        menuItems(first: 100) {
           nodes {
             id
             label

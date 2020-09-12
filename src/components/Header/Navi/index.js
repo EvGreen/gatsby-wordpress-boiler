@@ -11,11 +11,7 @@ function Navi(props) {
 
   return (
 		<>
-			<nav className='navi navi-primary'>
-				<div className='navi-items'>
-					<NaviPrimary { ...props } />
-				</div>
-			</nav>
+			<NaviPrimary { ...props } />
 		</>
   )
 }

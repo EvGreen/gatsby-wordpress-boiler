@@ -9,7 +9,7 @@ import { ParallaxProvider } from 'react-scroll-parallax'
 
 if (typeof window !== 'undefined') {
 	// eslint-disable-next-line global-require
-	require('smooth-scroll')('a[href*="#"]', {
+	require('smooth-scroll')('a[href*="#"]:not([href="#"])', {
 		speed: 800,
 		speedAsDuration: true,
 		easing: 'easeInOutCubic',

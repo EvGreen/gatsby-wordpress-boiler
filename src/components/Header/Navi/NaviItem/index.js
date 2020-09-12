@@ -33,12 +33,13 @@ function NaviItem(props) {
 	const path = props.path
 	const parentId = props.parentId
 	const internal = props.connectedNode
+	const dropDownClickHandle = props.dropDownClickHandle
 
 	if ( internal ) {
 		return (
 			<div
 				key={id}
-				className={`nav-item ${classes}`}
+				className={`nav-item ${classes} ${parentId ? 'sub' : ''}`}
 				data-hint={description}
 			>
 				{enabled ?
@@ -46,6 +47,7 @@ function NaviItem(props) {
 						to={path}
 						onClick={() => { naviContext.setHamburgerActive(false)}}
 						onKeyDown={() => { naviContext.setHamburgerActive(false)}}
+						onClick={dropDownClickHandle}
 					>
 						{label}
 					</Link>
@@ -62,7 +64,7 @@ function NaviItem(props) {
 	return (
 		<div
 			key={id}
-			className={`nav-item ${classes}`}
+			className={`nav-item ${classes} ${parentId ? 'sub' : ''}`}
 			data-hint={description}
 		>
 			{enabled ?
@@ -70,6 +72,7 @@ function NaviItem(props) {
 					href={path}
 					target={target}
 					rel={target === '_blank' ? 'noopener noreferrer' : null}
+					onClick={dropDownClickHandle}
 				>
 					{label}
 				</a>

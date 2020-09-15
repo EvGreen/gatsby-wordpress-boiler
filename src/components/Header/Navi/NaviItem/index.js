@@ -1,6 +1,9 @@
 import React, { useContext } from 'react'
 import './style.scss'
 import NaviContext from '../../../../context/NaviContext'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 //import { Transition, TransitionGroup } from 'react-transition-group'
 //import anime from 'animejs'
 
@@ -50,10 +53,12 @@ function NaviItem(props) {
 						onClick={dropDownClickHandle}
 					>
 						{label}
+						{props.itHasChildren ? <FontAwesomeIcon icon={faAngleDown} className="caret" /> : null}
 					</Link>
 				:
 					<div className="disabled">
 						{label}
+						{props.itHasChildren ? <FontAwesomeIcon icon={faAngleDown} className="caret" /> : null}
 					</div>
 				}
 				{props.children}
@@ -75,10 +80,12 @@ function NaviItem(props) {
 					onClick={dropDownClickHandle}
 				>
 					{label}
+					{props.itHasChildren ? <FontAwesomeIcon icon={faAngleDown} className="caret" /> : null}
 				</a>
 			:
 				<div className="disabled">
 					{label}
+					{props.itHasChildren ? <FontAwesomeIcon icon={faAngleDown} className="caret" /> : null}
 				</div>
 			}
 			{props.children}

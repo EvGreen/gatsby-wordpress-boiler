@@ -6,10 +6,28 @@ header#master-header .nav-item {
 		left: 0;
 		display: flex;
 		flex-direction: column;
-		padding: .5em 0;
+		padding: 0;
+		width: auto;
+		min-width: 8em;
+		max-width: 15em;
 
-		.nav-item a {
-			padding: .25em .75em;
+		.nav-item {
+			position: relative;
+			width: 100%;
+			display: flex;
+			
+			a {
+				width: 100%;
+				padding: .25em .75em;
+			}
+
+			&:first-child a {
+				padding-top: .5em;
+			}
+
+			&:last-child a {
+				padding-bottom: .5em;
+			}
 		}
 
 		.sub-nav-items {
@@ -19,8 +37,13 @@ header#master-header .nav-item {
 	}
 }
 
-.x0.null {
-	.sub-nav-items {
-		background: #fff;
+.x0 {
+	.sub-nav-items a {
+		background: #1f1f1f;
+		border-left: 2px solid;
+
+		&:not(:hover) {
+			color: #fff;
+		}
 	}
 }

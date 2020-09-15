@@ -5,7 +5,7 @@
 
 	.disabled{
 		padding: .5em .5em;
-		
+
 		&:before {
 			content: '';
 			position: absolute;
@@ -17,5 +17,18 @@
 			transform: translate3d(-50%,-50%,0);
 			opacity: .85;
 		}
+	}
+}
+
+.caret {
+	font-size: .75em;
+	display: inline-block;
+	margin: .15em 0 0 .25em;
+}
+
+.sub-nav-items {
+	.caret {
+		transform: rotate(-90deg);
+		margin: .05em 0 0 .25em;
 	}
 }

@@ -84,7 +84,7 @@ function Vimeo(props) {
 				<source src={props.file} type="video/mp4" />
 				<track
 					default kind="captions"
-          srclang="en"
+          srcLang="en"
           src="none.vtt"/>
 			</video>
 		</div>

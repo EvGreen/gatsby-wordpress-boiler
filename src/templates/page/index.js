@@ -44,9 +44,7 @@ export const query = graphql`
       title
       slug
       date(formatString: "MM-DD-YYYY")
-      author {
-        name
-      }
+      author
       acf {
         sections_page {
           ...acfHero

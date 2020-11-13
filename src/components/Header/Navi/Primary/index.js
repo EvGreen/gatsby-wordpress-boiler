@@ -43,7 +43,7 @@ function NaviPrimary(props) {
 	}
 
 	// Menu feed
-	const menuNodes = props.wpgraphql.wpNaviPrimary.nodes[0].menuItems.nodes
+	const menuNodes = props.wpgraphql.wpNaviPrimary?.nodes[0]?.menuItems.nodes
 	// Re-organized menu feed
 	let usedNodes = [
 		[]
@@ -102,7 +102,7 @@ function NaviPrimary(props) {
 		return item
 	}
 
-	const menuNodesMap = menuNodes.map(organizeMenuNodes)
+	const menuNodesMap = menuNodes?.map(organizeMenuNodes)
 
 	function menuServe(naviNodes, key, lvl) {
 		let result = []

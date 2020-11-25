@@ -34,6 +34,8 @@ module.exports = {
         fieldName: "wpgraphql",
         // Url to query from
         url: "https://design-sentry.com/graphql",
+        // refetch interval in seconds
+        //refetchInterval: 60,
       },
     },
     {

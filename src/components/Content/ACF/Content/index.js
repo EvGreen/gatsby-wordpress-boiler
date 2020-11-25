@@ -9,12 +9,13 @@ function Content(props) {
   const [ref, refInView] = useInView({ triggerOnce: true })
 
 	const content = props.wysiwyg
+	const anchor = props.anchor
 	const image = props.img?.localFile.childImageSharp.fluid
 
   return (
 		<>
 			{ content ? 
-			<section className='content c1 grid-12'>
+			<section id={anchor ? anchor : null} className='content c1 grid-12'>
 
 				{ image ?
 					<Img fluid={image}

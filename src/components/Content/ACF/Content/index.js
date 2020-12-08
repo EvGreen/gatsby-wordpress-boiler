@@ -3,11 +3,7 @@ import './style.scss'
 
 import Img from 'gatsby-image'
 
-import { useInView } from 'react-intersection-observer'
-
 function Content(props) {
-  const [ref, refInView] = useInView({ triggerOnce: true })
-
 	const content = props.wysiwyg
 	const anchor = props.anchor
 	const image = props.img?.localFile.childImageSharp.fluid
@@ -15,7 +11,7 @@ function Content(props) {
   return (
 		<>
 			{ content ? 
-			<section id={anchor ? anchor : null} className='content c1 grid-12'>
+			<section id={anchor ? anchor : null} className='content is-inview c1 grid-12'>
 
 				{ image ?
 					<Img fluid={image}
@@ -24,8 +20,8 @@ function Content(props) {
 					/>
 				: null }
 
-				<div ref={ref} className='content-box c0'>
-					<div className='content-holder animated' style={{opacity: refInView ? 1 : 0}} dangerouslySetInnerHTML={{__html: content}} />
+				<div className='content-box c0'>
+					<div className='content-holder animated' dangerouslySetInnerHTML={{__html: content}} />
 				</div>
 
 			</section>

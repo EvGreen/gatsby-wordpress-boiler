@@ -78,7 +78,7 @@ function Vimeo(props) {
 
 
 	return (
-		<div ref={io} className='video-vimeo-wrap'>
+		<div ref={io} className='video-html-wrap'>
 			<button onClick={vPlay}>play</button><button onClick={vPause}>pause</button><button onClick={vMute}>sound is {isMuted ? 'off' : 'on'}</button>{currentTime} | {isPlaying ? 'playing' : 'not playing'}
 			<video ref={player} muted={isMuted ? 'true' : null} loop playsInline disablePictureInPicture allow="autoplay">
 				<source src={props.file} type="video/mp4" />

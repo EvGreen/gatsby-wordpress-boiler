@@ -72,9 +72,9 @@ export const onRouteUpdate = () => {
   let observer = new IntersectionObserver(function(entries, self) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('inview')
+        entry.target.classList.add('inview','inview-rn')
       } else {
-        //entry.target.classList.remove('inview')
+        entry.target.classList.remove('inview-rn')
       }
     })
   }, config)

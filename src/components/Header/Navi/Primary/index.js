@@ -43,7 +43,7 @@ function NaviPrimary(props) {
 	}
 
 	// Menu feed
-	const menuNodes = props.wpgraphql.wpNaviPrimary?.nodes[0]?.menuItems.nodes
+	const menuNodes = props.wpgraphql?.wpNaviPrimary?.nodes[0]?.menuItems.nodes
 	// Re-organized menu feed
 	let usedNodes = [
 		[]

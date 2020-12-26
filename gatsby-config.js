@@ -71,6 +71,8 @@ module.exports = {
           '**/contact-forms', //skipping for good
           '/yoast/**', //skipping for now to speed up build process
           '/wordfence/**', //skipping for good
+          '/wp-site-health/**', //skipping for good
+          '/batch/**', //skipping for good
           '/*/*/comments', //skipping for now to speed up build process
           '/siteground-optimizer/**' //skipping for now to speed up build process
         ],

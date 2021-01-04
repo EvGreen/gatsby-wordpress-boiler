@@ -73,7 +73,24 @@ function Hamburger(props) {
 	}
 	
   return (
-		<div id="master-hamburger" className="c5" onClick={() => { naviContext.activeToggle(true); naviContext.hamburgerActiveToggle(true)}} onKeyDown={() => { naviContext.activeToggle(true); naviContext.hamburgerActiveToggle(true)}} role="button" tabIndex={0}>
+		<div
+			id="master-hamburger"
+			className="c5"
+			onClick={
+				() => {
+					naviContext.activeToggle(true)
+					naviContext.hamburgerActiveToggle(true)
+				}
+			}
+			onKeyDown={
+				() => {
+					naviContext.activeToggle(true)
+					naviContext.hamburgerActiveToggle(true)
+				}
+			}
+			role="button"
+			tabIndex={0}
+		>
 			<div className="cover"></div>
 			<Transition
 				in={naviContext.beforeHeaderBreakpoint ? true :	false}

@@ -7,6 +7,8 @@ import Header from './Header'
 import { Helmet } from 'react-helmet'
 import { ParallaxProvider } from 'react-scroll-parallax'
 
+import Gaze from '../components/Gaze'
+
 if (typeof window !== 'undefined') {
 	// eslint-disable-next-line global-require
 	require('smooth-scroll')('a[href*="#"]:not([href="#"])', {
@@ -26,6 +28,8 @@ function Layout(props) {
       </Helmet>
 
 			<Header {...props.data} />
+
+			<Gaze />
 			
 			<ParallaxProvider>
 				{props.children}

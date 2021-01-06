@@ -7,7 +7,7 @@ import Header from './Header'
 import { Helmet } from 'react-helmet'
 import { ParallaxProvider } from 'react-scroll-parallax'
 
-import Gaze from '../components/Gaze'
+import CanvasNoise from './Canvas/Noise'
 
 if (typeof window !== 'undefined') {
 	// eslint-disable-next-line global-require
@@ -25,11 +25,12 @@ function Layout(props) {
 
 			<Helmet>
 				<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-      </Helmet>
+				{/* <script type="text/javascript" src="https://frontrunner-restaurant.popmenu.com/s/pm.js"></script> */}
+			</Helmet>
 
 			<Header {...props.data} />
 
-			<Gaze />
+			<CanvasNoise />
 			
 			<ParallaxProvider>
 				{props.children}

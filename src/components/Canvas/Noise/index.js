@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useEffect } from 'react'
+import React, { useContext, useRef, useEffect, useState } from 'react'
 import NaviContext from '../../../context/NaviContext'
 
 import { Transition } from 'react-transition-group'
@@ -8,8 +8,13 @@ import img_noise from './noise.png'
 
 import './style.scss'
 
-function Gaze(props) {
+function Noise(props) {
 	const naviContext = useContext(NaviContext)
+	const [noiseData, setNoiseData] = useState([])
+	const noiseFrames = 67
+	const [noiseFrame, setNoiseFrame] = useState(noiseFrames)
+
+	const canvasRef = useRef(null)
 
 	const fadeDuration = 1000
 	const fadeIn = element => {
@@ -17,7 +22,7 @@ function Gaze(props) {
 			.timeline()
 			.add({
 				targets: element,
-				opacity: [0, 0.2],
+				opacity: [0, 1],
 				duration: fadeDuration,
 				easing: 'easeInOutSine'
 			})
@@ -27,7 +32,7 @@ function Gaze(props) {
 			.timeline()
 			.add({
 				targets: element,
-				opacity: [0.2, 0],
+				opacity: [1, 0],
 				duration: fadeDuration,
 				easing: 'easeInOutSine'
 			})
@@ -35,8 +40,8 @@ function Gaze(props) {
 
 	
 
-	function noise(ctx) {
-		console.log('ctx')
+	function createNoise(ctx) {
+		console.log('fn: createNoise')
 
 		var w = ctx.canvas.width,
 				h = ctx.canvas.height,
@@ -45,8 +50,9 @@ function Gaze(props) {
 				len = buffer32.length,
 				run = 0,
 				color = 0,
-				m = Math.random() * 6 + 4,
-				band = Math.random() * 256 * 256,
+				// Length of noise stripes
+				m = Math.random() * 6 + 10,
+				band = Math.random() * w * h,
 				p = 0,
 				i = 0;
 
@@ -54,30 +60,38 @@ function Gaze(props) {
 				if (run < 0) {
 						run = m * Math.random();
 						p = Math.pow(Math.random(), 0.4);
+						// Banding
+						if (i > band && i < band + 512 * 256) {
+								p = Math.random();
+						}
 						color = (255 * p) << 24;
 				}
 				run -= 1;
 				buffer32[i++] = color;
 		}
 
-		ctx.putImageData(idata, 0, 0);
+		setNoiseData((noiseData) => {
+			noiseData.push(idata)
+			return noiseData
+		})
+
 	}
 
-	const draw = (ctx, frameCount, noiseData) => {
-		console.log('draw')
-		// Prep Noise PNG
-		let noise = new Image()
-		noise.src = img_noise
+	const draw = (ctx, noiseData, noiseFrame) => {
+		//console.log('fn: draw', noiseFrame)
+		// // Prep Noise PNG
+		// let noise = new Image()
+		// noise.src = img_noise
 
 		// Clear Canvas
-		ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+		//ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
 
-		// Draw Noise PNG with random offsets
-		let min = -2
-		let max = 0
-		let expand = (Math.abs(min) + Math.abs(max)) + 2
-		let noise_x_offset = Math.floor(Math.random() * (max - min) + min)
-		let noise_y_offset = Math.floor(Math.random() * (max - min) + min)
+		// // Draw Noise PNG with random offsets
+		// let min = -2
+		// let max = 0
+		// let expand = (Math.abs(min) + Math.abs(max)) + 2
+		// let noise_x_offset = Math.floor(Math.random() * (max - min) + min)
+		// let noise_y_offset = Math.floor(Math.random() * (max - min) + min)
 		//ctx.drawImage(noise, noise_x_offset, noise_y_offset, ctx.canvas.width + expand, ctx.canvas.height + expand)
 		
 		// ctx.beginPath()
@@ -86,8 +100,8 @@ function Gaze(props) {
 		// ctx.fill()
 		// ctx.closePath()
 
-		 // Play Noise
-		ctx.putImageData(noiseData[frameCount % 11], 0, 0)
+		 // Play Noise frames depending on framecount
+		ctx.putImageData(noiseData[noiseFrame - 1], 0, 0)
 
 		// for(let i = 0; i < 100; i++) {
 		// 	let x = Math.random() * ctx.canvas.width
@@ -113,51 +127,54 @@ function Gaze(props) {
 		// 	ctx.closePath()
 		// }
 	}
-	
-	const canvasRef = useRef(null)
+
 	useEffect(() => {
-    if(naviContext.isHamburgerActive) {
+
 			const canvas = canvasRef.current
-			canvas.width = canvas.clientWidth
-			canvas.height = canvas.clientHeight
-
 			const context = canvas.getContext('2d')
-			let frameCount = 0
-			let animationFrameId
 			
-
-			// Create Noise
-			let noiseData = []
-			const createNoise = () => {
-				console.log('cn')
-				const idata = context.createImageData(canvas.width, canvas.height)
-				const buffer32 = new Uint32Array(idata.data.buffer)
-				const len = buffer32.length
-	
-				for (let i = 0; i < len; i++) {
-						if (Math.random() < 0.35) {
-								buffer32[i] = 0xff000000
-						}
-				}
-	
-				noiseData.push(idata)
-			}
-	
-			for (let i = 0; i < 11; i++) {
-				createNoise()
-			}
+			// Make the noise canvas render at lower resolution for slight blur and performance improvement
+			canvas.width = canvas.clientWidth * 0.65
+			canvas.height = canvas.clientHeight * 0.65
 
 			// Set global parameters
 			context.globalCompositeOperation = 'screen'
 			context.imageSmoothingEnabled = false
+	
+			// Generate n noise frames
+			for (let i = 0; i < noiseFrames; i++) {
+				createNoise(context)
+			}
+
+	}, [])
+	
+	useEffect(() => {
+
+    if(naviContext.isHamburgerActive) {
+
+			const canvas = canvasRef.current
+			const context = canvas.getContext('2d')
+
+			let animationFrameId
 
 			
 			//Our draw came here
 			const render = () => {
-				frameCount++
-				//draw(context, frameCount, noiseData)
-				noise(context)
-				animationFrameId = window.requestAnimationFrame(render)
+
+				// Run noise frame cycle, so 
+				setNoiseFrame((i) => {
+					if(i === noiseFrames) {
+						i = 0
+					}
+					i++
+					if (i % 2) {
+						animationFrameId = window.requestAnimationFrame(render)
+						return i
+					}
+					draw(context, noiseData, i)
+					animationFrameId = window.requestAnimationFrame(render)
+					return i
+				})
 			}
 			render()
 			
@@ -184,12 +201,10 @@ function Gaze(props) {
 			timeout={fadeDuration}
 			onEntering={fadeIn}
 			onExiting={fadeOut}
-			mountOnEnter={true}
-			unmountOnExit={true}
 		>
 			<canvas id="gaze" className={`entity layer`} ref={canvasRef} {...props}/>
 		</Transition>
   )
 }
 
-export default Gaze
+export default Noise

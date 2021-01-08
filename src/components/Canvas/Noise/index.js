@@ -177,12 +177,12 @@ function Noise(props) {
 	// Monitor hamburger activation to fire up the canvas animation
 	useEffect(() => {
 
+		let animationFrameId
+
     if(naviContext.isHamburgerActive) {
 
 			const canvas = canvasRef.current
 			const context = canvas.getContext('2d')
-
-			let animationFrameId
 			let frameCount = 0
 			let noiseFrameCount = 0
 			
@@ -208,10 +208,12 @@ function Noise(props) {
 				frameCount++
 			}
 			render()
-			
-			return () => {
+		}
+		
+		return () => {
+			setTimeout(() => {
 				window.cancelAnimationFrame(animationFrameId)
-			}
+			}, fadeDuration);
 		}
 	}, [naviContext.isHamburgerActive])
 

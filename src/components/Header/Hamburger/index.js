@@ -7,7 +7,7 @@ import anime from 'animejs'
 import Starfall from '../../Starfall'
 import Logo from '../Logo'
 
-function Hamburger(props) {
+function Hamburger({baseDuration}) {
 	const naviContext = useContext(NaviContext)
 
 	// Keeping track of Header Logo Width
@@ -19,8 +19,6 @@ function Hamburger(props) {
 		setLogoWidthOffset(offset)
 	}, [])
 
-	// Animations
-	const baseDuration = 250
 	// Animating fade in/out
 	const fadeInLogo = element => {
 		const hamburger = document.getElementById('master-hamburger-container')

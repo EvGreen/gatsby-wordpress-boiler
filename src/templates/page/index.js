@@ -24,10 +24,10 @@ export default ({ data, pageContext }) => {
         {/* { data.wordpressPage.content ?
           <WPDefault key="WP-default-1" { ...data } />
         : null } */}
+
+        <Footer image={footerImage} />
   
       </main>
-
-      <Footer image={footerImage} />
     </>
   )
 }

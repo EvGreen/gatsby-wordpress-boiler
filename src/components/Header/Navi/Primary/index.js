@@ -6,12 +6,11 @@ import NaviItem from '../NaviItem'
 import { Transition } from 'react-transition-group'
 import anime from 'animejs'
 
-function NaviPrimary(props) {
+function NaviPrimary({baseDuration, wpgraphql}) {
 	const naviContext = useContext(NaviContext)
 	const [dropDown, setDropDown] = useState([])
 
 	// Animating fade in/out
-	const baseDuration = 250
 	const fadeInLogo = element => {
 		const links = element.querySelectorAll('.nav-item')
 		anime
@@ -43,7 +42,7 @@ function NaviPrimary(props) {
 	}
 
 	// Menu feed
-	const menuNodes = props.wpgraphql?.wpNaviPrimary?.nodes[0]?.menuItems.nodes
+	const menuNodes = wpgraphql?.wpNaviPrimary?.nodes[0]?.menuItems.nodes
 	// Re-organized menu feed
 	let usedNodes = [
 		[]

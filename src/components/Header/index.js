@@ -43,14 +43,17 @@ function Header(props) {
 			})
 	}
 
+	// Fire up expanded navi on hamburger activation alone
+	const naviExpanded = naviContext.isHamburgerActive
+
   return (
 		<header id='master-header' className={'x0 t'}>
-			<Hamburger />
+			<Hamburger baseDuration={baseDuration} />
 
 			{/* {naviContext.beforeHeaderBreakpoint ? 'true' :	
 			naviContext.scrollingDirectionIsDown ? 'false' : 'true'} */}
 			<Transition
-				in={naviContext.isActive ? true :	false}
+				in={naviExpanded}
 				timeout={baseDuration}
 				appear={true}
 				onEntering={fadeInLogo}
@@ -58,8 +61,8 @@ function Header(props) {
 				mountOnEnter
 				unmountOnExit
 			>
-				<div className={`navi-animator x0 ${naviContext.isHamburgerActive && !naviContext.beforeHeaderBreakpoint ? null : 't'}`}>
-					<Navi {...props} />
+				<div className={`navi-animator x0`}>
+					<Navi {...props} baseDuration={baseDuration} />
 					<SocialIcons />
 				</div>
 			</Transition>

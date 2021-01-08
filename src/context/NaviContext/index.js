@@ -4,20 +4,16 @@ import { throttle } from 'lodash'
 const NaviContext = createContext(false)
 
 function NaviContextProvider({children, location}) {
-  // State for telling if the navi is expanded or not
-  const [isActive, setActive] = useState(false)
-  // State for telling if the hamburger is expanded or not
-  const [isHamburgerActive, setHamburgerActive] = useState(false)
-  // State for scrolling direction
-  const [scrollingDirectionIsDown, setScrollingDirectionIsDown] = useState(null)
-  // State for detecting if we're in the hero zone
-  const [beforeHeaderBreakpoint, setBeforeHeaderBreakpoint] = useState(true)
+
   // State for current location
   const [locationPathname, setLocationPathname] = useState(true)
 
   /* ==========================================================================
     Before Breakpoint Check
   ========================================================================== */
+
+  // State for detecting if we're in the hero zone
+  const [beforeHeaderBreakpoint, setBeforeHeaderBreakpoint] = useState(true)
 
   // This one is for telling if user is scrolling before or after hero, this will come in handy when showing/hiding navi
   useEffect(() => {
@@ -50,9 +46,13 @@ function NaviContextProvider({children, location}) {
   },[location])
 
 
+
   /* ==========================================================================
     Scrolling up or down
   ========================================================================== */
+
+  // State for scrolling direction
+  const [scrollingDirectionIsDown, setScrollingDirectionIsDown] = useState(null)
 
   // This one monitors if user is scrolling up or down, tried intersect observer before but didn't work out due to its limitations, maybe if the API gets expanded. For now we throttle scroll event so it's not horrible.
   const throttledScrollDirectionDetection = useCallback(throttle(() => checkScrollingDirection(), 500), [
@@ -81,9 +81,18 @@ function NaviContextProvider({children, location}) {
     throttledScrollDirectionDetection()
   },[])
 
+  
+
   /* ==========================================================================
     Activate navi based on other parameters
   ========================================================================== */
+
+  // State for telling if the hamburger is expanded or not
+  const [isHamburgerActive, setHamburgerActive] = useState(false)
+
+  // State for telling if the navi is expanded or not
+  const [isActive, setActive] = useState(false)
+
   useEffect(() => {
     if (isActive && !isHamburgerActive) {
       if (scrollingDirectionIsDown && !beforeHeaderBreakpoint) {

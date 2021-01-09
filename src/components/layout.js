@@ -9,7 +9,21 @@ import { ParallaxProvider } from 'react-scroll-parallax'
 
 import CanvasNoise from './Canvas/Noise'
 
+
 if (typeof window !== 'undefined') {
+
+	// Set up pace js
+	window.paceOptions = {
+		className: 'dss-loader',
+		ajax: false, // ajax monitoring - disabled
+		restartOnPushState: false, // no restart on push state
+		document: false, // document ready state monitoring - disabled
+		eventLag: false, // monitoring of event loop lag, signaling js is being executed - disabled
+		elements: {
+			selectors: ['#___gatsby, .hero', '.main-frontpage'] // looks for existance of this element
+		}
+	}
+
 	// eslint-disable-next-line global-require
 	require('smooth-scroll')('a[href*="#"]:not([href="#"])', {
 		speed: 800,
@@ -20,21 +34,22 @@ if (typeof window !== 'undefined') {
 }
 
 function Layout(props) {
+
   return (
   	<>
 
-			<Helmet>
-				<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-				{/* <script type="text/javascript" src="https://frontrunner-restaurant.popmenu.com/s/pm.js"></script> */}
-			</Helmet>
+		<Helmet>
+			<script src="./js/pace/pace.min.js"></script>
+			<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+		</Helmet>
 
-			<Header {...props.data} />
+		<Header {...props.data} />
 
-			<CanvasNoise />
-			
-			<ParallaxProvider>
-				{props.children}
-			</ParallaxProvider>
+		<CanvasNoise />
+		
+		<ParallaxProvider>
+			{props.children}
+		</ParallaxProvider>
 
   	</>
   )

@@ -20,7 +20,7 @@ if (typeof window !== 'undefined') {
 		document: false, // document ready state monitoring - disabled
 		eventLag: false, // monitoring of event loop lag, signaling js is being executed - disabled
 		elements: {
-			selectors: ['#___gatsby, .hero', '.main-frontpage'] // looks for existance of this element
+			selectors: ['.hero', '.main-frontpage'] // looks for existance of this element
 		}
 	}
 

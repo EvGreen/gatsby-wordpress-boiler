@@ -1,9 +1,9 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Img from 'gatsby-image'
 
 //import PropTypes from 'prop-types'
 import './style.scss'
-import { Parallax } from 'react-scroll-parallax'
+import { Parallax, withController } from 'react-scroll-parallax'
 
 function SingleIMG(props) {
 	const image = props.img?.localFile.childImageSharp.fluid
@@ -14,6 +14,11 @@ function SingleIMG(props) {
 	const bg_overlay = props.bg_overlay
 	const theme = props.theme
 
+	useEffect(() => {
+		window.requestAnimationFrame(() => {
+			props.parallaxController.update()
+		})
+	},[])
 
 	return (
 		<div className={`single-img ${theme}`}>
@@ -92,4 +97,4 @@ function SingleIMG(props) {
   )
 }
 
-export default SingleIMG
+export default withController(SingleIMG)

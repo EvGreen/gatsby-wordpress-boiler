@@ -33,3 +33,21 @@ exports.createPages = async function({ actions, graphql }) {
     })
   })
 }
+
+// Schema allows for dumping all the annoying dummy content and placeholders that otherwise would break builds when left empty.
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = `
+    type WordPressAcf_content implements Node {
+      id: String
+      classes: String
+      anchor: String
+      img: Image
+      wysiwyg: String
+    }
+    type Image {
+      localFile: File
+    }
+  `
+  createTypes(typeDefs)
+}

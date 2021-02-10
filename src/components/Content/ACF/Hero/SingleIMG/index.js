@@ -3,7 +3,7 @@ import Img from 'gatsby-image'
 
 //import PropTypes from 'prop-types'
 import './style.scss'
-import { Parallax } from 'react-scroll-parallax'
+import { Parallax, useController } from 'react-scroll-parallax'
 
 function SingleIMG(props) {
 	const image = props.img?.localFile.childImageSharp.fluid
@@ -14,7 +14,12 @@ function SingleIMG(props) {
 	const bg_overlay = props.bg_overlay
 	const theme = props.theme
 
-
+	const { parallaxController } = useController()
+	
+	const onImageLoad = () => {
+    parallaxController.update()
+	}
+	
 	return (
 		<div className={`single-img ${theme}`}>
 			
@@ -26,6 +31,7 @@ function SingleIMG(props) {
 						loading='eager'
 						fadeIn={true}
 						className="image-1"
+						onLoad={onImageLoad}
 					/>
 					{ image2 ?
 						<Img fluid={image2}

@@ -5,6 +5,9 @@ import Layout from "./src/components/layout"
 import { NaviContextProvider } from "./src/context/NaviContext"
 import { ModalContextProvider } from "./src/context/ModalContext"
 
+import client from './src/apollo/client'
+import {ApolloProvider} from '@apollo/client'
+
 //import { SplitText, TimelineMax } from "gsap/all"
 
 // Splitting text lines for animation
@@ -20,7 +23,7 @@ import Splitting from "splitting"
 // Layout
 export const wrapPageElement = ({ element, props }) => {
   return (
-    <NaviContextProvider {...props}><ModalContextProvider {...props}><Layout {...props}>{element}</Layout></ModalContextProvider></NaviContextProvider>
+    <ApolloProvider client={client}><NaviContextProvider {...props}><ModalContextProvider {...props}><Layout {...props}>{element}</Layout></ModalContextProvider></NaviContextProvider></ApolloProvider>
   )
 }
 

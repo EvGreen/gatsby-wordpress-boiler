@@ -5,6 +5,7 @@
 	"version": "0.1.0",
 	"author": "Daniel Łęczycki <the242@gmail.com>",
 	"dependencies": {
+		"@apollo/client": "^3.3.11",
 		"@fortawesome/fontawesome-svg-core": "^1.2.34",
 		"@fortawesome/free-brands-svg-icons": "^5.15.2",
 		"@fortawesome/free-regular-svg-icons": "^5.15.2",
@@ -31,6 +32,7 @@
 		"gatsby-transformer-sharp": "^2.12.0",
 		"google-map-react": "^1.1.7",
 		"gsap": "^3.6.0",
+		"isomorphic-fetch": "^3.0.0",
 		"node-sass": "^4.14.1",
 		"prop-types": "^15.7.2",
 		"query-string": "^6.14.0",

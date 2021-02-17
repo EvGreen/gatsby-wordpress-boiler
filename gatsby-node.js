@@ -42,10 +42,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       id: String
       classes: String
       anchor: String
-      img: Image
+      img: wordpress__wp_media
       wysiwyg: String
     }
-    type Image {
+    type wordpress__wp_media implements Node {
       localFile: File
     }
   `

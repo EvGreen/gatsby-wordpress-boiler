@@ -9,7 +9,7 @@ import Footer from '../../components/Footer'
 import ACF from "../../components/Content"
 
 export default ({ data, pageContext }) => {
-  const footerImage = data.wordpressAcfOptions.options.footer_image.localFile.childImageSharp.fluid
+  const footerImage = data.wordpressAcfOptions.options.footer_image?.localFile.childImageSharp.fluid
 
   return (
     <>

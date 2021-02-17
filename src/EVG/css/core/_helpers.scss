@@ -14,6 +14,17 @@ html {
 	will-change: transform;
 }
 
+::-webkit-scrollbar {
+	width: 7px;
+	background-color: $c5;
+}
+::-webkit-scrollbar-thumb {
+	background-color: $clead;
+}
+::-webkit-scrollbar-track {
+	background-color: $c5;
+}
+
 #header-fold-breakpoint {
 	position: relative;
 	top: -1vw;

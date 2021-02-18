@@ -9,7 +9,7 @@ function Content(props) {
 	const classes = props.classes
 	const blocks = props.block
 	
-	const blockMap = blocks.map((node,i) => {
+	const blockMap = blocks?.map((node,i) => {
 		const classes = node.classes
 		const wysiwyg = node.wysiwyg
 		const image = node.img?.localFile.childImageSharp.fluid

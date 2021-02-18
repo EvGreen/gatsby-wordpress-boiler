@@ -1,13 +1,13 @@
 section.content {
 
-	.gatsby-image-wrapper {
+	.block-image {
 		position: absolute !important;
 		grid-column: 9 / 13;
 		width: 100%;
 		height: 100%;
 	}
 	
-	.content-box {
+	.block-content {
 		grid-column: 1 / 9;
 		position: relative;
 		z-index: 50;

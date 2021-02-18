@@ -39,11 +39,17 @@ exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
   const typeDefs = `
     type WordPressAcf_content implements Node {
-      id: String
-      classes: String
+      id: ID
       anchor: String
-      img: wordpress__wp_media
+      classes: String
+      block: [WordPressAcf_contentblock]
+    }
+    type WordPressAcf_contentblock implements Node {
+      id: ID
+      anchor: String
+      classes: String
       wysiwyg: String
+      img: wordpress__wp_media
     }
     type wordpress__wp_media implements Node {
       localFile: File

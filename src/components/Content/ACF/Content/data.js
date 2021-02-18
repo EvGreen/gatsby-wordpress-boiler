@@ -5,11 +5,18 @@ export const acfContent = graphql`
 		id
 		anchor
 		classes
-		img {
-			localFile {
-				...imgStandard
+		block {
+			... on WordPressAcf_contentblock {
+				id
+				anchor
+				classes
+				wysiwyg
+				img {
+					localFile {
+						...imgStandard
+					}
+				}
 			}
 		}
-		wysiwyg
 	}
 `

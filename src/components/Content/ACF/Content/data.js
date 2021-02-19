@@ -16,6 +16,12 @@ export const acfContent = graphql`
 						...imgStandard
 					}
 				}
+				video_iframe
+				video_file {
+					localFile {
+						publicURL
+					}
+				}
 			}
 		}
 	}

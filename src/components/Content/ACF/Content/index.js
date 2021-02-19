@@ -13,27 +13,27 @@ function Content(props) {
 		const classes = node.classes
 		const wysiwyg = node.wysiwyg
 		const image = node.img?.localFile.childImageSharp.fluid
-		console.log(node)
+		const video_iframe = node.video_iframe
+		const video_file = node.video_file?.localFile.publicURL
 
 		return (
-			<>
+			<div key={node.id} className={`block ${wysiwyg ? 'block-content' : ''} ${image ? 'block-image' : ''} ${video_iframe || video_file ? 'block-video' : ''} ${classes}`}>
 
 				{ wysiwyg ?
-					<div className={`block-content ${classes}`}>
-						<div className='content-holder animated' dangerouslySetInnerHTML={{__html: wysiwyg}} />
-					</div>
+					<div className='content-holder animated' dangerouslySetInnerHTML={{__html: wysiwyg}} />
 				: null }
 
 				{ image ?
-					<div className={`block-image ${classes}`}>
-						<Img fluid={image}
-							imgStyle={{objectFit: 'cover'}}
-							objectPosition='50% 50%'
-						/>
-					</div>
+					<Img fluid={image}
+						imgStyle={{objectFit: 'cover'}}
+						objectPosition='50% 50%'
+					/>
 				: null }
 
-			</>
+				{video_file}
+				{video_iframe}
+
+			</div>
 		)
 	})
 

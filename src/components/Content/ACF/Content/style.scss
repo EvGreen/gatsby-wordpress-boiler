@@ -20,4 +20,19 @@ section.content {
 			padding: calc(3em + 2vw) calc(1em + 1vw);
 		}
 	}
+
+	.block-video {
+		position: relative;
+		grid-column: 1 / 13;
+		height: 56vw;
+
+		.video-inject,
+		iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
 }

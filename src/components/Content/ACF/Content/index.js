@@ -2,6 +2,7 @@ import React from 'react'
 import './style.scss'
 
 import Img from 'gatsby-image'
+import Video from '../../../Video/HTML'
 
 function Content(props) {
 	const content = props.wysiwyg
@@ -13,6 +14,7 @@ function Content(props) {
 		const classes = node.classes
 		const wysiwyg = node.wysiwyg
 		const image = node.img?.localFile.childImageSharp.fluid
+		const video_source = node.video_source
 		const video_iframe = node.video_iframe
 		const video_file = node.video_file?.localFile.publicURL
 
@@ -30,8 +32,21 @@ function Content(props) {
 					/>
 				: null }
 
-				{video_file}
-				{video_iframe}
+				{video_source === 'file' ?
+				<>
+					{ video_file ?
+						<Video file={video_file} />
+					: null }
+				</>
+				: null }
+
+				{video_source === 'iframe' ?
+				<>
+					{ video_iframe ?
+						<div className='video-inject' dangerouslySetInnerHTML={{__html: video_iframe}} />
+					: null }
+				</>
+				: null }
 
 			</div>
 		)

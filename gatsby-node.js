@@ -50,6 +50,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       classes: String
       wysiwyg: String
       img: wordpress__wp_media
+      type: String
+      video_source: String
       video_iframe: String
       video_file: wordpress__wp_media
     }

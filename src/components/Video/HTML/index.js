@@ -3,6 +3,9 @@ import React, { useEffect, useRef, useState } from 'react'
 import './style.scss'
 import { useInView } from 'react-intersection-observer'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faVolumeUp, faVolumeMute } from '@fortawesome/free-solid-svg-icons'
+
 // Convert time to readable format
 function convertTime(time) {
 	let minutes = Math.floor(time / 60)
@@ -63,6 +66,7 @@ function Vimeo(props) {
 	// Mute / Unmute
 	function vMute() {
 		setIsMuted(!isMuted)
+		console.log('mut')
 	}
 
 	// Pause
@@ -79,8 +83,18 @@ function Vimeo(props) {
 
 	return (
 		<div ref={io} className='video-html-wrap'>
-			<button onClick={vPlay}>play</button><button onClick={vPause}>pause</button><button onClick={vMute}>sound is {isMuted ? 'off' : 'on'}</button>{currentTime} | {isPlaying ? 'playing' : 'not playing'}
-			<video ref={player} muted={isMuted ? 'true' : null} loop playsInline disablePictureInPicture allow="autoplay">
+			{/* <button onClick={vPlay}>play</button> */}
+			{/* <button onClick={vPause}>pause</button> */}
+			{/* <button onClick={vMute}>sound is {isMuted ? 'off' : 'on'}</button> */}
+			{/* {currentTime} | {isPlaying ? 'playing' : 'not playing'} */}
+			<div className="mute-indicator" onClick={vMute}>
+				{
+					isMuted ?
+					<div className="muted-on animate-in-from-top"><FontAwesomeIcon icon={faVolumeMute} /></div> :
+					<div className="muted-off animate-in-from-bottom"><FontAwesomeIcon icon={faVolumeUp} /></div>
+				}
+			</div>
+			<video ref={player} muted={isMuted ? true : null} loop playsInline disablePictureInPicture allow="autoplay">
 				<source src={props.file} type="video/mp4" />
 				<track
 					default kind="captions"

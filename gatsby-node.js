@@ -46,6 +46,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
     type WordPressAcf_contentblock implements Node {
       id: ID
+      acf_fc_layout: String
       anchor: String
       classes: String
       wysiwyg: String
@@ -54,6 +55,12 @@ exports.createSchemaCustomization = ({ actions }) => {
       video_source: String
       video_iframe: String
       video_file: wordpress__wp_media
+      slide: [WordPressAcf_contentblockslide]
+    }
+    type WordPressAcf_contentblockslide implements Node {
+      acf_fc_layout: String
+      wysiwyg: String
+      img: wordpress__wp_media
     }
     type wordpress__wp_media implements Node {
       localFile: File

@@ -8,6 +8,7 @@ export const acfContent = graphql`
 		block {
 			... on WordPressAcf_contentblock {
 				id
+				acf_fc_layout
 				anchor
 				classes
 				wysiwyg
@@ -21,6 +22,15 @@ export const acfContent = graphql`
 				video_file {
 					localFile {
 						publicURL
+					}
+				}
+				slide {
+					acf_fc_layout
+					wysiwyg
+					img {
+						localFile {
+							...imgStandard
+						}
 					}
 				}
 			}

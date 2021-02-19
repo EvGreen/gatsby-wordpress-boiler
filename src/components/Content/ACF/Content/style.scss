@@ -7,7 +7,7 @@ section.content {
 		height: 100%;
 	}
 	
-	.block-content {
+	.block-wysiwyg {
 		grid-column: 1 / 9;
 		position: relative;
 		z-index: 50;
@@ -34,5 +34,11 @@ section.content {
 			width: 100%;
 			height: 100%;
 		}
+	}
+
+	.block-slider {
+		position: relative;
+		grid-column: 1 / 13;
+		height: auto;
 	}
 }

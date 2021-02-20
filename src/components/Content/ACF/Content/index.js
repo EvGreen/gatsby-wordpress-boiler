@@ -171,7 +171,7 @@ function Content(props) {
 				{ video_source === 'iframe' ?
 				<>
 					{ video_iframe ?
-						<div className='video-inject' dangerouslySetInnerHTML={{__html: video_iframe}} />
+						<div className='video-inject aspect-ratio' dangerouslySetInnerHTML={{__html: video_iframe}} />
 					: null }
 				</>
 				: null }
@@ -188,7 +188,7 @@ function Content(props) {
 
 	// Returning Section
   return (
-		<section id={anchor ? 'section-' + anchor : null} className={`content grid-12 is-inview ${classes ? classes : ''}`}>
+		<section id={anchor ? 'section-' + anchor : null} className={`content is-inview ${classes ? classes : ''}`}>
 			
 			{anchor ?
 				<div id={anchor} className="anchor"></div>

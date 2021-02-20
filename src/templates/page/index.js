@@ -57,7 +57,6 @@ export const query = graphql`
       author
       acf {
         sections_page {
-          ...acfHero
           ...acfContent
         }
       }

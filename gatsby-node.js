@@ -58,9 +58,16 @@ exports.createSchemaCustomization = ({ actions }) => {
       slide: [WordPressAcf_contentblockslide]
     }
     type WordPressAcf_contentblockslide implements Node {
+      id: ID
       acf_fc_layout: String
+      anchor: String
+      classes: String
+      bg_overlay: String
+      parallax_from: String
+      parallax_to: String
       wysiwyg: String
       img: wordpress__wp_media
+      img_responsive: wordpress__wp_media
     }
     type wordpress__wp_media implements Node {
       localFile: File

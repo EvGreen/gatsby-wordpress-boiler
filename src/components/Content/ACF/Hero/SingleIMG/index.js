@@ -24,7 +24,7 @@ function SingleIMG(props) {
 		<div className={`single-img ${theme}`}>
 			
 			{ image && parallax ? (
-				<Parallax className="hero-parallax" y={[-20, 20]} tagOuter="figure">
+				<Parallax className="hero-parallax" y={['-20%', '20%']} tagOuter="figure">
 					<Img fluid={image}
 						imgStyle={{objectFit: 'cover'}}
 						objectPosition='50% 50%'

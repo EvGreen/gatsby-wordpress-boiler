@@ -1,8 +1,31 @@
 section.content {
 
+	&.hero {
+		min-height: 100.1vh;
+	}
+
+	// General rule
+	.gatsby-image-wrapper {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	// Extend Parallax a bit
+	.parallax-outer {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 100%;
+		height: 120%;
+		transform: translate3d(-50%,-50%,0);
+	}
+
+	// Image Block
 	.block-image {
 		position: relative;
-		grid-column: 9 / 13;
 
 		.gatsby-image-wrapper {
 			position: absolute !important;
@@ -13,8 +36,8 @@ section.content {
 		}
 	}
 	
+	// WYSIWYG Block
 	.block-wysiwyg {
-		grid-column: 1 / 9;
 		position: relative;
 		z-index: 50;
 		display: block;
@@ -27,9 +50,9 @@ section.content {
 		}
 	}
 
+	// Video Block
 	.block-video {
 		position: relative;
-		grid-column: 1 / 13;
 		height: 56vw;
 
 		.video-inject,
@@ -42,9 +65,18 @@ section.content {
 		}
 	}
 
+	// Slider Block	
 	.block-slider {
 		position: relative;
-		grid-column: 1 / 13;
-		height: auto;
+		width: 100%;
+
+		.slide {
+			position: relative;
+			display: flex;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
 	}
 }
+

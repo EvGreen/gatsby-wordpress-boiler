@@ -1,19 +1,44 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import './style.scss'
+import './child.scss'
+
+import { Parallax, withController } from 'react-scroll-parallax'
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 import Img from 'gatsby-image'
 import Video from '../../../Video/HTML'
 
 function Content(props) {
-	const content = props.wysiwyg
 	const anchor = props.anchor
 	const classes = props.classes
 	const blocks = props.block
+	const responsiveBreakpoint = 1024
+	const [windowSize, setWindowSize] = useState({width: 0, height: 0})
+
+	useEffect(() => {
+		// RAF to update parallax position, it gets lost sometimes otherwise, especially on page changes
+		window.requestAnimationFrame(() => {
+			props.parallaxController.update()
+		})
+
+		// Checking window size, dropping values into state
+		function updateSize() {
+			setWindowSize({width: window.innerWidth, height: window.innerHeight})
+		}
+		window.addEventListener('resize', updateSize)
+		updateSize()
+
+		// Kill off listener
+		return () => window.removeEventListener('resize', updateSize)
+	},[])
 	
+	// Building Blocks
 	const blockMap = blocks?.map((node,i) => {
 
 		// Block Main Settings
-		const anchor = node.classes
+		const anchor = node.anchor
 		const classes = node.classes
 
 		// Wysiwyg Type
@@ -29,39 +54,103 @@ function Content(props) {
 
 		// Slider Type
 		const slides = node.slide
+
+		// Slider Settings
+		const sliderSettings = {
+			dots: false,
+			arrows: true,
+			infinite: true,
+			speed: 800,
+			pauseOnFocus: true,
+			autoplay: true,
+			autoplaySpeed: 80000,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			accessibility: false,
+			fade: false,
+			focusOnSelect: true,
+			adaptiveHeight: false,
+			centerMode: false,
+			variableWidth: false
+		}
+
+		// Building Slides
 		const slideMap = slides?.map((node, i) => {
+
+			// Slide Main Settings
+			const anchor = node.anchor
+			const classes = node.classes
+
 			// Image
 			const image = node.img?.localFile.childImageSharp.fluid
+			// Image
+			const image_responsive = node.img_responsive?.localFile.childImageSharp.fluid
 			// Wysiwyg
 			const wysiwyg = node.wysiwyg
+			// BG Overlay
+			const bg_overlay = node.bg_overlay
+			// Parallax
+			const parallax_from = node.parallax_from
+			const parallax_to = node.parallax_to
 
 			// Returning Slide
 			return (
-				<div className={`slide slide-${node.acf_fc_layout}`}>
+				<div key={node.id} id={anchor ? 'slide-' + anchor : null} className={`slide aspect-ratio slide-${node.acf_fc_layout} ${classes ? classes : ''}`}>
 
 					{ image ?
-						<Img fluid={image}
-							imgStyle={{objectFit: 'cover'}}
-							objectPosition='50% 50%'
-						/>
+						<div className="image-wrap">
+							{ parallax_from && parallax_from != 0 && parallax_to && parallax_to != 0 ?
+								<Parallax className="parallax" y={[parallax_from + '%', parallax_to + '%']} tagOuter="figure">
+									{ !image_responsive || windowSize.width > responsiveBreakpoint ?
+										<Img fluid={image}
+											imgStyle={{objectFit: 'cover'}}
+											objectPosition='50% 50%'
+											className='image-main'
+										/>
+									: null }
+									{ image_responsive && windowSize.width < responsiveBreakpoint ?
+										<Img fluid={image_responsive}
+											imgStyle={{objectFit: 'cover'}}
+											objectPosition='50% 50%'
+											className='image-responsive'
+										/>
+									: null }
+								</Parallax>
+							:
+								<>
+									{ !image_responsive || windowSize.width > responsiveBreakpoint ?
+										<Img fluid={image}
+											imgStyle={{objectFit: 'cover'}}
+											objectPosition='50% 50%'
+											className='image-main'
+										/>
+									: null }
+									{ image_responsive && windowSize.width < responsiveBreakpoint ?
+										<Img fluid={image_responsive}
+											imgStyle={{objectFit: 'cover'}}
+											objectPosition='50% 50%'
+											className='image-responsive'
+										/>
+									: null }
+								</>
+							}
+						</div>
 					: null }
 
 					{ wysiwyg ?
-						<div className='content-holder animated' dangerouslySetInnerHTML={{__html: wysiwyg}} />
+						<div className='content-inject animated' dangerouslySetInnerHTML={{__html: wysiwyg}} />
 					: null }
 
 				</div>
 			)
 		})
 
-		console.log(node.slide)
-
 		// Returning Block
 		return (
-			<div key={node.id} className={`block block-${node.acf_fc_layout}`}>
+			<div key={node.id} id={anchor ? 'block-' + anchor : null}  className={`block block-${node.acf_fc_layout} ${classes ? classes : ''}`}>
 
 				{ wysiwyg ?
-					<div className='content-holder animated' dangerouslySetInnerHTML={{__html: wysiwyg}} />
+					<div className='content-inject animated' dangerouslySetInnerHTML={{__html: wysiwyg}} />
 				: null }
 
 				{ image ?
@@ -88,11 +177,10 @@ function Content(props) {
 				: null }
 
 				{ slideMap ?
-					<>
-					{slideMap}
-					</>
+					<Slider {...sliderSettings}>
+						{slideMap}
+					</Slider>
 				: null }
-				
 
 			</div>
 		)
@@ -100,7 +188,7 @@ function Content(props) {
 
 	// Returning Section
   return (
-		<section id={`section-${anchor ? anchor : 'whatevs'}`} className={`content grid-12 is-inview ${classes ? classes : ''}`}>
+		<section id={anchor ? 'section-' + anchor : null} className={`content grid-12 is-inview ${classes ? classes : ''}`}>
 			
 			{anchor ?
 				<div id={anchor} className="anchor"></div>
@@ -112,4 +200,4 @@ function Content(props) {
   )
 }
 
-export default Content
+export default withController(Content)

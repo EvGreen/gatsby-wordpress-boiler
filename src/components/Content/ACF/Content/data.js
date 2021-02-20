@@ -25,9 +25,20 @@ export const acfContent = graphql`
 					}
 				}
 				slide {
+					id
 					acf_fc_layout
+					anchor
+					classes
+					bg_overlay
+					parallax_from
+					parallax_to
 					wysiwyg
 					img {
+						localFile {
+							...imgStandard
+						}
+					}
+					img_responsive {
 						localFile {
 							...imgStandard
 						}

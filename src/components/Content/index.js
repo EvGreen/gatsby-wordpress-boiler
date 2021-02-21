@@ -7,7 +7,7 @@ function Content(props) {
 	
 	const Sections = props.wordpressPage.acf.sections_page.map((section, i) => {
 
-		if(section.__typename === 'WordPressAcf_content') {
+		if(!section.__typename || section.__typename === 'WordPressAcf_content') {
 			
 			return (
 				<>

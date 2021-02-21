@@ -32,7 +32,7 @@ function Content(props) {
 
 		// Kill off listener
 		return () => window.removeEventListener('resize', updateSize)
-	},[])
+	},[props.parallaxController])
 	
 	// Building Blocks
 	const blockMap = blocks?.map((node,i) => {
@@ -99,7 +99,7 @@ function Content(props) {
 
 					{ image ?
 						<div className="image-wrap">
-							{ parallax_from && parallax_from != 0 && parallax_to && parallax_to != 0 ?
+							{ parallax_from && parallax_from !== 0 && parallax_to && parallax_to != 0 ?
 								<Parallax className="parallax" y={[parallax_from + '%', parallax_to + '%']} tagOuter="figure">
 									{ !image_responsive || windowSize.width > responsiveBreakpoint ?
 										<Img fluid={image}

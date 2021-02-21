@@ -10,15 +10,15 @@ function Content(props) {
 		if(!section.__typename || section.__typename === 'WordPressAcf_content') {
 			
 			return (
-				<>
-				<ACFContent key={section.id} { ...section } />
+				<React.Fragment key={section.id}>
+				<ACFContent { ...section } />
 				{ i === 0 ?
 					<>
 						{/* Point of reference for past hero observer threashold, so we can calculate if the user is past hero or not */}
 						<div id="header-fold-breakpoint"></div>
 					</>
 				: null }
-				</>
+				</React.Fragment>
 			)
 		}
 

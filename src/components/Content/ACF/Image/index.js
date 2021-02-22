@@ -4,6 +4,7 @@ import './style.scss'
 import { Parallax, withController } from 'react-scroll-parallax'
 
 import Img from 'gatsby-image'
+import ACFOverlay from '../Overlay'
 
 function ACFImage(props) {
 
@@ -33,8 +34,6 @@ function ACFImage(props) {
 	const image = props.img?.localFile.childImageSharp.fluid
 	// Image
 	const image_responsive = props.img_responsive?.localFile.childImageSharp.fluid
-	// BG Overlay
-	const bg_overlay = props.bg_overlay
 	// Parallax
 	const parallax_from = props.parallax_from
 	const parallax_to = props.parallax_to
@@ -79,7 +78,7 @@ function ACFImage(props) {
 							: null }
 						</>
 					}
-
+					<ACFOverlay {...props} />
 				</div>
 			: null }
 		</>

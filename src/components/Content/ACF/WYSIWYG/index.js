@@ -10,7 +10,7 @@ function ACFWYSIWYG(props) {
   return (
 		<>
 			{ wysiwyg ?
-					<div className='wysiwyg-inject animated' dangerouslySetInnerHTML={{__html: wysiwyg}} />
+					<div className={`attached-to-${props.acf_fc_layout} wysiwyg-inject animated`} dangerouslySetInnerHTML={{__html: wysiwyg}} />
 			: null }
 		</>
   )

@@ -1,35 +1,45 @@
 import React from 'react'
 import './style.scss'
 
-import ACFContent from "./ACF/Content"
+import ACFBlocks from "./ACF"
 
 function Content(props) {
 	
-	const Sections = props.wordpressPage.acf.sections_page.map((section, i) => {
+	// Map through acf flexible content sections
+	const sectionsMap = props.wordpressPage.acf.sections_page.map((node, i) => {
 
-		if(!section.__typename || section.__typename === 'WordPressAcf_content') {
+		// Spit it out only if typename is not registered (only one in graphql), or when it's specifically content type (default in our setup)
+		if(!node.__typename || node.__typename === 'WordPressAcf_content') {
+
+			// Main Settings
+			const anchor = node.anchor
+			const classes = node.classes
 			
 			return (
-				<React.Fragment key={section.id}>
-				<ACFContent { ...section } />
-				{ i === 0 ?
-					<>
-						{/* Point of reference for past hero observer threashold, so we can calculate if the user is past hero or not */}
-						<div id="header-fold-breakpoint"></div>
-					</>
-				: null }
-				</React.Fragment>
+				<section key={node.id} id={anchor ? 'section-' + anchor : null} className={`content is-inview ${classes ? classes : ''}`}>
+					
+					{anchor ?
+						<div id={anchor} className="anchor"></div>
+					: null}
+
+					<ACFBlocks { ...node } />
+
+					{ i === 0 ?
+						<>
+							{/* Point of reference for past hero observer threashold, so we can calculate if the user is past hero or not */}
+							<div id="header-fold-breakpoint"></div>
+						</>
+					: null }
+
+				</section>
 			)
 		}
 
 		return null
+
 	})
 
-  return (
-		<>
-			{Sections}
-		</>
-  )
+  return sectionsMap
 }
 
 export default Content

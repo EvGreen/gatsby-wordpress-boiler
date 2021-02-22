@@ -11,8 +11,16 @@ export const acfContent = graphql`
 				acf_fc_layout
 				anchor
 				classes
+				bg_overlay
+				parallax_from
+				parallax_to
 				wysiwyg
 				img {
+					localFile {
+						...imgStandard
+					}
+				}
+				img_responsive {
 					localFile {
 						...imgStandard
 					}
@@ -22,26 +30,6 @@ export const acfContent = graphql`
 				video_file {
 					localFile {
 						publicURL
-					}
-				}
-				slide {
-					id
-					acf_fc_layout
-					anchor
-					classes
-					bg_overlay
-					parallax_from
-					parallax_to
-					wysiwyg
-					img {
-						localFile {
-							...imgStandard
-						}
-					}
-					img_responsive {
-						localFile {
-							...imgStandard
-						}
 					}
 				}
 			}

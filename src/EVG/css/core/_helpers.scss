@@ -26,9 +26,9 @@ html {
 }
 
 #header-fold-breakpoint {
-	position: relative;
-	top: -1vw;
-	top: -1vh;
+	position: absolute;
+	bottom: 1vw;
+	bottom: 1vh;
 	z-index: -1;
 	width: 0;
 	height: 0;

@@ -1,0 +1,7 @@
+section.content {
+	display: grid;
+
+	&.hero {
+		min-height: 100.1vh;
+	}
+}

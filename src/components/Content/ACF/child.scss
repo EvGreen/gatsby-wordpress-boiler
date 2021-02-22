@@ -1,7 +1,7 @@
 section.hero {
 	
 	.block-slider {
-		.content-inject {
+		.wysiwyg-inject {
 			position: relative;
 			z-index: 300;
 			top: 0;
@@ -24,7 +24,7 @@ section.hero {
 		display: flex;
 		width: 100%;
 
-		.content-inject {
+		.wysiwyg-inject {
 			position: absolute;
 			top: 0;
 			left: 0;

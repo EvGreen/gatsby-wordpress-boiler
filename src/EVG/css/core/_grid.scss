@@ -11,6 +11,10 @@
 		align-items: center;
 	}
 
+	> div {
+		grid-column: span 12;
+	}
+
 	.span-1 {
 		grid-column: span 1;
 		width: 100%;

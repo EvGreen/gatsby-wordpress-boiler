@@ -1,6 +1,6 @@
 import React from 'react'
 import './style.scss'
-import './child.scss'
+import './disposable.scss'
 
 import ACFImage from './Image'
 import ACFVideo from './Video'
@@ -10,6 +10,26 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
+// Slider settings
+const sliderSettings = {
+	dots: true,
+	arrows: true,
+	infinite: true,
+	speed: 800,
+	pauseOnFocus: true,
+	autoplay: false,
+	autoplaySpeed: 8000,
+	slidesToShow: 1,
+	slidesToScroll: 1,
+	accessibility: false,
+	fade: true,
+	focusOnSelect: true,
+	adaptiveHeight: false,
+	centerMode: false,
+	variableWidth: false
+}
+
+// Main
 function ACFBlocks(props) {
 
 	// Create Building Blocks
@@ -20,7 +40,7 @@ function ACFBlocks(props) {
 		const classes = node.classes
 		const layout = node.acf_fc_layout
 
-		// Returning Block (if something else)
+		// Returning Block
 		return (
 			<div key={node.id} id={anchor ? 'block-' + anchor : null}  className={`block block-${layout} ${classes ? classes : ''}`}>
 
@@ -34,31 +54,12 @@ function ACFBlocks(props) {
 		)
 	}
 	
-	// Filter
+	// Filter to split regular blocks and slide type blocks, so those could be grouped and thrown into slider wrapper
 	const slides = props.block.filter(block => block.acf_fc_layout === 'slide')
 	const blocks = props.block.filter(block => block.acf_fc_layout !== 'slide')
 
 	// Building Blocks
 	const blockMap = blocks?.map((node,i) => createBlocks(node))
-
-	// Slider settings
-	const sliderSettings = {
-		dots: true,
-		arrows: true,
-		infinite: true,
-		speed: 800,
-		pauseOnFocus: true,
-		autoplay: false,
-		autoplaySpeed: 8000,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		accessibility: false,
-		fade: true,
-		focusOnSelect: true,
-		adaptiveHeight: false,
-		centerMode: false,
-		variableWidth: false
-	}
 
 	// Building Slides
 	const slideMap = slides?.map((node,i) => createBlocks(node))

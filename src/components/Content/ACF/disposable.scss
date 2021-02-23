@@ -1,17 +1,7 @@
 section.hero {
 
-	.block-image {
-		position: absolute;
-		height: 100%;
-	}
-
 	.attached-to-image {
 		align-items: flex-start;
-
-		.wysiwyg-inject {
-			padding: calc(3em + 5vw) calc(2em + 5vw);
-			font-size: 1.125em;
-		}
 	}
 
 	.hero-details {

@@ -1,5 +1,16 @@
-.block.block-wysiwyg {
-	
+// WYSIWYG Block
+.block-wysiwyg {
+	position: relative;
+	z-index: 50;
+	display: block;
+	width: 100%;
+	height: auto;
+
+	padding: calc(3em + 3vw) calc(2em + 2vw) calc(3em + 3vw) calc(2em + 5vw);
+
+	@media screen and (max-width: 1024px) {
+		padding: calc(3em + 2vw) calc(1em + 1vw);
+	}
 }
 
 .attached-to-slide {
@@ -24,8 +35,9 @@
 	justify-content: center;
 	width: 100%;
 	height: 100%;
-}
 
-.wysiwyg-inject {
-
+	.wysiwyg-inject {
+		padding: calc(3em + 5vw) calc(2em + 5vw);
+		font-size: 1.125em;
+	}
 }

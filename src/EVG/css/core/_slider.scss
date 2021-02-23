@@ -40,46 +40,53 @@ button.slick-arrow {
 	}
 }
 
-.block-slider {
-	.slick-slider {
-		width: 100%;
-		height: 100%;
-	}
+.slick-dots {
+	top: 1em;
+	right: 1em;
+	bottom: auto !important;
+	display: flex !important;
+	justify-content: flex-end;
+	align-items: center;
+	width: auto !important;
+	height: auto !important;
+}
 
-	.slick-track {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: nowrap;
-		align-items: stretch;
-	}
+.slider {
+	position: relative;
+	z-index: 200;
+	width: 100%;
 
-	.slick-list {
-		display: flex;
-		width: 100%;
-		height: 100%;
+	&.with-aspect {
+		padding-bottom: 56%;
+		height: 0;
 
-		.slick-track {
-			display: flex;
+		@media screen and (max-width: 1024px) {
+			padding-bottom: 67%;
 		}
 
-		.slick-slide {
+		.slick-slider {
+			position: absolute;
+			top: 0;
+			left: 0;
 			display: flex;
 			width: 100%;
 			height: 100%;
 
-			> div {
+			.slick-list,
+			.slick-track,
+			.slick-slide > div {
 				display: flex;
 				width: 100%;
 				height: 100%;
-				overflow: hidden;
-
-				.slide {
-					position: relative;
-					display: flex !important;
-					align-items: center;
-					justify-content: center;
-				}
 			}
+		}
+
+		.gatsby-image-wrapper {
+			position: absolute !important;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
 		}
 	}
 }

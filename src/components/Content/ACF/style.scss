@@ -45,6 +45,13 @@ section.content {
 		width: 100%;
 		height: auto;
 
+		.slick-slider {
+			display: flex;
+			width: 100%;
+			max-width: 100%;
+			//overflow: hidden;
+		}
+
 		.slide {
 			position: relative;
 			display: flex;
@@ -52,6 +59,10 @@ section.content {
 			height: 100%;
 			overflow: hidden;
 		}
+	}
+
+	&.grid-12 .block-slider {
+		grid-column: span 12;
 	}
 }
 

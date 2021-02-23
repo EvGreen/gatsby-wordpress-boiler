@@ -5,6 +5,7 @@ import './disposable.scss'
 import ACFImage from './Image'
 import ACFVideo from './Video'
 import ACFWYSIWYG from './WYSIWYG'
+import ACFCustom from './Custom'
 
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
@@ -49,6 +50,8 @@ function ACFBlocks(props) {
 				<ACFVideo {...node} />
 
 				<ACFWYSIWYG {...node} />
+
+				<ACFCustom {...node} />
 
 			</div>
 		)

@@ -32,6 +32,42 @@ export const acfContent = graphql`
 						publicURL
 					}
 				}
+				asset {
+					id
+					acf_fc_layout
+					asset_id
+					asset_field
+					asset_wysiwyg
+					asset_img {
+						localFile {
+							...imgStandard
+						}
+					}
+					asset_img_responsive {
+						localFile {
+							...imgStandard
+						}
+					}
+					asset_file {
+						localFile {
+							publicURL
+						}
+					}
+					asset_map {
+						address
+						lat
+						lng
+						zoom
+						place_id
+						name
+						city
+						state
+						state_short
+						post_code
+						country
+						country_short
+					}
+				}
 			}
 		}
 	}

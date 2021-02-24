@@ -18,6 +18,7 @@ export const wpNaviPrimary = graphql`
             cssClasses
             target
             path
+            url
 						parentId
 						order
             connectedNode {

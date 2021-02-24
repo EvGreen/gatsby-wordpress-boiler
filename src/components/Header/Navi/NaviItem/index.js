@@ -33,7 +33,7 @@ function NaviItem(props) {
 	}).join(' ')
 
 	const target = props.target
-	const path = props.path
+	const path = props.url
 	const parentId = props.parentId
 	const internal = props.connectedNode
 	const dropDownClickHandle = props.dropDownClickHandle
@@ -47,7 +47,7 @@ function NaviItem(props) {
 			>
 				{enabled ?
 					<Link
-						to={path}
+						to={path.replace(process.env.GATSBY_WP_URL, '/')}
 						onClick={() => { naviContext.setHamburgerActive(false)}}
 						onKeyDown={() => { naviContext.setHamburgerActive(false)}}
 						onClick={dropDownClickHandle}

@@ -47,7 +47,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       acf: wordpress__PAGEAcf
     }
     type wordpress__PAGEAcf implements Node {
-      sections_page: [WordPressAcf_content]
+      sections_page: [WordPressAcf_content] @link(by: "id", from: "sections_page___NODE")
     }
     type WordPressAcf_content implements Node {
       id: ID

@@ -3,7 +3,7 @@ import './style.scss'
 
 import Img from 'gatsby-image'
 
-function HeroDetail({images: img, files: file, fields: field, wysiwygs: wysiwyg, maps: map}) {
+function CustomBlock({images: img, files: file, fields: field, wysiwygs: wysiwyg, maps: map}) {
 
 	return (
 		<>
@@ -49,4 +49,4 @@ function HeroDetail({images: img, files: file, fields: field, wysiwygs: wysiwyg,
 	)
 }
 
-export default HeroDetail
+export default CustomBlock

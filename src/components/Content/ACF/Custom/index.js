@@ -1,17 +1,29 @@
 import React from 'react'
 import './style.scss'
 
-import CF7Basic from '../../../Form/CF7/Basic'
+import HeroDetail from './HeroDetail'
 
 function ACFCustom(props) {
 
-	console.log(props.anchor)
+	// Images	
+	const images = props.asset?.filter(obj => obj.acf_fc_layout == 'image')
+	
+	// Files	
+	const files = props.asset?.filter(obj => obj.acf_fc_layout == 'file')
 
-	if (props.acf_fc_layout === 'custom' && props.anchor === 'custom-x') {
+	// Fields	
+	const fields = props.asset?.filter(obj => obj.acf_fc_layout == 'field')
+
+	// WYSIWYGS	
+	const wysiwygs = props.asset?.filter(obj => obj.acf_fc_layout == 'wysiwyg')
+
+	// Maps	
+	const maps = props.asset?.filter(obj => obj.acf_fc_layout == 'map')
+
+
+	if (props.acf_fc_layout === 'custom' && props.anchor === 'custom-home-detail') {
 		return (
-			<div id="contact" className="contact padd-2 c5 fs-85">
-				<CF7Basic />
-			</div>
+			<HeroDetail images={images} files={files} fields={fields} wysiwygs={wysiwygs} maps={maps} />
 		)
 	}
 

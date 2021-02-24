@@ -38,6 +38,17 @@ exports.createPages = async function({ actions, graphql }) {
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
   const typeDefs = `
+    type wordpress__PAGE implements Node {
+      id: ID
+      title: String
+      slug: String
+      date: String
+      author: String
+      acf: wordpress__PAGEAcf
+    }
+    type wordpress__PAGEAcf implements Node {
+      sections_page: [WordPressAcf_content]
+    }
     type WordPressAcf_content implements Node {
       id: ID
       anchor: String

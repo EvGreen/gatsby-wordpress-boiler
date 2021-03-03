@@ -1,6 +1,6 @@
 import React from 'react'
 import './style.scss'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faArrowUp } from '@fortawesome/free-solid-svg-icons'
@@ -19,13 +19,7 @@ function Footer(props) {
 			</div>
 
 			{ image ?
-				<Img fluid={image}
-					imgStyle={{objectFit: 'cover'}}
-					objectPosition='50% 50%'
-					loading='eager'
-					backgroundColor="#ccc"
-					fadeIn={true}
-				/>
+				<GatsbyImage image={image} />
 			: null }
 
 			<div className="to-top c0 x0">

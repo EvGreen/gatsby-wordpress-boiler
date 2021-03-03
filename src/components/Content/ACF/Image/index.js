@@ -3,7 +3,7 @@ import './style.scss'
 
 import { Parallax, withController } from 'react-scroll-parallax'
 
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import ACFOverlay from '../Overlay'
 
 function ACFImage(props) {
@@ -31,9 +31,9 @@ function ACFImage(props) {
 	},[props.parallaxController])
 
 	// Image
-	const image = props.img?.localFile.childImageSharp.fluid
+	const image = props.img?.localFile.childImageSharp.gatsbyImageData
 	// Image
-	const image_responsive = props.img_responsive?.localFile.childImageSharp.fluid
+	const image_responsive = props.img_responsive?.localFile.childImageSharp.gatsbyImageData
 	// Parallax
 	const parallax_from = props.parallax_from
 	const parallax_to = props.parallax_to
@@ -46,35 +46,19 @@ function ACFImage(props) {
 					{ parallax_from && parallax_from !== 0 && parallax_to && parallax_to !== 0 ?
 						<Parallax className="parallax" y={[parallax_from + '%', parallax_to + '%']} tagOuter="figure">
 							{ !image_responsive || windowSize.width > responsiveBreakpoint ?
-								<Img fluid={image}
-									imgStyle={{objectFit: 'cover'}}
-									objectPosition='50% 50%'
-									className='image-main'
-								/>
+								<GatsbyImage image={image} />
 							: null }
 							{ image_responsive && windowSize.width < responsiveBreakpoint ?
-								<Img fluid={image_responsive}
-									imgStyle={{objectFit: 'cover'}}
-									objectPosition='50% 50%'
-									className='image-responsive'
-								/>
+								<GatsbyImage image={image_responsive} />
 							: null }
 						</Parallax>
 					:
 						<>
 							{ !image_responsive || windowSize.width > responsiveBreakpoint ?
-								<Img fluid={image}
-									imgStyle={{objectFit: 'cover'}}
-									objectPosition='50% 50%'
-									className='image-main'
-								/>
+								<GatsbyImage image={image} />
 							: null }
 							{ image_responsive && windowSize.width < responsiveBreakpoint ?
-								<Img fluid={image_responsive}
-									imgStyle={{objectFit: 'cover'}}
-									objectPosition='50% 50%'
-									className='image-responsive'
-								/>
+								<GatsbyImage image={image_responsive} />
 							: null }
 						</>
 					}

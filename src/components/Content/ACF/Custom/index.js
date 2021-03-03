@@ -8,7 +8,7 @@ function ACFCustom(props) {
 	// Images	
 	const images = props.asset?.filter(obj => obj.acf_fc_layout == 'image')
 		.map((node) => {
-			return node.asset_img?.localFile.childImageSharp.fluid
+			return node.asset_img?.localFile.childImageSharp.gatsbyImageData
 		})
 	
 	// Files	

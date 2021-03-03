@@ -11,7 +11,7 @@ import ACF from "../../components/Content"
 import { useQuery, gql } from '@apollo/client'
 
 export default ({ data, pageContext }) => {
-  const footerImage = data.wordpressAcfOptions.options.footer_image?.localFile.childImageSharp.fluid
+  const footerImage = data.wordpressAcfOptions.options.footer_image?.localFile.childImageSharp.gatsbyImageData
 
   // Apollo navi query
   const { loading, error, data: apollo, refetch } = useQuery(WPGRAPHQL_QUERY)
@@ -65,7 +65,7 @@ export const query = graphql`
       options {
         footer_image {
           localFile {
-            ...imgStandard
+            ...imgFull
           }
         }
       }

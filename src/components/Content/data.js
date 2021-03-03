@@ -17,12 +17,12 @@ export const acfContent = graphql`
 				wysiwyg
 				img {
 					localFile {
-						...imgStandard
+						...imgFull
 					}
 				}
 				img_responsive {
 					localFile {
-						...imgStandard
+						...imgFull
 					}
 				}
 				video_source
@@ -40,12 +40,12 @@ export const acfContent = graphql`
 					asset_wysiwyg
 					asset_img {
 						localFile {
-							...imgStandard
+							...imgFull
 						}
 					}
 					asset_img_responsive {
 						localFile {
-							...imgStandard
+							...imgFull
 						}
 					}
 					asset_file {

@@ -36,6 +36,7 @@
 		"react-dom": "^16.14.0",
 		"react-helmet": "^6.1.0",
 		"react-hook-form": "^6.15.4",
+		"react-html-parser": "^2.0.2",
 		"react-intersection-observer": "^8.31.0",
 		"react-scroll-parallax": "^2.3.5",
 		"react-select": "^4.1.0",

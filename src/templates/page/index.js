@@ -2,6 +2,8 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import SEO from "../../components/seo"
+import { Helmet } from "react-helmet"
+import ReactHtmlParser from 'react-html-parser'
 
 import Footer from '../../components/Footer'
 
@@ -25,8 +27,12 @@ export default ({ data, pageContext }) => {
     <>
       <main className={`c0 main-${pageContext.slug === "/" ? "frontpage" : pageContext.slug}`}>
 
-        <SEO title={data.wordpressPage?.title} description="Description" />
-        
+        {data.wordpressPage?.yoast_head ?
+          <Helmet>{ ReactHtmlParser(data.wordpressPage?.yoast_head) }</Helmet>
+        :
+          <SEO title={data.wordpressPage?.name} description={data.wordpressPage?.description} />
+        }
+
         { data.wordpressPage?.acf.sections_page ?
           <ACF { ...data } />
         : null }
@@ -60,6 +66,7 @@ export const query = graphql`
           ...acfContent
         }
       }
+      yoast_head
     }
     wordpressAcfOptions {
       options {

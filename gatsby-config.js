@@ -33,7 +33,7 @@ module.exports = {
         // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
         fieldName: "wpgraphql",
         // Url to query from
-        url: "https://design-sentry.com/graphql",
+        url: "https://design-sentry.com/test/graphql",
         // refetch interval in seconds
         //refetchInterval: 60,
       },
@@ -42,7 +42,7 @@ module.exports = {
       resolve: 'gatsby-source-wordpress',
       options: {
         // The base url to your WP site.
-        baseUrl: 'design-sentry.com',
+        baseUrl: 'design-sentry.com/test',
         // WP.com sites set to true, WP.org set to false
         hostingWPCOM: false,
         // The protocol. This can be http or https.
@@ -54,7 +54,7 @@ module.exports = {
         verboseOutput: false,
         // Swap for navi
         searchAndReplaceContentUrls: {
-          sourceUrl: 'https://design-sentry.com/',
+          sourceUrl: 'https://design-sentry.com/test/',
           replacementUrl: '/',
         },
         excludedRoutes: [

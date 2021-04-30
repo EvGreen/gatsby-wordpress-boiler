@@ -16,11 +16,13 @@ export const acfContent = graphql`
 				parallax_to
 				wysiwyg
 				img {
+					alt_text
 					localFile {
 						...imgFull
 					}
 				}
 				img_responsive {
+					alt_text
 					localFile {
 						...imgFull
 					}
@@ -39,11 +41,13 @@ export const acfContent = graphql`
 					asset_field
 					asset_wysiwyg
 					asset_img {
+						alt_text
 						localFile {
 							...imgFull
 						}
 					}
 					asset_img_responsive {
+						alt_text
 						localFile {
 							...imgFull
 						}

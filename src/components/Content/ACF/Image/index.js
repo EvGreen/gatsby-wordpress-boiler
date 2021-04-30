@@ -32,8 +32,10 @@ function ACFImage(props) {
 
 	// Image
 	const image = props.img?.localFile.childImageSharp.gatsbyImageData
+	const image_alt = props.img?.alt_text
 	// Image
 	const image_responsive = props.img_responsive?.localFile.childImageSharp.gatsbyImageData
+	const image_responsive_alt = props.img_responsive?.alt_text
 	// Parallax
 	const parallax_from = props.parallax_from
 	const parallax_to = props.parallax_to
@@ -46,19 +48,19 @@ function ACFImage(props) {
 					{ parallax_from && parallax_from !== 0 && parallax_to && parallax_to !== 0 ?
 						<Parallax className="parallax" y={[parallax_from + '%', parallax_to + '%']} tagOuter="figure">
 							{ !image_responsive || windowSize.width > responsiveBreakpoint ?
-								<GatsbyImage image={image} />
+								<GatsbyImage image={image} alt={image_alt} />
 							: null }
 							{ image_responsive && windowSize.width < responsiveBreakpoint ?
-								<GatsbyImage image={image_responsive} />
+								<GatsbyImage image={image_responsive} alt={image_responsive_alt} />
 							: null }
 						</Parallax>
 					:
 						<>
 							{ !image_responsive || windowSize.width > responsiveBreakpoint ?
-								<GatsbyImage image={image} />
+								<GatsbyImage image={image} alt={image_alt} />
 							: null }
 							{ image_responsive && windowSize.width < responsiveBreakpoint ?
-								<GatsbyImage image={image_responsive} />
+								<GatsbyImage image={image_responsive} alt={image_responsive_alt} />
 							: null }
 						</>
 					}

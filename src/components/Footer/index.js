@@ -19,7 +19,7 @@ function Footer(props) {
 			</div>
 
 			{ image ?
-				<GatsbyImage image={image} />
+				<GatsbyImage image={image} alt="" />
 			: null }
 
 			<div className="to-top c0 x0">

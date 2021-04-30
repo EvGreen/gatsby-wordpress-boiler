@@ -34,8 +34,8 @@ function ACFImage(props) {
 	const image = props.img?.localFile.childImageSharp.gatsbyImageData
 	const image_alt = props.img?.altText
 	// Image
-	const image_responsive = props.img_responsive?.localFile.childImageSharp.gatsbyImageData
-	const image_responsive_alt = props.img_responsive?.altText
+	const image_responsive = props.imgResponsive?.localFile.childImageSharp.gatsbyImageData
+	const image_responsive_alt = props.imgResponsive?.altText
 	// Parallax
 	const parallax_from = props.parallax_from
 	const parallax_to = props.parallax_to

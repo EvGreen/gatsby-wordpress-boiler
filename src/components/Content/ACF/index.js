@@ -56,8 +56,8 @@ function ACFBlocks(props) {
 	}
 	
 	// Filter to split regular blocks and slide type blocks, so those could be grouped and thrown into slider wrapper
-	const slides = props.block.filter(block => block.fieldGroupName === 'slide')
-	const blocks = props.block.filter(block => block.fieldGroupName !== 'slide')
+	const slides = props.block.filter(block => block.fieldGroupName === 'page_Pagebuilder_Sections_Content_Block_Slide')
+	const blocks = props.block.filter(block => block.fieldGroupName !== 'page_Pagebuilder_Sections_Content_Block_Slide')
 
 	// Building Blocks
 	const blockMap = blocks?.map((node,i) => createBlocks(node))
@@ -70,7 +70,7 @@ function ACFBlocks(props) {
 		<>
 			{ blockMap }
 			{ slideMap.length > 0 ?
-				<div className="block-slider">
+				<div className="block-page_Pagebuilder_Sections_Content_Block_Slide">
 					<div className="slider with-aspect">
 						<Slider {...sliderSettings}>
 							{slideMap}

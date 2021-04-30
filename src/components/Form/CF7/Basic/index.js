@@ -9,7 +9,7 @@ import { faBaby } from '@fortawesome/free-solid-svg-icons'
 
 function CF7Basic(props) {
 	
-	const { register, handleSubmit, errors, reset } = useForm()
+	const { register, handleSubmit, formState: { errors, reset } } = useForm()
 	const [message, setMessage] = useState(false)
 	const [isLoading, setLoading] = useState(false)
 
@@ -24,7 +24,7 @@ function CF7Basic(props) {
 		data.append('your-email', form.email)
 		data.append('your-message', form.message)
 		
-		const url = 'https://design-sentry.com/wp-json/contact-form-7/v1/contact-forms/239/feedback'
+		const url = `${process.env.GATSBY_WP_URL}wp-json/contact-form-7/v1/contact-forms/239/feedback`
 		const config = { headers: { 'Content-Type': 'multipart/form-data' } }
 
 		axios.post(url, data, config)
@@ -58,15 +58,15 @@ function CF7Basic(props) {
 			<p style={{marginTop: '-1rem'}}>but please, be gentle</p>
 
 			<label>
-				<input type="text" placeholder="name" name="name" ref={register({required: true, maxLength: 80, message: "error message"})} />
+				<input type="text" placeholder="name" name="name" {...register("name",{required: true, maxLength: 80, message: "error message"})} />
 				{errors.name && <p className="small margin-off">your name is required.</p>}
 			</label>
 			<label>
-				<input type="text" placeholder="e-mail" name="email" ref={register({required: true, minLength: 6, pattern: /^\S+@\S+$/i})} />
+				<input type="text" placeholder="e-mail" name="email" {...register("email",{required: true, minLength: 6, pattern: /^\S+@\S+$/i})} />
 				{errors.email && <p className="small margin-off">a correct email is required.</p>}
 			</label>
 			<label>
-				<textarea placeholder="message" name="message" ref={register} />
+				<textarea placeholder="message" name="message" {...register("message")} />
 			</label>
 
 			<button type="submit">send away! {isLoading ? <div className="loader-spinner"><FontAwesomeIcon icon={faBaby} /></div> : null}</button>

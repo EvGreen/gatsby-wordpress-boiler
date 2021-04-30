@@ -1,25 +1,25 @@
 exports.createPages = async function({ actions, graphql }) {
   const { data } = await graphql(`
     query {
-      allWordpressPage {
+      allWpPage {
         edges {
           node {
             id
             slug
-            path
+            uri
             title
-            wordpress_id
+            databaseId
           }
         }
       }
     }
   `)
 
-  data.allWordpressPage.edges.forEach(edge => {
-    const path = edge.node.path
+  data.allWpPage.edges.forEach(edge => {
+    const path = edge.node.uri
     const id = edge.node.id
     let slug = edge.node.slug
-    const wordpress_id = edge.node.wordpress_id
+    const wordpress_id = edge.node.databaseId
     // Create pages from slug, but in case of front page disregard slug. 
     path === "/" ? slug = path : null
     actions.createPage({
@@ -38,13 +38,16 @@ exports.createPages = async function({ actions, graphql }) {
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
   const typeDefs = `
-    type wordpress__PAGE implements Node {
+    type WpPage implements Node {
       id: ID
       title: String
       slug: String
-      date: String
-      author: String
-      acf: wordpress__PAGEAcf
+      author: WpNodeWithAuthorToUserConnectionEdge
+    }
+    type WpNodeWithAuthorToUserConnectionEdge implements Node {
+      name: String
+      slug: String
+      uri: String
     }
     type wordpress__PAGEAcf implements Node {
       sections_page: [WordPressAcf_content] @link(by: "id", from: "sections_page___NODE")
@@ -57,7 +60,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
     type WordPressAcf_contentblock implements Node {
       id: ID
-      acf_fc_layout: String
+      fieldGroupName: String
       anchor: String
       classes: String
       bg_overlay: String
@@ -73,7 +76,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
     type WordPressAcf_contentblockasset implements Node {
       id: ID
-      acf_fc_layout: String
+      fieldGroupName: String
       asset_id: String
       asset_wysiwyg: String
       asset_field: String

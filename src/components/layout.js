@@ -38,7 +38,7 @@ function Layout(props) {
   	<>
 
 		<Helmet>
-			<script src="./js/pace/pace.min.js"></script>
+			<script src="/js/pace/pace.min.js"></script>
 			<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 		</Helmet>
 

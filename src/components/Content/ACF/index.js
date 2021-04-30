@@ -37,7 +37,7 @@ function ACFBlocks(props) {
 		// Main Settings
 		const anchor = node.anchor
 		const classes = node.classes
-		const layout = node.acf_fc_layout
+		const layout = node.fieldGroupName
 
 		// Returning Block
 		return (
@@ -56,8 +56,8 @@ function ACFBlocks(props) {
 	}
 	
 	// Filter to split regular blocks and slide type blocks, so those could be grouped and thrown into slider wrapper
-	const slides = props.block.filter(block => block.acf_fc_layout === 'slide')
-	const blocks = props.block.filter(block => block.acf_fc_layout !== 'slide')
+	const slides = props.block.filter(block => block.fieldGroupName === 'slide')
+	const blocks = props.block.filter(block => block.fieldGroupName !== 'slide')
 
 	// Building Blocks
 	const blockMap = blocks?.map((node,i) => createBlocks(node))

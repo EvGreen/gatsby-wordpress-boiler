@@ -26,7 +26,7 @@
 		"gatsby-plugin-sharp": "^3.4.0",
 		"gatsby-source-filesystem": "^3.4.0",
 		"gatsby-source-graphql": "^3.4.0",
-		"gatsby-source-wordpress": "^3.11.0",
+		"gatsby-source-wordpress": "^5.4.0",
 		"gatsby-transformer-sharp": "^3.4.0",
 		"google-map-react": "^2.1.9",
 		"isomorphic-fetch": "^3.0.0",

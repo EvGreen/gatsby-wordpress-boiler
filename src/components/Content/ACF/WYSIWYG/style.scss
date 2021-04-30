@@ -1,5 +1,5 @@
 // WYSIWYG Block
-.block-wysiwyg {
+.block-page_Pagebuilder_Sections_Content_Block_Wysiwyg {
 	position: relative;
 	z-index: 50;
 	display: block;
@@ -13,7 +13,7 @@
 	}
 }
 
-.attached-to-slide {
+.attached-to-page_Pagebuilder_Sections_Content_Block_Slide {
 	position: relative;
 	z-index: 300;
 	display: flex;
@@ -24,7 +24,7 @@
 	height: 100%;
 }
 
-.attached-to-image {
+.attached-to-page_Pagebuilder_Sections_Content_Block_Image {
 	position: relative;
 	z-index: 300;
 	top: 0;

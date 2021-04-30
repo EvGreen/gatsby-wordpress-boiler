@@ -11,23 +11,23 @@ import Footer from '../../components/Footer'
 import ACF from "../../components/Content"
 
 const Page = ({ data, pageContext }) => {
-  const footerImage = data.wordpressAcfOptions.options.footer_image?.localFile.childImageSharp.gatsbyImageData
+  const footerImage = data.wordpressAcfOptions?.options.footer_image?.localFile.childImageSharp.gatsbyImageData
 
   return (
     <>
       <main className={`c0 main-${pageContext.slug === "/" ? "frontpage" : pageContext.slug}`}>
 
-        {data.wordpressPage?.yoast_head ?
-          <Helmet>{ ReactHtmlParser(data.wordpressPage?.yoast_head) }</Helmet>
+        {data.wpPage?.yoast_head ?
+          <Helmet>{ ReactHtmlParser(data.wpPage?.yoast_head) }</Helmet>
         :
-          <SEO title={data.wordpressPage?.name} description={data.wordpressPage?.description} />
+          <SEO title={data.wpPage?.name} description={data.wpPage?.description} />
         }
 
-        { data.wordpressPage?.acf.sections_page ?
+        { data.wpPage?.pageBuilder?.sections ?
           <ACF { ...data } />
         : null }
 
-        {/* { data.wordpressPage.content ?
+        {/* { data.wpPage.content ?
           <WPDefault key="WP-default-1" { ...data } />
         : null } */}
 
@@ -47,25 +47,21 @@ export const query = graphql`
       ...wpNaviPrimary
       ...wpNaviSecondary
     }
-    wordpressPage( id: { eq: $id } ) {
+    wpPage( id: { eq: $id } ) {
       id
       title
       slug
       date
-      author
-      acf {
-        sections_page {
-          ...acfContent
+      author {
+        node {
+          name
+          slug
+          uri
         }
       }
-      yoast_head
-    }
-    wordpressAcfOptions {
-      options {
-        footer_image {
-          localFile {
-            ...imgFull
-          }
+      pageBuilder {
+        sections {
+          ...acfContent
         }
       }
     }

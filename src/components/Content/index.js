@@ -6,7 +6,7 @@ import ACFBlocks from "./ACF"
 function Content(props) {
 	
 	// Map through acf flexible content sections
-	const sectionsMap = props.wordpressPage.acf.sections_page.map((node, i) => {
+	const sectionsMap = props.wpPage?.pageBuilder?.sections.map((node, i) => {
 
 		// Spit it out only if typename is not registered (only one in graphql), or when it's specifically content type (default in our setup)
 		if(!node.__typename || node.__typename === 'WordPressAcf_content') {

@@ -42,40 +42,7 @@ module.exports = {
       resolve: 'gatsby-source-wordpress',
       options: {
         // The base url to your WP site.
-        baseUrl: 'design-sentry.com/test',
-        // WP.com sites set to true, WP.org set to false
-        hostingWPCOM: false,
-        // The protocol. This can be http or https.
-        protocol: 'https',
-        // Use 'Advanced Custom Fields' Wordpress plugin
-        useACF: true,
-        auth: {},
-        // Set to true to debug endpoints on 'gatsby build'
-        verboseOutput: false,
-        // Swap for navi
-        searchAndReplaceContentUrls: {
-          sourceUrl: 'https://design-sentry.com/test/',
-          replacementUrl: '/',
-        },
-        excludedRoutes: [
-          '**/categories', //skipping for now to speed up build process
-          '**/tags', //skipping for now to speed up build process
-          '**/taxonomies', //skipping for now to speed up build process
-          '**/themes', //skipping for good
-          '**/plugins', //skipping for good
-          '**/block-types', //skipping for good
-          '**/block-directory/search', //skipping for good
-          '**/settings', //skipping for now to speed up build process
-          '**/users/me', //skipping for good
-          '/*/*/users', //skipping for good
-          '**/contact-forms', //skipping for good
-          '/yoast/**', //skipping for now to speed up build process
-          '/wordfence/**', //skipping for good
-          '/wp-site-health/**', //skipping for good
-          '/batch/**', //skipping for good
-          '/*/*/comments', //skipping for now to speed up build process
-          '/siteground-optimizer/**' //skipping for now to speed up build process
-        ],
+        url: 'https://design-sentry.com/test/graphql',
       },
     },
     `gatsby-plugin-image`,

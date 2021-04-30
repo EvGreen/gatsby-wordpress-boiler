@@ -4,8 +4,6 @@ import NaviContext from '../../../context/NaviContext'
 import { Transition } from 'react-transition-group'
 import anime from 'animejs'
 
-import img_noise from './noise.png'
-
 import './style.scss'
 
 function Noise(props) {
@@ -18,7 +16,7 @@ function Noise(props) {
 	const noiseFrames = 15
 
 	// Current noise frame to display
-	const [noiseFrame, setNoiseFrame] = useState(noiseFrames)
+	//const [noiseFrame, setNoiseFrame] = useState(noiseFrames)
 
 	// Canvas handle
 	const canvasRef = useRef(null)
@@ -215,7 +213,7 @@ function Noise(props) {
 				window.cancelAnimationFrame(animationFrameId)
 			}, fadeDuration);
 		}
-	}, [naviContext.isHamburgerActive])
+	}, [naviContext.isHamburgerActive,noiseData])
 
 
   return (

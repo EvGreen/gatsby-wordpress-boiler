@@ -81,13 +81,6 @@ br {
 	mix-blend-mode: lighten;
 }
 
-.anchor {
-	position: absolute;
-	top: calc(50% - 50vh);
-	left: 0;
-	visibility: hidden;
-}
-
 // .image-wrap {
 // 	position: absolute;
 // 	top: 0;
@@ -149,8 +142,13 @@ br {
 
 .anchor {
 	position: absolute;
-	top: 50%;
-	transform: translate3d(0,-50%,0);
+	top: calc(50% - 50vh);
+	left: 0;
+	visibility: hidden;
+
+	&.topper {
+		top: calc(50vh - 3em);
+	}
 }
 
 /* ==========================================================================

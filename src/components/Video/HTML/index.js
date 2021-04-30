@@ -87,7 +87,7 @@ function Vimeo(props) {
 			{/* <button onClick={vPause}>pause</button> */}
 			{/* <button onClick={vMute}>sound is {isMuted ? 'off' : 'on'}</button> */}
 			{/* {currentTime} | {isPlaying ? 'playing' : 'not playing'} */}
-			<div className="mute-indicator" onClick={vMute}>
+			<div className="mute-indicator" onClick={vMute} onKeyDown={vMute} role="button" rel="noreferrer noopener">
 				{
 					isMuted ?
 					<div className="muted-on animate-in-from-top"><FontAwesomeIcon icon={faVolumeMute} /></div> :

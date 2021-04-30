@@ -74,6 +74,7 @@ function NaviPrimary({baseDuration, wpgraphql}) {
 					if(item.id === id) {
 						return item['itHasChildren'] = id
 					}
+					return false
 				})
 			}
 		}
@@ -141,6 +142,8 @@ function NaviPrimary({baseDuration, wpgraphql}) {
 			<div
 				className='navi-items'
 				onBlur={(e) => executeBlur(e)}
+				role="button"
+				rel="noreferrer noopener"
 			>
 				{menuServe(usedNodes, 0, 0)}
 			</div>

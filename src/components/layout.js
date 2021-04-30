@@ -1,5 +1,4 @@
 import React from 'react'
-import { graphql } from "gatsby"
 import '../EVG/css/_core.scss';
 
 import Header from './Header'

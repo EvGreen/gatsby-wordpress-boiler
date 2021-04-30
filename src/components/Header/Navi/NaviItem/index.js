@@ -14,7 +14,7 @@ function NaviItem(props) {
 
 	const id = props.id
 	const label = props.label
-	const title = props.title
+	//const title = props.title
 	const description = props.description
 
 	// disabled flag
@@ -48,9 +48,8 @@ function NaviItem(props) {
 				{enabled ?
 					<Link
 						to={path.replace(process.env.GATSBY_WP_URL, '/')}
-						onClick={() => { naviContext.setHamburgerActive(false)}}
+						onClick={() => { naviContext.setHamburgerActive(false); dropDownClickHandle(); }}
 						onKeyDown={() => { naviContext.setHamburgerActive(false)}}
-						onClick={dropDownClickHandle}
 					>
 						{label}
 						{props.itHasChildren ? <FontAwesomeIcon icon={faAngleDown} className="caret" /> : null}

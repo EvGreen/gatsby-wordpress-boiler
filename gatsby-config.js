@@ -26,19 +26,6 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     {
-      resolve: "gatsby-source-graphql",
-      options: {
-        // Arbitrary name for the remote schema Query type
-        typeName: "WPGraphQL",
-        // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
-        fieldName: "wpgraphql",
-        // Url to query from
-        url: "https://design-sentry.com/test/graphql",
-        // refetch interval in seconds
-        //refetchInterval: 60,
-      },
-    },
-    {
       resolve: 'gatsby-source-wordpress',
       options: {
         // The base url to your WP site.

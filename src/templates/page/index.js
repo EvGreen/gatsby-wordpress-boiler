@@ -15,12 +15,12 @@ const Page = ({ data, pageContext }) => {
 
   return (
     <>
-      <main className={`c0 main-${pageContext.slug === "/" ? "frontpage" : pageContext.slug}`}>
+      <main className={`c0 main-${pageContext.slug === "/" ? "frontpage" : pageContext.slug} lang-${data.wpGeneralSettings?.generalSettings?.language}`}>
 
         {data.wpPage?.yoast_head ?
           <Helmet>{ ReactHtmlParser(data.wpPage?.yoast_head) }</Helmet>
         :
-          <Seo title={data.wpPage?.title} description={data.wpPage?.content} />
+          <Seo title={data.wpPage?.title} description={data.wpGeneralSettings?.generalSettings?.description} siteTitle={data.wpGeneralSettings?.generalSettings?.title} />
         }
 
         { data.wpPage?.pageBuilder?.sections ?
@@ -43,10 +43,8 @@ export default Page
 export const query = graphql`
 
   query($id: String!) {
-    wpgraphql {
-      ...wpNaviPrimary
-      ...wpNaviSecondary
-    }
+    ...wpNaviPrimary
+    ...wpGeneralSettings
     wpPage( id: { eq: $id } ) {
       id
       title

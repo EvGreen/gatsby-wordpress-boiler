@@ -6,7 +6,7 @@ import NaviItem from '../NaviItem'
 import { Transition } from 'react-transition-group'
 import anime from 'animejs'
 
-function NaviPrimary({baseDuration, wpgraphql}) {
+function NaviPrimary({baseDuration, wpNaviPrimary}) {
 	const naviContext = useContext(NaviContext)
 	const [dropDown, setDropDown] = useState([])
 
@@ -42,7 +42,7 @@ function NaviPrimary({baseDuration, wpgraphql}) {
 	}
 
 	// Menu feed
-	const menuNodes = wpgraphql?.wpNaviPrimary?.nodes[0]?.menuItems.nodes
+	const menuNodes = wpNaviPrimary?.nodes[0]?.menuItems.nodes
 	// Re-organized menu feed
 	let usedNodes = [
 		[]

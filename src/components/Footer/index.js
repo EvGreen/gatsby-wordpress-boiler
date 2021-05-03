@@ -1,6 +1,7 @@
 import React from 'react'
 import './style.scss'
 import { GatsbyImage } from 'gatsby-plugin-image'
+import { useStaticQuery, graphql } from "gatsby"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faArrowUp } from '@fortawesome/free-solid-svg-icons'
@@ -9,7 +10,14 @@ import { faTwitter, faInstagram, faGithub } from '@fortawesome/free-brands-svg-i
 import CF7Basic from '../Form/CF7/Basic'
 
 function Footer(props) {
-	const image = props.image
+
+	// Get footer Image from WP Site Settings
+	const data = useStaticQuery(graphql`
+		query {
+    	...siteGeneralSettings
+  	}
+	`)
+	const image = data?.siteGeneralSettings?.siteGeneralSettings?.acfOptions?.footerImage?.localFile?.childImageSharp.gatsbyImageData
 
   return (
 		<footer className='master-footer c0 grid-12'>

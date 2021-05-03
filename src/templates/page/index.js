@@ -11,7 +11,6 @@ import Footer from '../../components/Footer'
 import Acf from "../../components/Content"
 
 const Page = ({ data, pageContext }) => {
-  const footerImage = data.wordpressAcfOptions?.options.footer_image?.localFile.childImageSharp.gatsbyImageData
 
   return (
     <>
@@ -31,7 +30,7 @@ const Page = ({ data, pageContext }) => {
           <WPDefault key="WP-default-1" { ...data } />
         : null } */}
 
-        <Footer image={footerImage} />
+        <Footer/>
   
       </main>
     </>

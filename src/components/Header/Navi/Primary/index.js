@@ -102,8 +102,10 @@ function NaviPrimary({baseDuration, wpgraphql}) {
 		return item
 	}
 
-	const menuNodesMap = menuNodes?.map(organizeMenuNodes)
+	// Organize
+	menuNodes?.map(organizeMenuNodes)
 
+	// Serve
 	function menuServe(naviNodes, key, lvl) {
 		let result = []
 		lvl++

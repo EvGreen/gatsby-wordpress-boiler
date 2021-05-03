@@ -12,7 +12,7 @@ function Footer(props) {
 	const image = props.image
 
   return (
-		<footer id='master-footer' className='c0 grid-12'>
+		<footer className='master-footer c0 grid-12'>
 
 			<div className="intro-box fs-85 clead x1">
 				<h4>contact</h4>

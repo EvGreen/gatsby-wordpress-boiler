@@ -6,9 +6,6 @@ import Header from './Header'
 import { Helmet } from 'react-helmet'
 import { ParallaxProvider } from 'react-scroll-parallax'
 
-import CanvasNoise from './Canvas/Noise'
-
-
 if (typeof window !== 'undefined') {
 
 	// Set up pace js
@@ -43,8 +40,6 @@ function Layout(props) {
 		</Helmet>
 
 		<Header {...props.data} />
-
-		<CanvasNoise />
 		
 		<ParallaxProvider>
 			{props.children}

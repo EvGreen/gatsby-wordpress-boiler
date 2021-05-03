@@ -4,7 +4,7 @@ import './style.scss'
 function ACFOverlay(props) {
 
 	// Overlay
-	const overlay = props.bg_overlay
+	const overlay = props.bgOverlay
 
 	// Returning Section
   return (

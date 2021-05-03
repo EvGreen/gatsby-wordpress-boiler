@@ -47,7 +47,7 @@ function Header(props) {
 	const naviExpanded = naviContext.isHamburgerActive
 
   return (
-		<header id='master-header' className={'x0 t'}>
+		<header className={'x0 t master-header'}>
 			<Hamburger baseDuration={baseDuration} />
 
 			{/* {naviContext.beforeHeaderBreakpoint ? 'true' :	

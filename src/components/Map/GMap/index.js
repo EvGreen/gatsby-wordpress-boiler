@@ -11,10 +11,10 @@ function GMap(props) {
 
 	const defaultProps = {
 		center: {
-			lat: props.lat,
-			lng: props.lng,
+			lat: props.latitude,
+			lng: props.longitude,
 		},
-		zoom: props.zoom,
+		zoom: parseInt(props.zoom),
 	}
 
 	return (
@@ -216,9 +216,9 @@ function GMap(props) {
 			}
 		>
 			<Marker
-				lat={props.lat}
-				lng={props.lng}
-				text={'This fucking map mang...'}
+				lat={props.latitude}
+				lng={props.longitude}
+				text={'...'}
 			/>
 		</GoogleMapReact>
 	)

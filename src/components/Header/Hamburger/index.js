@@ -13,15 +13,15 @@ function Hamburger({baseDuration}) {
 	// Keeping track of Header Logo Width
 	const [logoWidthOffset, setLogoWidthOffset] = useState(0)
 	useEffect(() => {
-		const logo = document.getElementById('master-logo')
-		const hamburger = document.getElementById('master-hamburger-container')
-		const offset = logo.clientWidth - hamburger.clientWidth
+		const logo = document.getElementsByClassName('master-logo')
+		const hamburger = document.getElementsByClassName('master-hamburger-container')
+		const offset = logo[0].clientWidth - hamburger[0].clientWidth
 		setLogoWidthOffset(offset)
 	}, [])
 
 	// Animating fade in/out
 	const fadeInLogo = element => {
-		const hamburger = document.getElementById('master-hamburger-container')
+		const hamburger = document.getElementsByClassName('master-hamburger-container')
 		anime
 			.timeline()
 			.add({
@@ -45,7 +45,7 @@ function Hamburger({baseDuration}) {
 			}, `-=${baseDuration * 1.5}`)
 	}
 	const fadeOutLogo = element => {
-		const hamburger = document.getElementById('master-hamburger-container')
+		const hamburger = document.getElementsByClassName('master-hamburger-container')
 		anime
 			.timeline()
 			.add({
@@ -72,8 +72,7 @@ function Hamburger({baseDuration}) {
 	
   return (
 		<div
-			id="master-hamburger"
-			className="c5"
+			className="c5 master-hamburger"
 			onClick={
 				() => {
 					naviContext.activeToggle(true)
@@ -98,8 +97,8 @@ function Hamburger({baseDuration}) {
 			>
 				<Logo />
 			</Transition>
-			<div id="master-hamburger-positioner">
-				<div style={{opacity: 0}} id="master-hamburger-container">
+			<div className="master-hamburger-positioner">
+				<div style={{opacity: 0}} className="master-hamburger-container">
 					<div className={`hamburger-container hamburger hamburger--close1 ${naviContext.isHamburgerActive ? 'open' : null }`}>
 						<div className="hamburger__icon">
 							<div className="hamburger__line hamburger__line--1"></div>

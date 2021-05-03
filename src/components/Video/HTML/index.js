@@ -66,7 +66,6 @@ function Vimeo(props) {
 	// Mute / Unmute
 	function vMute() {
 		setIsMuted(!isMuted)
-		console.log('mut')
 	}
 
 	// Pause
@@ -82,18 +81,19 @@ function Vimeo(props) {
 
 
 	return (
-		<div ref={io} className='video-html-wrap'>
+		<div ref={io} className={`video-html-wrap ${isPlaying ? 'is-playing' : 'is-not-playing'}`}>
 			{/* <button onClick={vPlay}>play</button> */}
 			{/* <button onClick={vPause}>pause</button> */}
 			{/* <button onClick={vMute}>sound is {isMuted ? 'off' : 'on'}</button> */}
 			{/* {currentTime} | {isPlaying ? 'playing' : 'not playing'} */}
-			<div className="mute-indicator" onClick={vMute} onKeyDown={vMute} role="button" rel="noreferrer noopener">
+			<div className="mute-indicator" onClick={vMute} onKeyDown={vMute} role="button" rel="noreferrer noopener" tabIndex="0">
 				{
 					isMuted ?
 					<div className="muted-on animate-in-from-top"><FontAwesomeIcon icon={faVolumeMute} /></div> :
 					<div className="muted-off animate-in-from-bottom"><FontAwesomeIcon icon={faVolumeUp} /></div>
 				}
 			</div>
+			<div className="current-time hidden">{currentTime}</div>
 			<video ref={player} muted={isMuted ? true : null} loop playsInline disablePictureInPicture allow="autoplay">
 				<source src={props.file} type="video/mp4" />
 				<track

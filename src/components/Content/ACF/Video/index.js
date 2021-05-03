@@ -6,25 +6,25 @@ import VideoHTML from '../../../Video/HTML'
 function ACFVideo(props) {
 
 	// Video Type
-	const video_source = props.video_source
-	const video_iframe = props.video_iframe
-	const video_file = props.video_file?.localFile.publicURL
+	const videoSource = props.videoSource
+	const videoIframe = props.videoIframe
+	const videoFile = props.videoFile?.localFile.publicURL
 
 	// Returning Section
   return (
 		<>
-			{ video_source === 'file' ?
+			{ videoSource === 'file' ?
 				<>
-					{ video_file ?
-						<VideoHTML file={video_file} />
+					{ videoFile ?
+						<VideoHTML file={videoFile} />
 					: null }
 				</>
 				: null }
 
-				{ video_source === 'iframe' ?
+				{ videoSource === 'iframe' ?
 				<>
-					{ video_iframe ?
-						<div className='video-inject aspect-ratio' dangerouslySetInnerHTML={{__html: video_iframe}} />
+					{ videoIframe ?
+						<div className='video-inject aspect-ratio' dangerouslySetInnerHTML={{__html: videoIframe}} />
 					: null }
 				</>
 				: null }

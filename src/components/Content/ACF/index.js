@@ -4,7 +4,7 @@ import './disposable.scss'
 
 import ACFImage from './Image'
 import ACFVideo from './Video'
-import ACFWYSIWYG from './WYSIWYG'
+import ACFWysiwyg from './WYSIWYG'
 import ACFCustom from './Custom'
 
 import Slider from 'react-slick'
@@ -32,7 +32,7 @@ const sliderSettings = {
 function ACFBlocks(props) {
 
 	// Create Building Blocks
-	function createBlocks(node) {
+	function createBlocks(node,i) {
 
 		// Main Settings
 		const anchor = node.anchor
@@ -41,13 +41,13 @@ function ACFBlocks(props) {
 
 		// Returning Block
 		return (
-			<div key={node.id} id={anchor ? 'block-' + anchor : null}  className={`block block-${layout} ${classes ? classes : ''}`}>
+			<div key={i} id={anchor ? 'block-' + anchor : null}  className={`block block-${layout} ${classes ? classes : ''}`}>
 
 				<ACFImage {...node} />
 
 				<ACFVideo {...node} />
 
-				<ACFWYSIWYG {...node} />
+				<ACFWysiwyg {...node} />
 
 				<ACFCustom {...node} />
 
@@ -60,10 +60,10 @@ function ACFBlocks(props) {
 	const blocks = props.block.filter(block => block.fieldGroupName !== 'page_Pagebuilder_Sections_Content_Block_Slide')
 
 	// Building Blocks
-	const blockMap = blocks?.map((node,i) => createBlocks(node))
+	const blockMap = blocks?.map((node,i) => createBlocks(node,i))
 
 	// Building Slides
-	const slideMap = slides?.map((node,i) => createBlocks(node))
+	const slideMap = slides?.map((node,i) => createBlocks(node,i))
 
 	// Returning Section
   return (

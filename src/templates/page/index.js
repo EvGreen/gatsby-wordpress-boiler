@@ -1,14 +1,14 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import SEO from "../../components/seo"
+import Seo from "../../components/seo"
 import { Helmet } from "react-helmet"
 import ReactHtmlParser from 'react-html-parser'
 
 import Footer from '../../components/Footer'
 
 //import WPDefault from "../components/Content/WP/Default"
-import ACF from "../../components/Content"
+import Acf from "../../components/Content"
 
 const Page = ({ data, pageContext }) => {
   const footerImage = data.wordpressAcfOptions?.options.footer_image?.localFile.childImageSharp.gatsbyImageData
@@ -20,11 +20,11 @@ const Page = ({ data, pageContext }) => {
         {data.wpPage?.yoast_head ?
           <Helmet>{ ReactHtmlParser(data.wpPage?.yoast_head) }</Helmet>
         :
-          <SEO title={data.wpPage?.name} description={data.wpPage?.description} />
+          <Seo title={data.wpPage?.title} description={data.wpPage?.content} />
         }
 
         { data.wpPage?.pageBuilder?.sections ?
-          <ACF { ...data } />
+          <Acf { ...data } />
         : null }
 
         {/* { data.wpPage.content ?

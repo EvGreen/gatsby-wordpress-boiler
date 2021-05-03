@@ -29,7 +29,7 @@ function Weather(props) {
 	}, [])
 
   return (
-		<div id="master-weather" className='weather c4 fs-85'>
+		<div className='weather c4 fs-85'>
 			<p><strong>How's Miami?</strong></p>
 			<p><strong>{d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})} <span className="capitalize">{weather}</span></strong></p>
 		</div>

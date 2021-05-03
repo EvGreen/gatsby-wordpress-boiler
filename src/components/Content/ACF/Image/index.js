@@ -32,35 +32,35 @@ function ACFImage(props) {
 
 	// Image
 	const image = props.img?.localFile.childImageSharp.gatsbyImageData
-	const image_alt = props.img?.altText
+	const imageAlt = props.img?.altText ? props.img?.altText : ''
 	// Image
-	const image_responsive = props.imgResponsive?.localFile.childImageSharp.gatsbyImageData
-	const image_responsive_alt = props.imgResponsive?.altText
+	const imageResponsive = props.imgResponsive?.localFile.childImageSharp.gatsbyImageData
+	const imageResponsiveAlt = props.imgResponsive?.altText ? props.imgResponsive?.altText : ''
 	// Parallax
-	const parallax_from = props.parallax_from
-	const parallax_to = props.parallax_to
+	const parallaxFrom = props.parallaxFrom
+	const parallaxTo = props.parallaxTo
 
 	// Returning Section
   return (
 		<>
 			{ image ?
 				<div className="image-wrap">
-					{ parallax_from && parallax_from !== 0 && parallax_to && parallax_to !== 0 ?
-						<Parallax className="parallax" y={[parallax_from + '%', parallax_to + '%']} tagOuter="figure">
-							{ !image_responsive || windowSize.width > responsiveBreakpoint ?
-								<GatsbyImage image={image} alt={image_alt} />
+					{ parallaxFrom && parallaxFrom !== 0 && parallaxTo && parallaxTo !== 0 ?
+						<Parallax className="parallax" y={[parallaxFrom + '%', parallaxTo + '%']} tagOuter="figure">
+							{ !imageResponsive || windowSize.width > responsiveBreakpoint ?
+								<GatsbyImage image={image} alt={imageAlt} />
 							: null }
-							{ image_responsive && windowSize.width < responsiveBreakpoint ?
-								<GatsbyImage image={image_responsive} alt={image_responsive_alt} />
+							{ imageResponsive && windowSize.width < responsiveBreakpoint ?
+								<GatsbyImage image={imageResponsive} alt={imageResponsiveAlt} />
 							: null }
 						</Parallax>
 					:
 						<>
-							{ !image_responsive || windowSize.width > responsiveBreakpoint ?
-								<GatsbyImage image={image} alt={image_alt} />
+							{ !imageResponsive || windowSize.width > responsiveBreakpoint ?
+								<GatsbyImage image={image} alt={imageAlt} />
 							: null }
-							{ image_responsive && windowSize.width < responsiveBreakpoint ?
-								<GatsbyImage image={image_responsive} alt={image_responsive_alt} />
+							{ imageResponsive && windowSize.width < responsiveBreakpoint ?
+								<GatsbyImage image={imageResponsive} alt={imageResponsiveAlt} />
 							: null }
 						</>
 					}

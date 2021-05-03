@@ -135,11 +135,10 @@ br {
 ========================================================================== */
 
 .gatsby-image-wrapper {
-	background-color: #999 !important;
 	img {
 		&:first-of-type {
-			filter: blur(20px);
-			transition: opacity 1000ms ease-in-out 0s !important;
+			filter: blur(2px);
+			transition: opacity 500ms ease-in-out 0s !important;
 			z-index: 100;
 		}
 		&:last-child {

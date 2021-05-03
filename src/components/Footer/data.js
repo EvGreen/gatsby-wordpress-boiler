@@ -1,17 +1,17 @@
 import { graphql } from 'gatsby'
 
-export const siteGeneralSettings = graphql`
-fragment siteGeneralSettings on Query {
-	siteGeneralSettings: wp {
-		siteGeneralSettings {
-			acfOptions {
-				footerImage {
-					localFile {
-						...imgFull
+export const acfOptions = graphql`
+	fragment acfOptions on Query {
+		wp {
+			options {
+				acfOptions {
+					footerImage {
+						localFile {
+							...imgFull
+						}
 					}
 				}
 			}
 		}
 	}
-}
 `

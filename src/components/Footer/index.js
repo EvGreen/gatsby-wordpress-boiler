@@ -14,10 +14,10 @@ function Footer(props) {
 	// Get footer Image from WP Site Settings
 	const data = useStaticQuery(graphql`
 		query {
-    	...siteGeneralSettings
+    	...acfOptions
   	}
 	`)
-	const image = data?.siteGeneralSettings?.siteGeneralSettings?.acfOptions?.footerImage?.localFile?.childImageSharp.gatsbyImageData
+	const image = data?.wp?.options?.acfOptions?.footerImage?.localFile?.childImageSharp.gatsbyImageData
 
   return (
 		<footer className='master-footer c0 grid-12'>

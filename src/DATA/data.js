@@ -19,19 +19,3 @@ export const wpGeneralSettings = graphql`
 		}
 	}
 `
-
-export const siteGeneralSettings = graphql`
-	fragment siteGeneralSettings on Query {
-		siteGeneralSettings: wp {
-			siteGeneralSettings {
-				acfOptions {
-					footerImage {
-						localFile {
-							...imgFull
-						}
-					}
-				}
-			}
-		}
-	}
-`

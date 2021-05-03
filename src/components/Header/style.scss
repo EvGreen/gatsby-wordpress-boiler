@@ -11,9 +11,58 @@ header.master-header {
 	height: auto;
 	//padding: .25em 1em;
 
-	.navi-animator {
+	.master-navi {
 		display: flex;
 		align-items: stretch;
 		padding: 0 .75em;
+
+		nav.navi {
+			display: flex;
+			align-items: stretch;
+			padding: 0;
+	
+			.navi-items {
+				display: flex;
+				padding: 0;
+	
+				.nav-item {
+					display: flex;
+	
+					&.hint--bottom::after, &.hint--bottom::before {
+						top: 73%;
+					}
+				}
+	
+				a, .coming {
+					display: flex;
+					align-items: center;
+					padding: .5em .5em;
+	
+					&:focus {
+						outline: none;
+					}
+				}
+			}
+		}
+	
+		.social-icons {
+			display: flex;
+			align-items: stretch;
+	
+			.social-icon {
+				display: flex;
+				align-items: stretch;
+	
+				a {
+					display: flex;
+					align-items: center;
+					padding: .5em .5em;
+					
+					.hint--bottom::after, .hint--bottom::before {
+						top: calc(50% + 11px);
+					}
+				}
+			}
+		}
 	}
 }

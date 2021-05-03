@@ -5,7 +5,7 @@ import { Transition } from 'react-transition-group'
 import anime from 'animejs'
 
 import Hamburger from './Hamburger'
-import Navi from './Navi'
+import NaviPrimary from './Navi/Primary'
 import SocialIcons from '../SocialIcons'
 
 function Header(props) {
@@ -52,6 +52,7 @@ function Header(props) {
 
 			{/* {naviContext.beforeHeaderBreakpoint ? 'true' :	
 			naviContext.scrollingDirectionIsDown ? 'false' : 'true'} */}
+			{/* {naviContext.windowSize?.mobile} */}
 			<Transition
 				in={naviExpanded}
 				timeout={baseDuration}
@@ -61,8 +62,8 @@ function Header(props) {
 				mountOnEnter
 				unmountOnExit
 			>
-				<div className={`navi-animator x0`}>
-					<Navi {...props} baseDuration={baseDuration} />
+				<div className={`master-navi x0`}>
+					<NaviPrimary { ...props } baseDuration={baseDuration} />
 					<SocialIcons />
 				</div>
 			</Transition>

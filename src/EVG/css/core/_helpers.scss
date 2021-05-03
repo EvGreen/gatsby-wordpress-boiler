@@ -137,7 +137,7 @@ br {
 .gatsby-image-wrapper {
 	img {
 		&:first-of-type {
-			filter: blur(2px);
+			//filter: blur(2px);
 			transition: opacity 500ms ease-in-out 0s !important;
 			z-index: 100;
 		}

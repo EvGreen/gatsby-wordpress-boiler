@@ -1,0 +1,71 @@
+.animation-intro-wrap {
+	position: relative;
+	overflow: hidden;
+
+	> .bg {
+		z-index: 1;
+		width: 101%;
+		//opacity: 0;
+		//transform: translateX(-100%);
+		//transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 0s;
+	}
+
+	> .border-left {
+		position: absolute;
+		z-index: 100;
+		top: 0;
+		left: 0;
+		width: 1px;
+		height: 100%;
+
+		transform: translateY(-100.1%);
+	}
+
+	> .border-top {
+		position: absolute;
+		z-index: 100;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 1px;
+
+		transform: translateX(-100.1%);
+	}
+
+	> .border-right {
+		position: absolute;
+		z-index: 100;
+		top: 0;
+		right: 0;
+		width: 1px;
+		height: 100%;
+
+		transform: translateY(-100.1%);
+	}
+
+	> .border-bottom {
+		position: absolute;
+		z-index: 100;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 1px;
+
+		transform: translateX(-100.1%);
+	}
+	
+	.children {
+		position: relative;
+		z-index: 50;
+	}
+}
+
+.has-intro {
+	position: relative;
+	overflow: hidden;
+
+	.animation-intro-wrap {
+		position: static;
+		overflow: visible;
+	}
+}

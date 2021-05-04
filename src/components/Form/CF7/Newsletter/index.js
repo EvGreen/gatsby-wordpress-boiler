@@ -61,7 +61,7 @@ function CF7Basic(props) {
 
 			<div className="grid-12">
 				<label className="span-9">
-					<input type="text" placeholder="Enter your email here" name="email" ref={register({required: true, minLength: 6, pattern: /^\S+@\S+$/i})} />
+					<input type="text" placeholder="e-mail" name="email" {...register("email",{required: true, minLength: 6, pattern: /^\S+@\S+$/i})} />
 					{errors.email && <p className="small margin-off">a correct email is required.</p>}
 				</label>
 				<button className="span-3" type="submit"><FontAwesomeIcon icon={faArrowRight} /> {isLoading ? <div className="loader-spinner"><FontAwesomeIcon icon={faBaby} /></div> : null}</button>

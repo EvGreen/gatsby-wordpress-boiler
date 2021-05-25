@@ -59,7 +59,9 @@ function Vimeo(props) {
 
 	// Play
 	function vPlay() {
-		player.current.play()
+		player.current.play().catch((e)=>{
+			console.log('video play error', e)
+	 	})
 		setIsPlaying(true)
 	}
 	

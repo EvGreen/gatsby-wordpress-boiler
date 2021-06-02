@@ -264,54 +264,66 @@
 
 .flex {
 	display: flex;
+	flex-wrap: wrap;
+}
+
+.ai-flex-end {
+	align-items: flex-end;
+}
+.ai-flex-start {
+	align-items: flex-start;
+}
+.ai-center {
+	align-items: center;
+}
+
+.jc-flex-end {
+	justify-content: flex-end;
+}
+.jc-flex-start {
+	justify-content: flex-start;
+}
+.jc-center {
+	justify-content: center;
 }
 
 /* ==========================================================================
   Padding
 ========================================================================== */
 
+.gap {
+	grid-gap: calc(1em + 2vw);
+}
 .padd {
-	padding: 1em;
-
-	@media screen and (max-width: 1024px) {
-		padding: .5em;
-	}
+	padding: calc(1em + 2vw);
 }
 .padd-top {
-	padding-top: 1em;
-
-	@media screen and (max-width: 1024px) {
-		padding-top: .5em;
-	}
+	padding-top: calc(1em + 2vw);
+}
+.padd-right {
+	padding-right: calc(1em + 2vw);
 }
 .padd-bottom {
-	padding-bottom: 1em;
-
-	@media screen and (max-width: 1024px) {
-		padding-bottom: .5em;
-	}
+	padding-bottom: calc(1em + 2vw);
+}
+.padd-left {
+	padding-left: calc(1em + 2vw);
 }
 
 .padd-2 {
-	padding: 2em;
-
-	@media screen and (max-width: 1024px) {
-		padding: 1em;
-	}
+	padding: calc(2em + 4vw);
 }
 .padd-top-2 {
-	padding-top: 2em;
-
-	@media screen and (max-width: 1024px) {
-		padding-top: 1em;
-	}
+	padding-top: calc(2em + 4vw);
+}
+.padd-right-2 {
+	padding-right: calc(2em + 4vw);
 }
 .padd-bottom-2 {
-	padding-bottom: 2em;
-
-	@media screen and (max-width: 1024px) {
-		padding-bottom: 1em;
-	}
+	padding-bottom: calc(2em + 4vw);
+}
+.padd-left-2 {
+	padding-left: calc(2em + 4vw);
 }
 
 .padd-3 {
@@ -328,11 +340,25 @@
 		padding-top: 1.5em;
 	}
 }
+.padd-right-3 {
+	padding-right: 3em;
+
+	@media screen and (max-width: 1024px) {
+		padding-right: 1.5em;
+	}
+}
 .padd-bottom-3 {
 	padding-bottom: 3em;
 
 	@media screen and (max-width: 1024px) {
 		padding-bottom: 1.5em;
+	}
+}
+.padd-left-3 {
+	padding-left: 3em;
+
+	@media screen and (max-width: 1024px) {
+		padding-left: 1.5em;
 	}
 }
 
@@ -350,11 +376,25 @@
 		padding-top: 2em;
 	}
 }
+.padd-right-4 {
+	padding-right: 4em;
+
+	@media screen and (max-width: 1024px) {
+		padding-right: 2em;
+	}
+}
 .padd-bottom-4 {
 	padding-bottom: 4em;
 
 	@media screen and (max-width: 1024px) {
 		padding-bottom: 2em;
+	}
+}
+.padd-left-4 {
+	padding-left: 4em;
+
+	@media screen and (max-width: 1024px) {
+		padding-left: 2em;
 	}
 }
 
@@ -365,7 +405,7 @@
 	padding-left: 0;
 }
 .padd-right-off {
-	padding-bottom: 0;
+	padding-right: 0;
 }
 .padd-bottom-off {
 	padding-bottom: 0;

@@ -6,6 +6,10 @@
 	background-color: $c0;
 	color: $c0p;
 
+	&.t {
+		background-color: transparent;
+	}
+
 	input,
 	textarea {
 		background-color: lighten($c0,3%);
@@ -25,11 +29,33 @@
 		border-color: darken($c0, 4%);
 	}
 
+	.bg {
+		background-color: $c0;
+	}
+
+	.btn {
+		span {
+			background: $c0p;
+			color: $c0;
+		}
+		&:before {
+			background: $c0;
+		}
+	}
+
+	.contrast {
+		background-color: $c0p;
+	}
+
 	a {
 		color: $c0a;
 		
 		&:hover {
 			color: $c0ah;
+		}
+
+		&:before {
+			background-color: $c0ah;
 		}
 	}
 
@@ -59,6 +85,14 @@
 	background-color: $c1;
 	color: $c1p;
 
+	&.darker {
+		background-color: #dedede;
+	}
+
+	&.t {
+		background-color: transparent;
+	}
+
 	input,
 	textarea {
 		background-color: lighten($c1,3%);
@@ -78,11 +112,30 @@
 		border-color: darken($c1, 4%);
 	}
 
+	.bg {
+		background-color: $c1;
+	}
+
+	.btn {
+		span {
+			background: $c1p;
+			color: $x0;
+		}
+	}
+
+	.contrast {
+		background-color: $c1p;
+	}
+
 	a {
 		color: $c1a;
 		
 		&:hover {
 			color: $c1ah;
+		}
+
+		&:before {
+			background-color: $c1ah;
 		}
 	}
 
@@ -108,6 +161,10 @@
 	background-color: $c2;
 	color: $c2p;
 
+	&.t {
+		background-color: transparent;
+	}
+
 	input,
 	textarea {
 		background-color: lighten($c2,3%);
@@ -127,11 +184,35 @@
 		border-color: darken($c2, 4%);
 	}
 
+	.bg {
+		background-color: $c2;
+	}
+
+	.btn {
+		span {
+			background: $clead;
+			color: $x1;
+			border: 1px solid $x1;
+		}
+
+		&::before {
+			background: $x1;
+		}
+	}
+
+	.contrast {
+		background-color: $c2p;
+	}
+
 	a {
 		color: $c2a;
 		
 		&:hover {
 			color: $c2ah;
+		}
+
+		&:before {
+			background-color: $c2ah;
 		}
 	}
 
@@ -157,6 +238,10 @@
 	background-color: $c3;
 	color: $c3p;
 
+	&.t {
+		background-color: transparent;
+	}
+
 	input,
 	textarea {
 		background-color: lighten($c3,3%);
@@ -176,11 +261,30 @@
 		border-color: darken($c3, 4%);
 	}
 
+	.bg {
+		background-color: $c3;
+	}
+
+	.btn {
+		span {
+			background: $c3p;
+			color: $x0;
+		}
+	}
+
+	.contrast {
+		background-color: $c3p;
+	}
+
 	a {
 		color: $c3a;
 		
 		&:hover {
 			color: $c3ah;
+		}
+
+		&:before {
+			background-color: $c3ah;
 		}
 	}
 
@@ -206,6 +310,10 @@
 	background-color: $c4;
 	color: $c4p;
 
+	&.t {
+		background-color: transparent;
+	}
+
 	input,
 	textarea {
 		background-color: lighten($c4,3%);
@@ -225,11 +333,30 @@
 		border-color: darken($c4, 4%);
 	}
 
+	.bg {
+		background-color: $c4;
+	}
+
+	.btn {
+		span {
+			background: $c4p;
+			color: $x0;
+		}
+	}
+
+	.contrast {
+		background-color: $c4p;
+	}
+
 	a {
 		color: $c4a;
 		
 		&:hover {
 			color: $c4ah;
+		}
+
+		&:before {
+			background-color: $c4ah;
 		}
 	}
 
@@ -255,6 +382,10 @@
 	background-color: $c5;
 	color: $c5p;
 
+	&.t {
+		background-color: transparent;
+	}
+
 	input,
 	textarea {
 		background-color: lighten($c5,3%);
@@ -274,11 +405,34 @@
 		border-color: lighten($c5, 4%);
 	}
 
+	.bg {
+		background-color: $c5;
+	}
+
+	.btn {
+		span {
+			background: $c5p;
+			color: $x1;
+		}
+
+		&::before {
+			background: $x1;
+		}
+	}
+
+	.contrast {
+		background-color: $c5p;
+	}
+
 	a {
 		color: $c5a;
 		
 		&:hover {
 			color: $c5ah;
+		}
+
+		&:before {
+			background-color: $c5ah;
 		}
 	}
 
@@ -313,11 +467,23 @@
 		border-color: darken($x0, 4%);
 	}
 
+	.bg {
+		background-color: $x0;
+	}
+
+	.contrast {
+		background-color: $x0p;
+	}
+
 	a {
 		color: $x0a;
 		
 		&:hover {
 			color: $x0ah;
+		}
+
+		&:before {
+			background-color: $x0ah;
 		}
 	}
 
@@ -360,11 +526,23 @@
 		border-color: lighten($x1, 4%);
 	}
 
+	.bg {
+		background-color: $x1;
+	}
+
+	.contrast {
+		background-color: $x1p;
+	}
+
 	a {
 		color: $x1a;
 		
 		&:hover {
 			color: $x1ah;
+		}
+
+		&:before {
+			background-color: $x1ah;
 		}
 	}
 
@@ -440,5 +618,71 @@
 				background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, $x1h 1px, $x1h 2px, rgba(0, 0, 0, 0) 2px);
 			}
 		}
+	}
+}
+
+.border-c0 {
+	.contrast {
+		background-color: $c0;
+	}
+}
+.bg-c0 {
+	.bg {
+		background-color: $c0;
+	}
+}
+
+.border-c1 {
+	.contrast {
+		background-color: $c1;
+	}
+}
+.bg-c1 {
+	.bg {
+		background-color: $c1;
+	}
+}
+
+.border-c2 {
+	.contrast {
+		background-color: $c2;
+	}
+}
+.bg-c2 {
+	.bg {
+		background-color: $c2;
+	}
+}
+
+.border-c3 {
+	.contrast {
+		background-color: $c3;
+	}
+}
+.bg-c3 {
+	.bg {
+		background-color: $c3;
+	}
+}
+
+.border-c4 {
+	.contrast {
+		background-color: $c4;
+	}
+}
+.bg-c4 {
+	.bg {
+		background-color: $c4;
+	}
+}
+
+.border-c5 {
+	.contrast {
+		background-color: $c5;
+	}
+}
+.bg-c5 {
+	.bg {
+		background-color: $c5;
 	}
 }

@@ -353,6 +353,9 @@ function Intro(props) {
 			opacity: [0, 0],
 			delay: delayIn,
 			duration: 5,
+			begin: function() {
+				element.style.visibility = 'visible';
+			},
 		})
 
 		if(in_) {
@@ -459,7 +462,7 @@ function Intro(props) {
 					mountOnEnter={!props.mounted}
 					unmountOnExit={!props.stay}
 				>
-					<div className={`${props.className} animation-intro-wrap`}>
+					<div className={`${props.className} animation-intro-wrap`} style={{visibility: 'hidden'}}>
 
 						<div className="children">
 							{props.children}
@@ -491,7 +494,7 @@ function Intro(props) {
 				mountOnEnter={!props.mounted}
 				unmountOnExit={!props.stay}
 			>
-				<div className={`animation-intro-wrap ${props.className}`}>
+				<div className={`animation-intro-wrap ${props.className}`} style={{visibility: 'hidden'}}>
 
 					<div className="children">
 						{props.children}

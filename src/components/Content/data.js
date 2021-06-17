@@ -19,9 +19,11 @@ export const acfContent = graphql`
 				parallaxFrom
 				parallaxTo
 				wysiwyg
+				lightbox
 				img {
 					localFile {
 						...imgFull
+						publicURL
 					}
 				}
 				imgResponsive {

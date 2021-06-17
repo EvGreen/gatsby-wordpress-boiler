@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useContext} from 'react'
 import './style.scss'
 
 import { Parallax, withController } from 'react-scroll-parallax'
@@ -6,7 +6,14 @@ import { Parallax, withController } from 'react-scroll-parallax'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import ACFOverlay from '../Overlay'
 
+import Intro from '../../../../animations/Intro'
+import { useInView } from 'react-intersection-observer'
+
+import FSLightBoxContext from '../../../../context/FSLightBoxContext'
+
 function ACFImage(props) {
+	const [io, ioInView] = useInView({ triggerOnce: true })
+	const lightBoxContext = useContext(FSLightBoxContext)
 
 	// General Settings
 	const responsiveBreakpoint = 1024
@@ -39,12 +46,27 @@ function ACFImage(props) {
 	// Parallax
 	const parallaxFrom = props.parallaxFrom
 	const parallaxTo = props.parallaxTo
+	// Lightbox
+	const imgFullSizeUrl = props.img?.localFile.publicURL
+	const lightboxOn = props.lightbox
+
+	// Look if the classes specify if the image is supposed to have decor
+	let decor = props.classes?.search('decor')
+	
+	function thumbClicked(lightboxSlidesArray) {
+		if(lightboxOn) {
+			lightBoxContext.setSources(() => lightboxSlidesArray)
+			setTimeout(() => {
+				lightBoxContext.setToggler((toggle) => !toggle)
+			}, 50)
+		}
+	}
 
 	// Returning Section
   return (
 		<>
 			{ image ?
-				<div className="image-wrap">
+				<div ref={io} className={`image-wrap ${lightboxOn ? 'hover-trigger' : ''}`} onClick={() => thumbClicked([imgFullSizeUrl])} aria-label="Lightbox trigger" onKeyDown={() => thumbClicked([imgFullSizeUrl])} role="button" tabIndex={0}>
 					{ parallaxFrom && parallaxFrom !== 0 && parallaxTo && parallaxTo !== 0 ?
 						<Parallax className="parallax" y={[parallaxFrom + '%', parallaxTo + '%']} tagOuter="figure">
 							{ !imageResponsive || windowSize.width > responsiveBreakpoint ?
@@ -57,14 +79,25 @@ function ACFImage(props) {
 					:
 						<>
 							{ !imageResponsive || windowSize.width > responsiveBreakpoint ?
-								<GatsbyImage image={image} alt={imageAlt} />
+								<Intro visible={ioInView} in={{ bg: 500, fade: 500 }} delayIn={200} mounted={true} stay={true} className={``}>
+									<GatsbyImage image={image} alt={imageAlt} />
+								</Intro>
 							: null }
 							{ imageResponsive && windowSize.width < responsiveBreakpoint ?
-								<GatsbyImage image={imageResponsive} alt={imageResponsiveAlt} />
+								<Intro visible={ioInView} in={{ bg: 500, fade: 500 }} delayIn={200} mounted={true} stay={true} className={``}>
+									<GatsbyImage image={imageResponsive} alt={imageResponsiveAlt} />
+								</Intro>
 							: null }
 						</>
 					}
 					<ACFOverlay {...props} />
+					{decor >= 0 ?
+						<div className="decor-wrap">
+							<Intro visible={ioInView} in={{bg: 3000}} delayIn={500} mounted={false} stay={true} className="c5 t">
+								<div className="decor-inside c4"></div>
+							</Intro>
+						</div>
+					: null }
 				</div>
 			: null }
 		</>

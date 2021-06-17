@@ -42,7 +42,7 @@ function Layout(props) {
 					sources={lightBoxContext.sources}
 					slide={lightBoxContext.slide}
 					key={lightBoxContext.sources[0]}
-					//type="image"
+					type={lightBoxContext.type}
 				/>
 			: null }
 

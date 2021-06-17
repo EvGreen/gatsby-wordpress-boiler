@@ -7,6 +7,7 @@ function FSLightBoxContextProvider({children, location}) {
 	const [sources, setSources] = useState()
 	const [slide, setSlide] = useState(1)
 	const [toggler, setToggler] = useState(false)
+	const [type, setType] = useState('image')
 
 
 	return (
@@ -16,7 +17,9 @@ function FSLightBoxContextProvider({children, location}) {
 			sources,
 			setSources: (source) => setSources(source),
 			toggler,
-			setToggler: (toggle) => setToggler(toggle)
+			setToggler: (toggle) => setToggler(toggle),
+			type,
+			setType: (type) => setType(type),
     }}>
       {children}
     </FSLightBoxContext.Provider>

@@ -4,6 +4,7 @@ import Layout from "./src/components/layout"
 
 import { NaviContextProvider } from "./src/context/NaviContext"
 import { ModalContextProvider } from "./src/context/ModalContext"
+import { FSLightBoxContextProvider } from "./src/context/FSLightBoxContext"
 
 import client from './src/apollo/client'
 import {ApolloProvider} from '@apollo/client'
@@ -23,7 +24,7 @@ import Splitting from "splitting"
 // Layout
 export const wrapPageElement = ({ element, props }) => {
   return (
-    <ApolloProvider client={client}><NaviContextProvider {...props}><ModalContextProvider {...props}><Layout {...props}>{element}</Layout></ModalContextProvider></NaviContextProvider></ApolloProvider>
+    <ApolloProvider client={client}><FSLightBoxContextProvider {...props}><NaviContextProvider {...props}><ModalContextProvider {...props}><Layout {...props}>{element}</Layout></ModalContextProvider></NaviContextProvider></FSLightBoxContextProvider></ApolloProvider>
   )
 }
 

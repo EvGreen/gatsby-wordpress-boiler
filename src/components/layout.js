@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import '../EVG/css/_core.scss';
 
 import Header from './Header'
@@ -6,19 +6,10 @@ import Header from './Header'
 import { Helmet } from 'react-helmet'
 import { ParallaxProvider } from 'react-scroll-parallax'
 
-if (typeof window !== 'undefined') {
+import FsLightbox from 'fslightbox-react'
+import FSLightBoxContext from '../context/FSLightBoxContext'
 
-	// Set up pace js
-	window.paceOptions = {
-		className: 'dss-loader',
-		ajax: false, // ajax monitoring - disabled
-		restartOnPushState: false, // no restart on push state
-		document: false, // document ready state monitoring - disabled
-		eventLag: false, // monitoring of event loop lag, signaling js is being executed - disabled
-		elements: {
-			selectors: ['.hero', '.main-frontpage'] // looks for existance of this element
-		}
-	}
+if (typeof window !== 'undefined') {
 
 	// eslint-disable-next-line global-require
 	require('smooth-scroll')('a[href*="#"]:not([href="#"])', {
@@ -30,20 +21,30 @@ if (typeof window !== 'undefined') {
 }
 
 function Layout(props) {
+	const lightBoxContext = useContext(FSLightBoxContext)
 
   return (
   	<>
 
-		<Helmet>
-			<script src="/js/pace/pace.min.js"></script>
-			<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-		</Helmet>
+			<Helmet>
+				<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+			</Helmet>
 
-		<Header {...props.data} />
-		
-		<ParallaxProvider>
-			{props.children}
-		</ParallaxProvider>
+			<Header {...props.data} />
+			
+			<ParallaxProvider>
+				{props.children}
+			</ParallaxProvider>
+
+			{lightBoxContext.sources ?
+				<FsLightbox
+					toggler={lightBoxContext.toggler}
+					sources={lightBoxContext.sources}
+					slide={lightBoxContext.slide}
+					key={lightBoxContext.sources[0]}
+					//type="image"
+				/>
+			: null }
 
   	</>
   )

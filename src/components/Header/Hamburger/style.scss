@@ -8,7 +8,7 @@ $width: 36px;
 $line-size: 4px;
 $line-color: #f8f8f8;
 $line-radius: 1px;
-$to-translate: ($height - $line-size) / 2;
+$to-translate: ($height - $line-size) * 0.5;
 $bounce: cubic-bezier(.87,-.50,.19,1.50);
 
 .master-hamburger {

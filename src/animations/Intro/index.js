@@ -5,11 +5,11 @@ import { Transition, SwitchTransition } from 'react-transition-group'
 import anime from 'animejs'
 
 // Random roll, max is exc, min is inc
-function getRandomInt(min, max) {
-  min = Math.ceil(min)
-  max = Math.floor(max)
-  return Math.floor(Math.random() * (max - min) + min)
-}
+// function getRandomInt(min, max) {
+//   min = Math.ceil(min)
+//   max = Math.floor(max)
+//   return Math.floor(Math.random() * (max - min) + min)
+// }
 
 // Sum values of given object
 function sumValues(obj) {

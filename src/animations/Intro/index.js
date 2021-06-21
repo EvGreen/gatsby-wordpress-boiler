@@ -140,6 +140,34 @@ function blinkOut(timeline) {
 		})
 }
 
+// Diagonal Top Left IN
+function diagonalTopLeftIn(timeline, duration) {
+
+	timeline
+		.add({
+			opacity: [0, 1],
+			translateX: [50,0],
+			translateY: [50,0],
+			delay: 0,
+			duration: duration,
+			easing: 'easeOutSine',
+		})
+}
+
+// Diagonal Bottom right IN
+function diagonalBottomRightIn(timeline, duration) {
+
+	timeline
+		.add({
+			opacity: [0, 1],
+			translateX: [-50,0],
+			translateY: [-50,0],
+			delay: 0,
+			duration: duration,
+			easing: 'easeOutSine',
+		})
+}
+
 // Fade IN
 function fadeIn(timeline, duration) {
 
@@ -160,6 +188,32 @@ function fadeOut(timeline, duration) {
 			delay: 0,
 			duration: duration,
 			easing: 'linear',
+		})
+}
+
+// Fade IN TOP
+function fadeInTop(timeline, duration) {
+
+	timeline
+		.add({
+			opacity: [0, 1],
+			translateY: [-20, 0],
+			delay: 0,
+			duration: duration,
+			easing: 'easeOutSine',
+		})
+}
+
+// Fade IN BOTTOM
+function fadeInBottom(timeline, duration) {
+
+	timeline
+		.add({
+			opacity: [0, 1],
+			translateY: [20, 0],
+			delay: 0,
+			duration: duration,
+			easing: 'easeOutSine',
 		})
 }
 
@@ -347,7 +401,7 @@ function Intro(props) {
 			duration: 500, // Can be inherited
 			easing: 'easeOutExpo', // Can be inherited
 			direction: 'alternate', // Is not inherited
-			loop: false, // Is not inherited
+			loop: false, // Is not inherited,
 		})
 		.add({ // Initial delay and hiding
 			opacity: [0, 0],
@@ -377,12 +431,27 @@ function Intro(props) {
 					fadeIn(timeline, in_[animation])
 				}
 
+				if (animation === 'fadeInTop') {
+					fadeInTop(timeline, in_[animation])
+				}
+				if (animation === 'fadeInBottom') {
+					fadeInBottom(timeline, in_[animation])
+				}
+
 				if (animation === 'draw') {
 					drawIn(timeline, path, in_[animation])
 				}
 
 				if (animation === 'appear') {
 					appearIn(timeline)
+				}
+
+				if (animation === 'diagonalTopLeft') {
+					diagonalTopLeftIn(timeline, in_[animation])
+				}
+
+				if (animation === 'diagonalBottomRight') {
+					diagonalBottomRightIn(timeline, in_[animation])
 				}
 
 				if (animation === 'done') {

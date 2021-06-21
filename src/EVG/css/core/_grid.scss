@@ -2,107 +2,86 @@
   Grid
 ========================================================================== */
 
-.grid-12 {
+.grid {
 	display: grid !important;
 	width: 100%;
-	grid-template-columns: repeat(12, 1fr);
+
+	> div {
+		grid-column: span 12;
+	}
+}
+
+/* ==========================================================================
+  Flex Grid
+========================================================================== */
+
+.flex-12 {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
 
 	&.center {
 		align-items: center;
 	}
 
 	> div {
-		grid-column: span 12;
+		flex: 1 1 100%;
 	}
 
 	.span-1 {
-		grid-column: span 1;
+		flex: 0 1 (100 / 12) * 1%;
 		width: 100%;
 	}
 	.span-2 {
-		grid-column: span 2;
+		flex: 0 1 (100 / 12) * 2%;
 		width: 100%;
 	}
 	.span-3 {
-		grid-column: span 3;
+		flex: 0 1 (100 / 12) * 3%;
 		width: 100%;
 	}
 	.span-4 {
-		grid-column: span 4;
+		flex: 0 1 (100 / 12) * 4%;
 		width: 100%;
 	}
 	.span-5 {
-		grid-column: span 5;
+		flex: 0 1 (100 / 12) * 5%;
 		width: 100%;
 	}
 	.span-6 {
-		grid-column: span 6;
+		flex: 0 1 (100 / 12) * 6%;
 		width: 100%;
 	}
 	.span-7 {
-		grid-column: span 7;
+		flex: 0 1 (100 / 12) * 7%;
 		width: 100%;
 	}
 	.span-8 {
-		grid-column: span 8;
+		flex: 0 1 (100 / 12) * 8%;
 		width: 100%;
 	}
 	.span-9 {
-		grid-column: span 9;
+		flex: 0 1 (100 / 12) * 9%;
 		width: 100%;
 	}
 	.span-10 {
-		grid-column: span 10;
+		flex: 0 1 (100 / 12) * 10%;
 		width: 100%;
 	}
 	.span-11 {
-		grid-column: span 11;
+		flex: 0 1 (100 / 12) * 11%;
 		width: 100%;
 	}
 	.span-12 {
-		grid-column: span 12;
+		flex: 0 1 (100 / 12) * 12%;
 		width: 100%;
-	}
-
-	.col-start-1 {
-		grid-column-start: 1;
-	}
-	.col-start-2 {
-		grid-column-start: 2;
-	}
-	.col-start-3 {
-		grid-column-start: 3;
-	}
-	.col-start-4 {
-		grid-column-start: 4;
-	}
-	.col-start-5 {
-		grid-column-start: 5;
-	}
-	.col-start-6 {
-		grid-column-start: 6;
-	}
-	.col-start-7 {
-		grid-column-start: 7;
-	}
-	.col-start-8 {
-		grid-column-start: 8;
-	}
-	.col-start-9 {
-		grid-column-start: 9;
-	}
-	.col-start-10 {
-		grid-column-start: 10;
-	}
-	.col-start-11 {
-		grid-column-start: 11;
-	}
-	.col-start-12 {
-		grid-column-start: 12;
 	}
 
 	&.gap-1 {
 		grid-column-gap: 1em;
+	}
+	&.gap-row-1 {
+		grid-row-gap: 1em;
 	}
 	&.gap-2 {
 		grid-column-gap: 2em;
@@ -116,80 +95,91 @@
 
 	@media screen and (max-width: 1024px) {
 		.span-1-tablet {
-			grid-column: span 1;
+			flex: 0 1 (100 / 12) * 1%;
 		}
 		.span-2-tablet {
-			grid-column: span 2;
+			flex: 0 1 (100 / 12) * 2%;
 		}
 		.span-3-tablet {
-			grid-column: span 3;
+			flex: 0 1 (100 / 12) * 3%;
 		}
 		.span-4-tablet {
-			grid-column: span 4;
+			flex: 0 1 (100 / 12) * 4%;
 		}
 		.span-5-tablet {
-			grid-column: span 5;
+			flex: 0 1 (100 / 12) * 5%;
 		}
 		.span-6-tablet {
-			grid-column: span 6;
+			flex: 0 1 (100 / 12) * 6%;
 		}
 		.span-7-tablet {
-			grid-column: span 7;
+			flex: 0 1 (100 / 12) * 7%;
 		}
 		.span-8-tablet {
-			grid-column: span 8;
+			flex: 0 1 (100 / 12) * 8%;
 		}
 		.span-9-tablet {
-			grid-column: span 9;
+			flex: 0 1 (100 / 12) * 9%;
 		}
 		.span-10-tablet {
-			grid-column: span 10;
+			flex: 0 1 (100 / 12) * 10%;
 		}
 		.span-11-tablet {
-			grid-column: span 11;
+			flex: 0 1 (100 / 12) * 11%;
 		}
 		.span-12-tablet {
-			grid-column: span 12;
+			flex: 0 1 (100 / 12) * 12%;
 		}
 	}
 
 	@media screen and (max-width: 728px) {
 		.span-1-mobile {
-			grid-column: span 1;
+			flex: 0 1 (100 / 12) * 1%;
 		}
 		.span-2-mobile {
-			grid-column: span 2;
+			flex: 0 1 (100 / 12) * 2%;
 		}
 		.span-3-mobile {
-			grid-column: span 3;
+			flex: 0 1 (100 / 12) * 3%;
 		}
 		.span-4-mobile {
-			grid-column: span 4;
+			flex: 0 1 (100 / 12) * 4%;
 		}
 		.span-5-mobile {
-			grid-column: span 5;
+			flex: 0 1 (100 / 12) * 5%;
 		}
 		.span-6-mobile {
-			grid-column: span 6;
+			flex: 0 1 (100 / 12) * 6%;
 		}
 		.span-7-mobile {
-			grid-column: span 7;
+			flex: 0 1 (100 / 12) * 7%;
 		}
 		.span-8-mobile {
-			grid-column: span 8;
+			flex: 0 1 (100 / 12) * 8%;
 		}
 		.span-9-mobile {
-			grid-column: span 9;
+			flex: 0 1 (100 / 12) * 9%;
 		}
 		.span-10-mobile {
-			grid-column: span 10;
+			flex: 0 1 (100 / 12) * 10%;
 		}
 		.span-11-mobile {
-			grid-column: span 11;
+			flex: 0 1 (100 / 12) * 11%;
 		}
 		.span-12-mobile {
-			grid-column: span 12;
+			flex: 0 1 (100 / 12) * 12%;
 		}
+	}
+
+	.js-flex-end {
+		margin-left: auto;
+	}
+	.js-flex-start {
+		margin-right: auto;
+	}
+	.js-center {
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
 
@@ -409,4 +399,15 @@
 }
 .padd-bottom-off {
 	padding-bottom: 0;
+}
+
+
+
+
+/* ==========================================================================
+  Margin
+========================================================================== */
+
+.margin-off {
+	margin: 0 !important;
 }

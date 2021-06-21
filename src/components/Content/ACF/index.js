@@ -41,7 +41,7 @@ function ACFBlocks(props) {
 
 		// Returning Block
 		return (
-			<div key={i} id={anchor ? 'block-' + anchor : null}  className={`block block-${layout} ${classes ? classes : ''}`}>
+			<div key={i} id={anchor ? 'block-' + anchor : null}  className={`block block-${layout} area-${i} ${classes ? classes : ''}`}>
 
 				<ACFImage {...node} />
 

@@ -20,7 +20,7 @@ function Footer(props) {
 	const image = data?.wp?.options?.acfOptions?.footerImage?.localFile?.childImageSharp.gatsbyImageData
 
   return (
-		<footer className='master-footer c0 grid-12'>
+		<footer className='master-footer c0'>
 
 			<div className="intro-box fs-85 clead x1">
 				<h4>contact</h4>

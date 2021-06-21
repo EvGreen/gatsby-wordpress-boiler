@@ -1,7 +1,13 @@
-section.content {
-	display: grid;
+section {
 
 	&.hero {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 		min-height: 100.1vh;
+
+		.bg {
+			height: 100%;
+		}
 	}
 }

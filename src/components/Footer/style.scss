@@ -5,6 +5,9 @@ footer.master-footer {
 	
 	text-align: center;
 
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+
 	.intro-box {
 		position: absolute;
 		z-index: 300;

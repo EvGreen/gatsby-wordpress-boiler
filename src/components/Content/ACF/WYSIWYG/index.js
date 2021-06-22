@@ -9,11 +9,13 @@ function ACFWYSIWYG(props) {
 
 	// Wysiwyg
 	const wysiwyg = props.wysiwyg
+	// Chain Animation
+	const delay = 150 + props.inheritedDelay
 
 	return wysiwyg ? (
 		<div ref={io} className={`attached-to-${props.fieldGroupName}`}>
-			<Intro visible={ioInView} in={{ fade: 500 }} delayIn={150} mounted={true} stay={true} className={``}>
-					<div className={`wysiwyg-inject`} dangerouslySetInnerHTML={{__html: wysiwyg}} />
+			<Intro visible={ioInView} in={{ fade: 500 }} delayIn={delay} mounted={true} stay={true} className={``}>
+				<div className={`wysiwyg-inject`} dangerouslySetInnerHTML={{__html: wysiwyg}} />
 			</Intro>
 		</div>
   )

@@ -43,13 +43,13 @@ function ACFBlocks(props) {
 		return (
 			<div key={i} id={anchor ? 'block-' + anchor : null}  className={`block block-${layout} area-${i} ${classes ? classes : ''}`}>
 
-				<ACFImage {...node} />
+				<ACFImage {...node} inheritedDelay={i * 125} />
 
-				<ACFVideo {...node} />
+				<ACFVideo {...node} inheritedDelay={i * 125} />
 
-				<ACFWysiwyg {...node} />
+				<ACFWysiwyg {...node} inheritedDelay={i * 125} />
 
-				<ACFCustom {...node} />
+				<ACFCustom {...node} inheritedDelay={i * 125} />
 
 			</div>
 		)

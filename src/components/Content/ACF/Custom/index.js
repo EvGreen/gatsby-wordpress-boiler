@@ -5,6 +5,8 @@ import HeroDetail from './HeroDetail'
 import Map from './Map'
 
 function ACFCustom(props) {
+	// Chain Animation
+	const delay = props.inheritedDelay
 
 	// Images	
 	const images = props.asset?.filter(obj => obj.fieldGroupName === 'page_Pagebuilder_Sections_Content_Block_Custom_Asset_Image')
@@ -39,13 +41,13 @@ function ACFCustom(props) {
 
 	if (props.fieldGroupName === 'page_Pagebuilder_Sections_Content_Block_Custom' && props.anchor === 'custom-home-detail') {
 		return (
-			<HeroDetail images={images} files={files} fields={fields} wysiwygs={wysiwygs} maps={maps} />
+			<HeroDetail delay={delay} images={images} files={files} fields={fields} wysiwygs={wysiwygs} maps={maps} />
 		)
 	}
 
 	if (props.fieldGroupName === 'page_Pagebuilder_Sections_Content_Block_Custom' && props.anchor === 'custom-map') {
 		return (
-			<Map images={images} files={files} fields={fields} wysiwygs={wysiwygs} maps={maps} />
+			<Map delay={delay} images={images} files={files} fields={fields} wysiwygs={wysiwygs} maps={maps} />
 		)
 	}
 

@@ -4,16 +4,21 @@ section.hero {
 		align-items: flex-start;
 	}
 
-	.hero-details {
+	.hero-details-wrap {
 		position: absolute;
 		bottom: 0;
 		left: 0;
 		z-index: 300;
 		display: flex;
 		width: 100%;
+		padding: 0;
+
+		> .attached-to-page_Pagebuilder_Sections_Content_Block_Wysiwyg {
+			width: 100%;
+		}
 
 		.wysiwyg-inject {
-			position: absolute;
+			position: relative;
 			top: 0;
 			left: 0;
 			width: 100%;

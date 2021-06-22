@@ -204,6 +204,19 @@ function fadeInTop(timeline, duration) {
 		})
 }
 
+// Fade OUT TOP
+function fadeOutTop(timeline, duration) {
+
+	timeline
+		.add({
+			opacity: [1, 0],
+			translateY: [0, -20],
+			delay: 0,
+			duration: duration,
+			easing: 'easeOutSine',
+		})
+}
+
 // Fade IN BOTTOM
 function fadeInBottom(timeline, duration) {
 
@@ -211,6 +224,19 @@ function fadeInBottom(timeline, duration) {
 		.add({
 			opacity: [0, 1],
 			translateY: [20, 0],
+			delay: 0,
+			duration: duration,
+			easing: 'easeOutSine',
+		})
+}
+
+// Fade OUT BOTTOM
+function fadeOutBottom(timeline, duration) {
+
+	timeline
+		.add({
+			opacity: [1, 0],
+			translateY: [0, 20],
 			delay: 0,
 			duration: duration,
 			easing: 'easeOutSine',
@@ -431,10 +457,10 @@ function Intro(props) {
 					fadeIn(timeline, in_[animation])
 				}
 
-				if (animation === 'fadeInTop') {
+				if (animation === 'fadeTop') {
 					fadeInTop(timeline, in_[animation])
 				}
-				if (animation === 'fadeInBottom') {
+				if (animation === 'fadeBottom') {
 					fadeInBottom(timeline, in_[animation])
 				}
 
@@ -510,6 +536,14 @@ function Intro(props) {
 
 			if (animation === 'fade') {
 				fadeOut(timeline, out_[animation])
+			}
+
+			if (animation === 'fadeTop') {
+				fadeOutTop(timeline, out_[animation])
+			}
+
+			if (animation === 'fadeBottom') {
+				fadeOutBottom(timeline, out_[animation])
 			}
 
 			if (animation === 'draw') {

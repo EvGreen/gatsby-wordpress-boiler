@@ -47,4 +47,10 @@
 			transform: translate3d(-50%,-50%,0);
 		}
 	}
+
+	&.bg {
+		.image-wrap {
+			position: absolute;
+		}
+	}
 }

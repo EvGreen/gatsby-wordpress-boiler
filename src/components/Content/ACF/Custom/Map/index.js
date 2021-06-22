@@ -9,7 +9,7 @@ function CustomBlock({images: img, files: file, fields: field, wysiwygs: wysiwyg
 
 	return (
 		<>
-		<h1>sdsd</h1>
+			<h1>sdsd</h1>
 			<Map {...map[0]} />
 		</>
 	)

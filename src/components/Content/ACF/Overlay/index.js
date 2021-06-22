@@ -7,13 +7,9 @@ function ACFOverlay(props) {
 	const overlay = props.bgOverlay
 
 	// Returning Section
-  return (
-		<>
-			{ overlay ?
-					<div className='bg-overlay' style={{opacity: overlay}} />
-			: null }
-		</>
-  )
+  return overlay ? (
+		<div className='bg-overlay' style={{opacity: overlay}} />
+  ) : false
 }
 
 export default ACFOverlay

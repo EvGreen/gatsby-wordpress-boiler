@@ -63,45 +63,43 @@ function ACFImage(props) {
 	}
 
 	// Returning Section
-  return (
-		<>
-			{ image ?
-				<div ref={io} className={`image-wrap ${lightboxOn ? 'hover-trigger' : ''}`} onClick={() => thumbClicked([imgFullSizeUrl])} aria-label="Lightbox trigger" onKeyDown={() => thumbClicked([imgFullSizeUrl])} role="button" tabIndex={0}>
-					{ parallaxFrom && parallaxFrom !== 0 && parallaxTo && parallaxTo !== 0 ?
-						<Parallax className="parallax" y={[parallaxFrom + '%', parallaxTo + '%']} tagOuter="figure">
-							{ !imageResponsive || windowSize.width > responsiveBreakpoint ?
-								<GatsbyImage image={image} alt={imageAlt} />
-							: null }
-							{ imageResponsive && windowSize.width < responsiveBreakpoint ?
-								<GatsbyImage image={imageResponsive} alt={imageResponsiveAlt} />
-							: null }
-						</Parallax>
-					:
-						<>
-							{ !imageResponsive || windowSize.width > responsiveBreakpoint ?
-								<Intro visible={ioInView} in={{ bg: 500, fade: 500 }} delayIn={200} mounted={true} stay={true} className={``}>
-									<GatsbyImage image={image} alt={imageAlt} />
-								</Intro>
-							: null }
-							{ imageResponsive && windowSize.width < responsiveBreakpoint ?
-								<Intro visible={ioInView} in={{ bg: 500, fade: 500 }} delayIn={200} mounted={true} stay={true} className={``}>
-									<GatsbyImage image={imageResponsive} alt={imageResponsiveAlt} />
-								</Intro>
-							: null }
-						</>
-					}
-					<ACFOverlay {...props} />
-					{decor >= 0 ?
-						<div className="decor-wrap">
-							<Intro visible={ioInView} in={{bg: 3000}} delayIn={500} mounted={false} stay={true} className="c5 t">
-								<div className="decor-inside c4"></div>
-							</Intro>
-						</div>
+  return image ? (
+		<div ref={io} className={`image-wrap ${lightboxOn ? 'hover-trigger' : ''}`} onClick={() => thumbClicked([imgFullSizeUrl])} aria-label="Lightbox trigger" onKeyDown={() => thumbClicked([imgFullSizeUrl])} role="button" tabIndex={0}>
+			{ parallaxFrom && parallaxFrom !== 0 && parallaxTo && parallaxTo !== 0 ?
+				<Intro visible={ioInView} in={{ bg: 500, fade: 500 }} delayIn={0} mounted={true} stay={true} className={``}>
+					<Parallax className="parallax" y={[parallaxFrom + '%', parallaxTo + '%']} tagOuter="figure">
+						{ !imageResponsive || windowSize.width > responsiveBreakpoint ?
+							<GatsbyImage image={image} alt={imageAlt} />
+						: null }
+						{ imageResponsive && windowSize.width < responsiveBreakpoint ?
+							<GatsbyImage image={imageResponsive} alt={imageResponsiveAlt} />
+						: null }
+					</Parallax>
+				</Intro>
+			:
+				<>
+					{ !imageResponsive || windowSize.width > responsiveBreakpoint ?
+						<Intro visible={ioInView} in={{ bg: 500, fade: 500 }} delayIn={0} mounted={true} stay={true} className={``}>
+							<GatsbyImage image={image} alt={imageAlt} />
+						</Intro>
 					: null }
+					{ imageResponsive && windowSize.width < responsiveBreakpoint ?
+						<Intro visible={ioInView} in={{ bg: 500, fade: 500 }} delayIn={0} mounted={true} stay={true} className={``}>
+							<GatsbyImage image={imageResponsive} alt={imageResponsiveAlt} />
+						</Intro>
+					: null }
+				</>
+			}
+			<ACFOverlay {...props} />
+			{decor >= 0 ?
+				<div className="decor-wrap">
+					<Intro visible={ioInView} in={{bg: 3000}} delayIn={0} mounted={false} stay={true} className="c5 t">
+						<div className="decor-inside c4"></div>
+					</Intro>
 				</div>
 			: null }
-		</>
-  )
+		</div>
+  ) : false
 }
 
 export default withController(ACFImage)

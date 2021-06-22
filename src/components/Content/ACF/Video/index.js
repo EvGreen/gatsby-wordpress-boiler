@@ -11,25 +11,11 @@ function ACFVideo(props) {
 	const videoFile = props.videoFile?.localFile.publicURL
 
 	// Returning Section
-  return (
-		<>
-			{ videoSource === 'file' ?
-				<>
-					{ videoFile ?
-						<VideoHTML file={videoFile} />
-					: null }
-				</>
-				: null }
-
-				{ videoSource === 'iframe' ?
-				<>
-					{ videoIframe ?
-						<div className='video-inject aspect-ratio' dangerouslySetInnerHTML={{__html: videoIframe}} />
-					: null }
-				</>
-				: null }
-		</>
-  )
+  return videoSource === 'file' && videoFile ? (
+		<VideoHTML file={videoFile} />
+	) : videoSource === 'iframe' && videoIframe ? (
+		<div className='video-inject aspect-ratio' dangerouslySetInnerHTML={{__html: videoIframe}} />
+  ) : false
 }
 
 export default ACFVideo

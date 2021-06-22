@@ -61,32 +61,32 @@ export const onRouteUpdate = () => {
   // })
 
 
-  const isInview = document.querySelectorAll('.is-inview')
-  const nodes = [...isInview]
+  // const isInview = document.querySelectorAll('.is-inview')
+  // const nodes = [...isInview]
 
-  // Set threshold for
-  const config = {
-    threshold: 0 // 0% of the element is visible
-  }
+  // // Set threshold for
+  // const config = {
+  //   threshold: 0 // 0% of the element is visible
+  // }
 
-  // // Start GSAP timeline
-  // const tl = new TimelineMax()
+  // // // Start GSAP timeline
+  // // const tl = new TimelineMax()
   
-  // Set up observer
-  let observer = new IntersectionObserver(function(entries, self) {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('inview','inview-rn')
-      } else {
-        entry.target.classList.remove('inview-rn')
-      }
-    })
-  }, config)
+  // // Set up observer
+  // let observer = new IntersectionObserver(function(entries, self) {
+  //   entries.forEach(entry => {
+  //     if (entry.isIntersecting) {
+  //       entry.target.classList.add('inview','inview-rn')
+  //     } else {
+  //       entry.target.classList.remove('inview-rn')
+  //     }
+  //   })
+  // }, config)
   
-  // Set up observers on all of the items
-  nodes.forEach(box => {
-    observer.observe(box)
-  })
+  // // Set up observers on all of the items
+  // nodes.forEach(box => {
+  //   observer.observe(box)
+  // })
 
 }
 

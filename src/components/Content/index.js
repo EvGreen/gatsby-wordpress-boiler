@@ -16,7 +16,7 @@ function Content(props) {
 			const classes = node.classes
 			
 			return (
-				<section key={i} id={anchor ? 'section-' + anchor : null} className={`content is-inview ${classes ? classes : ''}`}>
+				<section key={i} id={anchor ? 'section-' + anchor : null} className={`content ${classes ? classes : ''}`}>
 					
 					{anchor ?
 						<div id={anchor} className="anchor"></div>

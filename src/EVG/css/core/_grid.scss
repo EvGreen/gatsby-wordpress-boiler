@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 /* ==========================================================================
   Grid
 ========================================================================== */
@@ -29,51 +31,51 @@
 	}
 
 	.span-1 {
-		flex: 0 1 (100 / 12) * 1%;
+		flex: 0 1 math.div(100, 12) * 1%;
 		width: 100%;
 	}
 	.span-2 {
-		flex: 0 1 (100 / 12) * 2%;
+		flex: 0 1 math.div(100, 12) * 2%;
 		width: 100%;
 	}
 	.span-3 {
-		flex: 0 1 (100 / 12) * 3%;
+		flex: 0 1 math.div(100, 12) * 3%;
 		width: 100%;
 	}
 	.span-4 {
-		flex: 0 1 (100 / 12) * 4%;
+		flex: 0 1 math.div(100, 12) * 4%;
 		width: 100%;
 	}
 	.span-5 {
-		flex: 0 1 (100 / 12) * 5%;
+		flex: 0 1 math.div(100, 12) * 5%;
 		width: 100%;
 	}
 	.span-6 {
-		flex: 0 1 (100 / 12) * 6%;
+		flex: 0 1 math.div(100, 12) * 6%;
 		width: 100%;
 	}
 	.span-7 {
-		flex: 0 1 (100 / 12) * 7%;
+		flex: 0 1 math.div(100, 12) * 7%;
 		width: 100%;
 	}
 	.span-8 {
-		flex: 0 1 (100 / 12) * 8%;
+		flex: 0 1 math.div(100, 12) * 8%;
 		width: 100%;
 	}
 	.span-9 {
-		flex: 0 1 (100 / 12) * 9%;
+		flex: 0 1 math.div(100, 12) * 9%;
 		width: 100%;
 	}
 	.span-10 {
-		flex: 0 1 (100 / 12) * 10%;
+		flex: 0 1 math.div(100, 12) * 10%;
 		width: 100%;
 	}
 	.span-11 {
-		flex: 0 1 (100 / 12) * 11%;
+		flex: 0 1 math.div(100, 12) * 11%;
 		width: 100%;
 	}
 	.span-12 {
-		flex: 0 1 (100 / 12) * 12%;
+		flex: 0 1 math.div(100, 12) * 12%;
 		width: 100%;
 	}
 
@@ -95,79 +97,79 @@
 
 	@media screen and (max-width: 1024px) {
 		.span-1-tablet {
-			flex: 0 1 (100 / 12) * 1%;
+			flex: 0 1 math.div(100, 12) * 1%;
 		}
 		.span-2-tablet {
-			flex: 0 1 (100 / 12) * 2%;
+			flex: 0 1 math.div(100, 12) * 2%;
 		}
 		.span-3-tablet {
-			flex: 0 1 (100 / 12) * 3%;
+			flex: 0 1 math.div(100, 12) * 3%;
 		}
 		.span-4-tablet {
-			flex: 0 1 (100 / 12) * 4%;
+			flex: 0 1 math.div(100, 12) * 4%;
 		}
 		.span-5-tablet {
-			flex: 0 1 (100 / 12) * 5%;
+			flex: 0 1 math.div(100, 12) * 5%;
 		}
 		.span-6-tablet {
-			flex: 0 1 (100 / 12) * 6%;
+			flex: 0 1 math.div(100, 12) * 6%;
 		}
 		.span-7-tablet {
-			flex: 0 1 (100 / 12) * 7%;
+			flex: 0 1 math.div(100, 12) * 7%;
 		}
 		.span-8-tablet {
-			flex: 0 1 (100 / 12) * 8%;
+			flex: 0 1 math.div(100, 12) * 8%;
 		}
 		.span-9-tablet {
-			flex: 0 1 (100 / 12) * 9%;
+			flex: 0 1 math.div(100, 12) * 9%;
 		}
 		.span-10-tablet {
-			flex: 0 1 (100 / 12) * 10%;
+			flex: 0 1 math.div(100, 12) * 10%;
 		}
 		.span-11-tablet {
-			flex: 0 1 (100 / 12) * 11%;
+			flex: 0 1 math.div(100, 12) * 11%;
 		}
 		.span-12-tablet {
-			flex: 0 1 (100 / 12) * 12%;
+			flex: 0 1 math.div(100, 12) * 12%;
 		}
 	}
 
 	@media screen and (max-width: 728px) {
 		.span-1-mobile {
-			flex: 0 1 (100 / 12) * 1%;
+			flex: 0 1 math.div(100, 12) * 1%;
 		}
 		.span-2-mobile {
-			flex: 0 1 (100 / 12) * 2%;
+			flex: 0 1 math.div(100, 12) * 2%;
 		}
 		.span-3-mobile {
-			flex: 0 1 (100 / 12) * 3%;
+			flex: 0 1 math.div(100, 12) * 3%;
 		}
 		.span-4-mobile {
-			flex: 0 1 (100 / 12) * 4%;
+			flex: 0 1 math.div(100, 12) * 4%;
 		}
 		.span-5-mobile {
-			flex: 0 1 (100 / 12) * 5%;
+			flex: 0 1 math.div(100, 12) * 5%;
 		}
 		.span-6-mobile {
-			flex: 0 1 (100 / 12) * 6%;
+			flex: 0 1 math.div(100, 12) * 6%;
 		}
 		.span-7-mobile {
-			flex: 0 1 (100 / 12) * 7%;
+			flex: 0 1 math.div(100, 12) * 7%;
 		}
 		.span-8-mobile {
-			flex: 0 1 (100 / 12) * 8%;
+			flex: 0 1 math.div(100, 12) * 8%;
 		}
 		.span-9-mobile {
-			flex: 0 1 (100 / 12) * 9%;
+			flex: 0 1 math.div(100, 12) * 9%;
 		}
 		.span-10-mobile {
-			flex: 0 1 (100 / 12) * 10%;
+			flex: 0 1 math.div(100, 12) * 10%;
 		}
 		.span-11-mobile {
-			flex: 0 1 (100 / 12) * 11%;
+			flex: 0 1 math.div(100, 12) * 11%;
 		}
 		.span-12-mobile {
-			flex: 0 1 (100 / 12) * 12%;
+			flex: 0 1 math.div(100, 12) * 12%;
 		}
 	}
 

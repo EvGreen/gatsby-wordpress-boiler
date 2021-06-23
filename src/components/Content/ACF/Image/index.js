@@ -95,7 +95,7 @@ function ACFImage(props) {
 			<ACFOverlay {...props} />
 			{decor >= 0 ?
 				<div className="decor-wrap">
-					<Intro visible={ioInView} in={{bg: 3000}} delayIn={delay} mounted={false} stay={true} className="c5 t">
+					<Intro visible={ioInView} in={{bg: 3000}} delayIn={delay} mounted={true} stay={true} className="c5 t">
 						<div className="decor-inside c4"></div>
 					</Intro>
 				</div>

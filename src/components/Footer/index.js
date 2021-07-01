@@ -8,6 +8,7 @@ import { faHeart, faArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons'
 
 import CF7Basic from '../Form/CF7/Basic'
+import SocialIcons from '../SocialIcons'
 
 function Footer(props) {
 
@@ -34,11 +35,7 @@ function Footer(props) {
 				<a href="#top" aria-label="Take me to top"><FontAwesomeIcon icon={faArrowUp} /></a>
 			</div>
 
-			<div className='footer-icons x1'>
-				<a href='https://twitter.com/designsentry' className='hint--rounded hint--left' aria-label="Twitter Link" data-hint='@designsentry' target='_blank' rel='noopener noreferrer'><FontAwesomeIcon icon={faTwitter} /></a>
-				<a href='https://instagram.com/the242' className='hint--rounded hint--left' aria-label="Instagram Link" data-hint='@the242' target='_blank' rel='noopener noreferrer'><FontAwesomeIcon icon={faInstagram} /></a>
-				<a href='https://github.com/EvGreen?tab=repositories' className='hint--rounded hint--left' aria-label="GitHub Link" data-hint='@EvGreen' target='_blank' rel='noopener noreferrer'><FontAwesomeIcon icon={faGithub} /></a>
-			</div>
+			<SocialIcons classes="x1" hint='left' />
 
 			<div className="details padd-2 c4 fs-85 text-left">
 				<div className="content-box">

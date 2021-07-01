@@ -19,3 +19,24 @@ export const wpGeneralSettings = graphql`
 		}
 	}
 `
+
+export const acfOptions = graphql`
+	fragment acfOptions on Query {
+		wp {
+			options {
+				acfOptions {
+					footerImage {
+						localFile {
+							...imgFull
+						}
+					}
+					socialIcons {
+						link
+						icon
+						hint
+					}
+				}
+			}
+		}
+	}
+`

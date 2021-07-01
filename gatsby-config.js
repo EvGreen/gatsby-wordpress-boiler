@@ -29,7 +29,7 @@ module.exports = {
       resolve: 'gatsby-source-wordpress',
       options: {
         // The base url to your WP site.
-        url: 'https://design-sentry.com/test/graphql',
+        url: process.env.GATSBY_WP_URL + 'graphql',
       },
     },
     `gatsby-plugin-image`,

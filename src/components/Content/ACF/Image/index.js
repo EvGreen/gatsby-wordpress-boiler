@@ -67,7 +67,7 @@ function ACFImage(props) {
 	}
 
 	// If the classes on block have "t" (transparent bg), then animate bg since we know there is contrasting color going on
-	if (props.classes.indexOf(' t') > -1) {
+	if (props?.classes?.indexOf(' t') > -1) {
 		in_ = { bg: 500, fade: 500 }
 	}
 

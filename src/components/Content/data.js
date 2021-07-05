@@ -9,6 +9,7 @@ export const acfContent = graphql`
 				fieldGroupName
 				anchor
 				classes
+				style
 				wysiwyg
 			}
 			... on WpPage_Pagebuilder_Sections_Content_Block_Image {

@@ -119,6 +119,17 @@ br {
 ========================================================================== */
 
 .gatsby-image-wrapper {
+	background-image: url(../../../src/images/loader-dark.svg);
+	background-repeat: no-repeat;
+	background-position: center center;
+
+	.c3 &,
+	.c4 &,
+	.c5 &,
+	.x1 & {
+		background-image: url(../../../src/images/loader-light.svg);
+	}
+
 	img {
 		&:first-of-type {
 			//filter: blur(2px);

@@ -5,7 +5,6 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faArrowUp } from '@fortawesome/free-solid-svg-icons'
-import { faTwitter, faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons'
 
 import CF7Basic from '../Form/CF7/Basic'
 import SocialIcons from '../SocialIcons'
@@ -19,6 +18,7 @@ function Footer(props) {
   	}
 	`)
 	const image = data?.wp?.options?.acfOptions?.footerImage?.localFile?.childImageSharp.gatsbyImageData
+	const copy = data?.wp?.options?.acfOptions?.copy
 
   return (
 		<footer className='master-footer c0'>
@@ -50,9 +50,13 @@ function Footer(props) {
 				<CF7Basic />
 			</div>
 
-			<div className='copy c0'>
-				<p>Copyright &copy; 2020. Made with <FontAwesomeIcon icon={faHeart} /> by <span className='hint--rounded hint--top' data-hint='Much love!'>EvG</span>.</p>
-			</div>
+			{ copy ?
+				<div className='copy c0' dangerouslySetInnerHTML={{__html: copy}} />
+			:
+				<div className='copy c0'>
+					<p>Copyright &copy; 2020. Made with <FontAwesomeIcon icon={faHeart} /> by <span className='hint--rounded hint--top' data-hint='Much love!'>EvG</span>.</p>
+				</div>
+			}
 
 		</footer>
   )

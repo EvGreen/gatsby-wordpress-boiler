@@ -51,6 +51,8 @@ function ACFImage(props) {
 	const lightboxOn = props.lightbox
 	// Chain Animation
 	const delay = props.inheritedDelay
+	// In Animation Sequence
+	let in_ = { fade: 500 }
 
 	// Look if the classes specify if the image is supposed to have decor
 	let decor = props.classes?.search('decor')
@@ -64,11 +66,16 @@ function ACFImage(props) {
 		}
 	}
 
+	// If the classes on block have "t" (transparent bg), then animate bg since we know there is contrasting color going on
+	if (props.classes.indexOf(' t') > -1) {
+		in_ = { bg: 500, fade: 500 }
+	}
+
 	// Returning Section
   return image ? (
 		<div ref={io} className={`image-wrap ${lightboxOn ? 'hover-trigger' : ''}`} onClick={() => thumbClicked([imgFullSizeUrl])} aria-label="Lightbox trigger" onKeyDown={() => thumbClicked([imgFullSizeUrl])} role="button" tabIndex={0}>
 			{ parallaxFrom && parallaxFrom !== 0 && parallaxTo && parallaxTo !== 0 ?
-				<Intro visible={ioInView} in={{ bg: 500, fade: 500 }} delayIn={delay} mounted={true} stay={true} className={``}>
+				<Intro visible={ioInView} in={in_} delayIn={delay} mounted={true} stay={true} className={``}>
 					<Parallax className="parallax" y={[parallaxFrom + '%', parallaxTo + '%']} tagOuter="figure">
 						{ !imageResponsive || windowSize.width > responsiveBreakpoint ?
 							<GatsbyImage image={image} alt={imageAlt} />
@@ -81,12 +88,12 @@ function ACFImage(props) {
 			:
 				<>
 					{ !imageResponsive || windowSize.width > responsiveBreakpoint ?
-						<Intro visible={ioInView} in={{ bg: 500, fade: 500 }} delayIn={delay} mounted={true} stay={true} className={``}>
+						<Intro visible={ioInView} in={in_} delayIn={delay} mounted={true} stay={true} className={``}>
 							<GatsbyImage image={image} alt={imageAlt} />
 						</Intro>
 					: null }
 					{ imageResponsive && windowSize.width < responsiveBreakpoint ?
-						<Intro visible={ioInView} in={{ bg: 500, fade: 500 }} delayIn={delay} mounted={true} stay={true} className={``}>
+						<Intro visible={ioInView} in={in_} delayIn={delay} mounted={true} stay={true} className={``}>
 							<GatsbyImage image={imageResponsive} alt={imageResponsiveAlt} />
 						</Intro>
 					: null }
@@ -95,7 +102,7 @@ function ACFImage(props) {
 			<ACFOverlay {...props} />
 			{decor >= 0 ?
 				<div className="decor-wrap">
-					<Intro visible={ioInView} in={{bg: 3000}} delayIn={delay} mounted={true} stay={true} className="c5 t">
+					<Intro visible={ioInView} in={{fade: 3000}} delayIn={delay} mounted={true} stay={true} className="c5 t">
 						<div className="decor-inside c4"></div>
 					</Intro>
 				</div>

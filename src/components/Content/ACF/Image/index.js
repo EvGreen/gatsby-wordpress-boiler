@@ -40,9 +40,11 @@ function ACFImage(props) {
 	// Image
 	const image = props.img?.localFile.childImageSharp.gatsbyImageData
 	const imageAlt = props.img?.altText ? props.img?.altText : ''
+	const extension = props.img?.localFile.extension
 	// Image
 	const imageResponsive = props.imgResponsive?.localFile.childImageSharp.gatsbyImageData
 	const imageResponsiveAlt = props.imgResponsive?.altText ? props.imgResponsive?.altText : ''
+	const extensionResponsive = props.imgResponsive?.localFile.extension
 	// Parallax
 	const parallaxFrom = props.parallaxFrom
 	const parallaxTo = props.parallaxTo
@@ -73,9 +75,9 @@ function ACFImage(props) {
 
 	// Returning Section
   return image ? (
-		<div ref={io} className={`image-wrap ${lightboxOn ? 'hover-trigger' : ''}`} onClick={() => thumbClicked([imgFullSizeUrl])} aria-label="Lightbox trigger" onKeyDown={() => thumbClicked([imgFullSizeUrl])} role="button" tabIndex={0}>
+		<div ref={io} className={`image-wrap ${lightboxOn ? 'hover-trigger' : ''} ${extension === 'png' || extensionResponsive === 'png' ? 'png' : ''}`} onClick={() => thumbClicked([imgFullSizeUrl])} aria-label="Lightbox trigger" onKeyDown={() => thumbClicked([imgFullSizeUrl])} role="button" tabIndex={0}>
 			{ parallaxFrom && parallaxFrom !== 0 && parallaxTo && parallaxTo !== 0 ?
-				<Intro visible={ioInView} in={in_} delayIn={delay} mounted={true} stay={true} className={``}>
+				<Intro visible={ioInView} in={in_} delayIn={delay} mounted={true} stay={true}>
 					<Parallax className="parallax" y={[parallaxFrom + '%', parallaxTo + '%']} tagOuter="figure">
 						{ !imageResponsive || windowSize.width > responsiveBreakpoint ?
 							<GatsbyImage image={image} alt={imageAlt} />
@@ -88,12 +90,12 @@ function ACFImage(props) {
 			:
 				<>
 					{ !imageResponsive || windowSize.width > responsiveBreakpoint ?
-						<Intro visible={ioInView} in={in_} delayIn={delay} mounted={true} stay={true} className={``}>
+						<Intro visible={ioInView} in={in_} delayIn={delay} mounted={true} stay={true}>
 							<GatsbyImage image={image} alt={imageAlt} />
 						</Intro>
 					: null }
 					{ imageResponsive && windowSize.width < responsiveBreakpoint ?
-						<Intro visible={ioInView} in={in_} delayIn={delay} mounted={true} stay={true} className={``}>
+						<Intro visible={ioInView} in={in_} delayIn={delay} mounted={true} stay={true}>
 							<GatsbyImage image={imageResponsive} alt={imageResponsiveAlt} />
 						</Intro>
 					: null }

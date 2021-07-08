@@ -246,14 +246,16 @@ function fadeOutBottom(timeline, duration) {
 // Draw IN
 function drawIn(timeline, target, duration) {
 
-	timeline
-		.add({
-			targets: target,
-			strokeDashoffset: [anime.setDashoffset, 0],
-			easing: 'linear',
-			delay: 0,
-			duration: duration,
-		})
+	for(let i = 0; i < target.length; i++) {
+		timeline
+			.add({
+				targets: target[i],
+				strokeDashoffset: [anime.setDashoffset, 0],
+				easing: 'linear',
+				delay: 0,
+				duration: duration,
+			})
+	}
 }
 // Draw Out
 function drawOut(timeline, target, duration) {

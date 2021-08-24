@@ -1,0 +1,42 @@
+/* ==========================================================================
+  MainFrame
+========================================================================== */
+
+#mainframe-cover {
+	position: fixed;
+	z-index: -1;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	//pointer-events: none;
+	overflow: hidden;
+
+	transition: z-index 0s linear .5s; 
+
+	&.active {
+		z-index: 999;
+
+		transition: z-index 0s linear 0s; 
+
+		#mainframe-bg-overlay {
+			opacity: .8;
+			transition: opacity .5s ease-in-out; 
+
+			cursor: pointer;
+		}
+	}
+}
+
+#mainframe-bg-overlay {
+	position: absolute;
+	z-index: 200;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0;
+
+	transition: opacity .5s ease-in-out; 
+}

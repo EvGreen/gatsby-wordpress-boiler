@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 
 import Seo from "../../components/seo"
 import { Helmet } from "react-helmet"
-import ReactHtmlParser from 'react-html-parser'
+//import ReactHtmlParser from 'react-html-parser'
 
 import Footer from '../../components/Footer'
 
@@ -16,11 +16,13 @@ const Page = ({ data, pageContext }) => {
     <>
       <main className={`c0 main-${pageContext.slug === "/" ? "frontpage" : pageContext.slug} lang-${data.wpGeneralSettings?.generalSettings?.language}`}>
 
-        {data.wpPage?.yoast_head ?
+        {/* {data.wpPage?.yoast_head ?
           <Helmet>{ ReactHtmlParser(data.wpPage?.yoast_head) }</Helmet>
         :
           <Seo title={data.wpPage?.title} description={data.wpGeneralSettings?.generalSettings?.description} siteTitle={data.wpGeneralSettings?.generalSettings?.title} />
-        }
+        } */}
+
+        <Seo title={data.wpPage?.title} description={data.wpGeneralSettings?.generalSettings?.description} siteTitle={data.wpGeneralSettings?.generalSettings?.title} />
 
         { data.wpPage?.pageBuilder?.sections ?
           <Acf { ...data } />

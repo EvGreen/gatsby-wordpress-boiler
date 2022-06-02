@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useContext} from 'react'
 import './style.scss'
 
-import { Parallax, withController } from 'react-scroll-parallax'
+import { Parallax } from 'react-scroll-parallax'
 
 import { GatsbyImage } from 'gatsby-plugin-image'
 import ACFOverlay from '../Overlay'
@@ -19,23 +19,23 @@ function ACFImage(props) {
 	const responsiveBreakpoint = 1024
 	const [windowSize, setWindowSize] = useState({width: 0, height: 0})
 
-	// Take care of parallax and image alternative modes for responsive
-	useEffect(() => {
-		// RAF to update parallax position, it gets lost sometimes otherwise, especially on page changes
-		window.requestAnimationFrame(() => {
-			props.parallaxController.update()
-		})
+	// // Take care of parallax and image alternative modes for responsive
+	// useEffect(() => {
+	// 	// RAF to update parallax position, it gets lost sometimes otherwise, especially on page changes
+	// 	window.requestAnimationFrame(() => {
+	// 		props.parallaxController.update()
+	// 	})
 
-		// Checking window size, dropping values into state
-		function updateSize() {
-			setWindowSize({width: window.innerWidth, height: window.innerHeight})
-		}
-		window.addEventListener('resize', updateSize)
-		updateSize()
+	// 	// Checking window size, dropping values into state
+	// 	function updateSize() {
+	// 		setWindowSize({width: window.innerWidth, height: window.innerHeight})
+	// 	}
+	// 	window.addEventListener('resize', updateSize)
+	// 	updateSize()
 
-		// Kill off listener
-		return () => window.removeEventListener('resize', updateSize)
-	},[props.parallaxController])
+	// 	// Kill off listener
+	// 	return () => window.removeEventListener('resize', updateSize)
+	// },[props.parallaxController])
 
 	// Image
 	const image = props.img?.localFile.childImageSharp.gatsbyImageData
@@ -78,7 +78,7 @@ function ACFImage(props) {
 		<div ref={io} className={`image-wrap ${lightboxOn ? 'hover-trigger' : ''} ${extension === 'png' || extensionResponsive === 'png' ? 'png' : ''}`} onClick={() => thumbClicked([imgFullSizeUrl])} aria-label="Lightbox trigger" onKeyDown={() => thumbClicked([imgFullSizeUrl])} role="button" tabIndex={0}>
 			{ parallaxFrom && parallaxFrom !== 0 && parallaxTo && parallaxTo !== 0 ?
 				<Intro visible={ioInView} in={in_} delayIn={delay} mounted={true} stay={true}>
-					<Parallax className="parallax" y={[parallaxFrom + '%', parallaxTo + '%']} tagOuter="figure">
+					<Parallax className="parallax" translateY={[parallaxFrom + '%', parallaxTo + '%']}>
 						{ !imageResponsive || windowSize.width > responsiveBreakpoint ?
 							<GatsbyImage image={image} alt={imageAlt} />
 						: null }
@@ -113,4 +113,4 @@ function ACFImage(props) {
   ) : false
 }
 
-export default withController(ACFImage)
+export default ACFImage

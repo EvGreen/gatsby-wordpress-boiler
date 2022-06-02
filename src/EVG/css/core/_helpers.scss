@@ -325,6 +325,10 @@ br {
 	Parallax
 ========================================================================== */
 
+.parallax {
+	height: 100%;
+}
+
 .parallax-outer {
   position: absolute;
   z-index: 300;
